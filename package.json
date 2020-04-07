@@ -1,0 +1,49 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:watch": "esw --watch --color .",
+    "pm2:start": "cross-env PM2_HOME=. FLASK_APP=client/client.py pm2 start --time --name tasks-server --log ./logs/tasks-server-.log \"pipenv run flask run --port 7124 --host 0.0.0.0\"",
+    "pm2:restart": "PM2_HOME=. pm2 restart tasks-server --log ./logs/tasks-server-",
+    "pm2:stop": "PM2_HOME=. pm2 stop tasks-server",
+    "pm2:status": "PM2_HOME=. pm2 status",
+    "pm2:logs": "PM2_HOME=. pm2 logs tasks-server",
+    "pm2:delete": "PM2_HOME=. pm2 delete tasks-server",
+    "start": "FLASK_APP=client/client.py FLASK_ENV=development pipenv run flask run --port 7124 --host 0.0.0.0",
+    "prod": "FLASK_APP=client/client.py FLASK_ENV=production pipenv run flask run --port 7124 --host 0.0.0.0",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "kill": "kill-port 7124"
+  },
+  "husky ": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-chai-friendly": "^0.5.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-watch": "^6.0.1",
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1"
+  }
+}

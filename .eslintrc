@@ -1,0 +1,31 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "cypress/globals": true,
+    "jquery": true,
+    "node": true
+  },
+  "globals": {
+    "jsPsych": true,
+    "axios": true,
+    "Survey": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:cypress/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": ["cypress", "import", "chai-friendly"],
+  "rules": {},
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js"]
+      }
+    },
+    "import/extensions": [".js"]
+  }
+}
