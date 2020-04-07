@@ -45,7 +45,7 @@ const { my_key } = await api({ fn: 'foo', kwargs: { worker_id: 'ping' } });
 
 ## Server
 
-There is only a single server for all tasks. There should be no need to restart a server after any code changes because the latest `task.py` is always used. Logging for the server is found under `/logs`.
+There is only a single server for all tasks. There should be no need to restart a server after any code changes because the latest `task.py` is always loaded dynamically. Logging for the server is found under `/logs`.
 
 - Checking Server Status
   ```sh
