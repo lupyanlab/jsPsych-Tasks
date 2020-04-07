@@ -36,10 +36,10 @@ class Task:
 // tasks/template/experiment.js
 
 // Calling
-api({ fn: 'data', kwargs: { worker: 'ping' } });
+api({ fn: 'foo', kwargs: { worker: 'ping' } });
 
 // Calling and reading response
-const { my_key } = await api({ fn: 'data', kwargs: { worker: 'ping' } });
+const { my_key } = await api({ fn: 'foo', kwargs: { worker: 'ping' } });
 // my_key === 'pong'
 ```
 
