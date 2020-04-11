@@ -1,31 +1,24 @@
 import loadJsPsychPlugins from '../../utils/load-jspsych-plugins.js';
-import createApi from '../../utils/create-api.js';
+import api from '../../utils/api.js';
 import demographics_questions from './demograhpics.js';
+import searchParams from '../../utils/search-params.js';
 
-const TASK = 'TypicalityImageRate';
-
-const images_folder_path = './images/';
-
-const preloaderEl = document.createElement('img');
-preloaderEl.src = '../../assets/preloader.gif';
-document.body.appendChild(preloaderEl);
-
-const searchParams = new URLSearchParams(window.location.search);
-const worker_id = searchParams.get('worker_id');
-const fullscreen = searchParams.get('fullscreen') === true;
-const reset = searchParams.get('reset') === 'true';
-const dev = searchParams.get('dev') === 'true';
-
-// "task" will be automatically populated with the value of TASK
-const api = createApi(TASK, dev);
+const { worker_id, fullscreen, reset } = searchParams;
 
 (async () => {
   await loadJsPsychPlugins();
 
-  const { trials, num_trials, completed_demographics, consent_agreed } = await api({
+  const {
+    trials,
+    num_trials,
+    completed_demographics,
+    consent_agreed,
+    rel_images_folder_path,
+  } = await api({
     fn: 'trials',
     kwargs: { worker_id, num_images: 2, reset },
   });
+
   const timeline = [];
 
   const consent_trial = {
@@ -81,7 +74,7 @@ const api = createApi(TASK, dev);
     timeline: trials.map((trial) => ({
       trial_progress_text: `Trial ${Number(trial.trial_number) + 1} of ${num_trials}`,
       prompt: `How typical is this ${trial.category}?`,
-      image: images_folder_path + trial.category + '/' + trial.image,
+      image: rel_images_folder_path + '/' + trial.category + '/' + trial.image,
       shape_image: trial.shape_image,
       keys: trial.keys.split(','),
       labels: trial.labels.split(','),

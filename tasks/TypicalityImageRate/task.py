@@ -12,8 +12,8 @@ dirname = os.path.dirname(__file__)
 # this includes the images_counts_file
 update_images_counts_file_lock = Lock()
 
-class Task:
 
+class Task:
   def __init__(self, dev=False):
     self.images_folder_path = dirname + '/images/'
 
@@ -21,7 +21,7 @@ class Task:
     if not os.path.exists(env_folder_path):
       os.mkdir(env_folder_path)
 
-    self.trials_folder_path =  env_folder_path + '/trials/'
+    self.trials_folder_path = env_folder_path + '/trials/'
     self.data_folder_path = env_folder_path + '/data/'
     self.demographics_folder_path = env_folder_path + '/demographics/'
     self.image_counts_file_path = env_folder_path + '/image_counts.csv'
@@ -68,7 +68,13 @@ class Task:
       completed_demographics = os.path.exists(demographics_file_path)
       consent_agreed = os.path.exists(consent_file_path)
 
-    return {"trials": trials, "num_trials":  num_trials, "completed_demographics": completed_demographics, "consent_agreed": consent_agreed}
+    return {
+        "trials": trials,
+        "num_trials": num_trials,
+        "completed_demographics": completed_demographics,
+        "consent_agreed": consent_agreed,
+        "rel_images_folder_path": os.path.relpath(self.images_folder_path, dirname)
+    }
 
   def consent(self, worker_id):
     consent_file_path = self.consent_folder_path + '/' + worker_id + '.txt'
@@ -86,10 +92,10 @@ class Task:
     write_headers = not os.path.exists(data_file_path)
 
     with open(data_file_path, 'a') as f:
-        w = csv.DictWriter(f, sorted(data.keys()))
-        if write_headers:
-          w.writeheader()
-        w.writerow(data)
+      w = csv.DictWriter(f, sorted(data.keys()))
+      if write_headers:
+        w.writeheader()
+      w.writerow(data)
 
   def demographics(self, worker_id, demographics):
     if not os.path.isdir(self.demographics_folder_path):
@@ -98,9 +104,9 @@ class Task:
     demographics_file_path = self.demographics_folder_path + '/' + worker_id + '.csv'
 
     with open(demographics_file_path, 'wb') as f:
-        w = csv.DictWriter(f, sorted(demographics.keys()))
-        w.writeheader()
-        w.writerow(demographics)
+      w = csv.DictWriter(f, sorted(demographics.keys()))
+      w.writeheader()
+      w.writerow(demographics)
 
     return 200
 
@@ -109,15 +115,12 @@ class Task:
   ########################################################
   def create_images_count_file(self):
     image_folders = os.listdir(self.images_folder_path)
-    image_counts = {
-      image: 0
-      for image in image_folders
-    }
+    image_counts = {image: 0 for image in image_folders}
 
     with open(self.image_counts_file_path, 'wb') as f:
-        w = csv.DictWriter(f, sorted(image_counts.keys()))
-        w.writeheader()
-        w.writerow(image_counts)
+      w = csv.DictWriter(f, sorted(image_counts.keys()))
+      w.writeheader()
+      w.writerow(image_counts)
 
   def increment_image_counts(self, image_counts, num_images_to_increment):
     new_image_counts = copy.deepcopy(image_counts)
@@ -159,7 +162,13 @@ class Task:
         for image in images:
           image_trials = []
           for image_file in os.listdir(self.images_folder_path + '/' + image):
-            image_trials.append({'category': image, 'image': image_file, 'trial_number': trial_number, 'keys': "1,2,3,4,5", 'labels': "1 (Very typical),2,3,4,5 (Very atypical)"})
+            image_trials.append({
+                'category': image,
+                'image': image_file,
+                'trial_number': trial_number,
+                'keys': "1,2,3,4,5",
+                'labels': "1 (Very typical),2,3,4,5 (Very atypical)"
+            })
             trial_number += 1
           trials.extend(image_trials)
 
