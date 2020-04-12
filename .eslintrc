@@ -23,7 +23,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js"]
+        "extensions": []
       }
     },
     "import/extensions": [".js"]

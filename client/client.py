@@ -57,9 +57,7 @@ def task():
 
   fn = body['fn']
   if not hasattr(task_instance, fn):
-    return 'Function "' + str(
-      fn) + '" is not found for task "' + task_name + '"', 404
-
+    return 'Function "' + str(fn) + '" is not found for task "' + task_name + '"', 404
 
   fn_argspec = inspect.getargspec(getattr(task_instance, fn))
   full_actual_args = set(fn_argspec[0][1:])
@@ -68,11 +66,12 @@ def task():
   if type(kwargs) != dict:
     return 'Expected "kwargs" to be a dictionary (key/value pair)', 400
 
-
   passed_args = kwargs.keys()
-  required_args = set(fn_argspec[0][1:len(fn_argspec[0])-len(fn_argspec[3])]) if fn_argspec[3] else full_actual_args
-  extra_args = ['"'+arg+'"' for arg in passed_args if arg not in full_actual_args] if not fn_argspec[2] else []
-  missing_args = ['"'+arg+'"' for arg in required_args if arg not in passed_args]
+  required_args = set(fn_argspec[0][1:len(fn_argspec[0]) -
+                                    len(fn_argspec[3])]) if fn_argspec[3] else full_actual_args
+  extra_args = ['"' + arg + '"' for arg in passed_args
+                if arg not in full_actual_args] if not fn_argspec[2] else []
+  missing_args = ['"' + arg + '"' for arg in required_args if arg not in passed_args]
 
   if len(extra_args) > 0 or len(missing_args) > 0:
     msgs = []
@@ -80,7 +79,9 @@ def task():
       msgs.append('including extra "kwargs": ' + ', '.join(extra_args))
     if len(missing_args) > 0:
       msgs.append('missing "kwargs": ' + ', '.join(missing_args))
-    return 'Expecting minimum following "kwargs": ' + ', '.join('"'+arg+'"' for arg in required_args) + '\nFn "' + fn + '" is ' + '; and '.join(msgs), 400
+    return 'Expecting minimum following "kwargs": ' + ', '.join(
+        '"' + arg + '"'
+        for arg in required_args) + '\nFn "' + fn + '" is ' + '; and '.join(msgs), 400
 
   outbound_message = getattr(task_instance, fn)(**kwargs)
   logger.info('Outbound message: ' + pprint.pformat(outbound_message))
@@ -90,10 +91,6 @@ def task():
 @app.route('/jspsych-plugins', methods=['GET'])
 def get_jspsych_plugins_list():
   dirname = os.path.dirname(__file__)
-  default_jspsych_plugins_folder = os.path.join(
-    dirname, '../lib/jspsych-6.1.0/plugins')
-  plugins = [
-    file for file in os.listdir(default_jspsych_plugins_folder)
-    if file.endswith('.js')
-  ]
+  default_jspsych_plugins_folder = os.path.join(dirname, '../lib/jspsych-6.1.0/plugins')
+  plugins = [file for file in os.listdir(default_jspsych_plugins_folder) if file.endswith('.js')]
   return jsonify(plugins)

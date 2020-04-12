@@ -123,8 +123,7 @@ const { worker_id, fullscreen, reset } = searchParams;
     type: 'html-keyboard-response',
     choices: [],
     stimulus: function() {
-      return `Thank you for participating! Your completion code is TODO. Copy and paste this in
-        MTurk to get paid.
+      return /* html */ `Thank you for participating!
         <p>The purpose of this HIT is to assess the extent to which different people agree what makes
         a particular dog, cat, or car typical.
 
