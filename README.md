@@ -42,7 +42,9 @@ In `experiment.js`, call function `api` and pass the Python function to call wit
 class Task:
 
   def trials(self, worker_id, reset=False):
-    return { "trials": [{ "image": "pic.jpg" }] }
+    return { "trials": [{ "image": "pic.jpg" }] }, 200
+    # Note: Returning 200 preferred to indicate a successful response.
+    # This is optional however.
 
   def data(self, worker_id, response):
     print(response)
