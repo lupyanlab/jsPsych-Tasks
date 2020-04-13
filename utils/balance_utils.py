@@ -33,6 +33,18 @@ def increment_counts(counts, num_keys_to_increment):
 
 
 def get_next_min_keys(update_file_lock, counts_file_path, keys, num_keys):
+  '''
+    Get the next num_keys of a keys with lowest counts.
+
+    Parameters:
+    update_file_lock (Lock): Lock for avoiding multiple reads/writes at same time
+    counts_file_path (str): File path for counts file
+    keys (List[str]): Keys
+    num_keys (int): Number of keys to get
+
+    Returns:
+    List[str]: List of result next keys of length num_keys
+  '''
   with update_file_lock:
     if not os.path.isfile(counts_file_path):
       create_counts_file(counts_file_path, keys)
@@ -46,4 +58,15 @@ def get_next_min_keys(update_file_lock, counts_file_path, keys, num_keys):
 
 
 def get_next_min_key(update_file_lock, counts_file_path, keys):
+  '''
+    Get the next key with the lowest count.
+
+    Parameters:
+    update_file_lock (Lock): Lock for avoiding multiple reads/writes at same time
+    counts_file_path (str): File path for counts file
+    keys (List[str]): Keys
+
+    Returns:
+    str: Lowest count key
+  '''
   return get_next_min_keys(update_file_lock, counts_file_path, keys, 1)[0]
