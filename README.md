@@ -4,19 +4,24 @@
 
 ## Development
 
-- `tasks/template/prod`
-  - Prod data
-- `tasks/template/dev`
-  - Dev data
-- `tasks/template/task.py`
+### Trials and Data
+
+- `tasks/<task>/prod`
+  - Prod data when query param `dev=False` (default)
+- `tasks/<task>/dev`
+  - Dev data when query param `dev=True`
+
+### Code
+
+- `tasks/<task>/task.py` (Python)
   - Generating trials
   - Reading from and writing to CSV
-- `tasks/template/experiment.js`
+- `tasks/<task>/experiment.js` (JavaScript)
   - JsPsych Trial inputs
   - Data collection
-- `lib/jspsych-6.1.0/plugins`
+- `lib/jspsych-6.1.0/plugins` (jsPsych)
   - Custom reusable JsPsych trials
-- `logs/`
+- `logs/` (Logs)
   - Server logs
 
 ## Communicating from `experiment.js` to `task.py` and back
@@ -24,28 +29,42 @@
 In `experiment.js`, call function `api` and pass the Python function to call with its keyword arguments (`kwargs`) in `task.py`:
 
 ```py
-# tasks/template/task.py
+# tasks/<task>/task.py
 
 class Task:
 
-  def foo(self, worker_id, reset=False):
-    return { "my_key": "pong" }
+  def trials(self, worker_id, reset=False):
+    return { "trials": [{ "image": "pic.jpg" }] }
+
+  def data(self, worker_id, response):
+    print(response)
+    # "5"
 ```
 
 ```js
-// tasks/template/experiment.js
-
-// Calling
-api({ fn: 'foo', kwargs: { worker_id: 'ping' } });
+// tasks/<task>/experiment.js
 
 // Calling and reading response
-const { my_key } = await api({ fn: 'foo', kwargs: { worker_id: 'ping' } });
-// my_key === 'pong'
+const worker_id = 'subject';
+const { trials } = await api({ fn: 'trials', kwargs: { worker_id } }); // calls Task's trials function
+console.log(trials);
+// [{ image: 'pic.jpg' }]
+
+// Only calling
+const response = '5';
+api({ fn: 'data', kwargs: { worker_id, response } }); // calls Task's data function
 ```
 
 ## Server
 
-There is only a single server for all tasks. There should be no need to restart a server after any code changes because the latest `task.py` is always loaded dynamically. Logging for the server is found under `/logs`.
+There is only a single server for all tasks. Hence there is only a single port used for everything. Defining a unique task name at the top of `experiment.js` file that is the same name of the folder of the task will be enough to distinguish the api requests.
+
+```js
+// tasks/<task>/experiment.js
+const TASK = 'TypicalityImageRate';
+```
+
+There should be no need to restart a server after any code changes because the latest `task.py` is always loaded dynamically. Logging for the server is found under `/logs`.
 
 - Checking Server Status
   ```sh
