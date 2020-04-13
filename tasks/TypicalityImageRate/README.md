@@ -20,7 +20,7 @@
 
 ### Required
 
-- `worker_id`: Worker Id
+- `workerId`: Worker Id
 
 ### Optional
 
@@ -32,9 +32,3 @@
   - Default: `false`
 - `num_categories`: Number of categories to use
   - Default `2`
-
-### Example:
-
-```
-/?worker_id=test&fullscreen=false&dev=true&reset=false&num_categories=2
-```

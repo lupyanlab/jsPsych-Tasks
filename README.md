@@ -1,6 +1,14 @@
 # Tasks Monorepo
 
-## Folder Structure
+## Opening a Task Link
+
+Each task takes a set of [query string parameters](https://en.wikipedia.org/wiki/Query_string) as input in its URL.
+
+**Important!** Please read the task's README before opening the task. This is especially important for knowing what to set the URL query string.
+
+Every task is hosted on http://sapir.psych.wisc.edu/mturk/sandbox/tasks/<task_name> where <task_name> is the name of the task. For example: http://sapir.psych.wisc.edu/mturk/sandbox/tasks/TypicalityImageRate
+
+Then the query string comes after the pathname with a leading `?`. For example: http://sapir.psych.wisc.edu/mturk/sandbox/tasks/TypicalityImageRate/?worker_id=test&fullscreen=false&dev=true&reset=false where `?workerId=test&fullscreen=false&dev=true&reset=false` is its query string with parameters `workerId`, `fullscreen`, `dev`, and `reset` set.
 
 ## Development
 
