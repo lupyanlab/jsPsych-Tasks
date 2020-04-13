@@ -3,7 +3,7 @@ import api from '../../utils/api.js';
 import demographics_questions from './demograhpics.js';
 import searchParams from '../../utils/search-params.js';
 
-const { worker_id, fullscreen, reset } = searchParams;
+const { workerId: worker_id, fullscreen, reset } = searchParams;
 
 (async () => {
   await loadJsPsychPlugins();
