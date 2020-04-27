@@ -16,8 +16,6 @@ app = Flask(__name__)
 CORS(app)
 logger = create_logger(app)
 
-last_modified_times = {}
-
 
 @app.route('/', methods=['POST'])
 def task():
@@ -38,12 +36,6 @@ def task():
     task = import_module('tasks.' + str(task_name) + '.task')
   except ImportError:
     return 'No task named ' + '"' + str(task_name) + '"', 404
-
-  modified_time = os.path.getmtime(tasks_folder_path + '/' + task_name + '/' + 'task.py')
-  if task_name in last_modified_times and modified_time != last_modified_times[task_name]:
-    reload(task)
-    logger.info('Reloaded task module "' + task_name + '"')
-  last_modified_times[task_name] = modified_time
 
   if not hasattr(task, 'Task'):
     return 'Task "' + task_name + '" is missing the class "Task"'
