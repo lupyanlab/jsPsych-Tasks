@@ -7,6 +7,7 @@ import os
 from os.path import dirname, abspath
 import pprint
 import inspect
+import logging
 
 tasks_folder_path = './tasks'
 
@@ -14,6 +15,7 @@ sys.path.insert(0, dirname(dirname(abspath(__file__))))
 
 app = Flask(__name__)
 CORS(app)
+logging.basicConfig(level=logging.DEBUG)
 logger = create_logger(app)
 
 
