@@ -1,22 +1,16 @@
-from flask import Flask, request, jsonify
-from flask.logging import create_logger
-from flask_cors import CORS
+from flask import request, jsonify
 from importlib import import_module
 import sys
 import os
 from os.path import dirname, abspath
 import pprint
 import inspect
-import logging
+from .app import app
+from .logger import logger
 
 tasks_folder_path = './tasks'
 
 sys.path.insert(0, dirname(dirname(abspath(__file__))))
-
-app = Flask(__name__)
-CORS(app)
-logging.basicConfig(level=logging.DEBUG)
-logger = create_logger(app)
 
 
 @app.route('/', methods=['POST'])
