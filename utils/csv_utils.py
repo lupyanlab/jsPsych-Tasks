@@ -4,7 +4,7 @@ import os
 
 def append_to_csv(file_path, row):
   '''
-    Appends row to file.
+    Appends row to file and write headers if file or headers not exist.
 
     Parameters:
     file_path (str): File path
@@ -61,7 +61,7 @@ def read_last_row(file_path):
   '''
   with open(file_path, 'rb') as f:
     r = csv.DictReader(f)
-    return {image: int(count) for image, count in list(r)[-1].iteritems()}
+    return {image: count for image, count in list(r)[-1].iteritems()}
 
 
 def read_rows(file_path):
@@ -77,3 +77,51 @@ def read_rows(file_path):
   with open(file_path, 'rb') as t:
     rows = csv.DictReader(t)
     return list(rows)
+
+
+def read_key_value(file_path):
+  '''
+    Read a csv file with a key and value column
+    and parse each row into a single item in a dict.
+
+    key,value
+    k1,v1
+    k2,v2
+
+    { "k1": "v1", "k2": "v2" }
+
+    Parameters:
+    file_path (str): File path
+
+    Returns:
+    dict: Dictionary containing an item per csv key value row.
+  '''
+  d = {}
+  with open(file_path, 'rb') as t:
+    rows = csv.DictReader(t)
+    for row in rows:
+      d[row['key']] = row['value']
+
+  return d
+
+
+def write_key_value(file_path, data):
+  '''
+    Write a csv file with a key and value column
+    and parse each row into a single item in a dict.
+
+    { "k1": "v1", "k2": "v2" }
+
+    key,value
+    k1,v1
+    k2,v2
+
+    Parameters:
+    file_path (str): File path
+    data (dict): Key value pairs to write
+  '''
+  with open(file_path, 'wb') as f:
+    w = csv.DictWriter(f, ('key', 'value'))
+    w.writeheader()
+    for k, v in data.iteritems():
+      w.writerow({'key': k, 'value': v})

@@ -49,7 +49,8 @@ def get_next_min_keys(update_file_lock, counts_file_path, keys, num_keys):
     if not os.path.isfile(counts_file_path):
       create_counts_file(counts_file_path, keys)
 
-    counts = read_last_row(counts_file_path)
+    last_row = read_last_row(counts_file_path)
+    counts = {image: int(count) for image, count in last_row.iteritems()}
     counts, final_keys = increment_counts(counts, num_keys)
 
     append_to_csv(counts_file_path, counts)

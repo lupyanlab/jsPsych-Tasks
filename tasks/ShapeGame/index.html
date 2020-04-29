@@ -8,12 +8,14 @@
     <!-- ADDING <SCRIPT> ELEMENTS FOR PLUGINS ARE NOT NECESSARY -->
     <!-- ALL PLUGINS IN PLUGIN FOLDER WILL BE IMPORTED IN INDEX.JS -->
     <link href="../../lib/jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css" />
-    <script src="../../lib/axios-0.19.2/dist/axios.js"></script>
-
-    <title>Picture Rate</title>
+    <script src="../../lib/axios-0.19.2/axios.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
+    <script src="../../lib/survey.jquery.js"></script>
+    <script type="module" src="../../utils/add-title.js"></script>
   </head>
 
   <body style="position:relative;height:100%;">
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="../../utils/preloader.js"></script>
+    <script type="module" src="./experiment.js"></script>
   </body>
 </html>

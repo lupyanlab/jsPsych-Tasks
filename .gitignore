@@ -155,3 +155,6 @@ rpc.sock
 touch
 node_modules/
 pids/
+
+redis-stable/
+dump.rdb
