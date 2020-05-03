@@ -5,6 +5,8 @@ import csv
 from threading import Lock
 import random
 import copy
+from collections import defaultdict
+import math
 
 from utils.csv_utils import *
 from utils.balance_utils import *
@@ -33,7 +35,7 @@ class Task:
     self.demographics_folder_path = env_folder_path + '/demographics/'
     self.trial_list_counts_file_path = env_folder_path + '/trial_list_counts.csv'
     self.consent_folder_path = env_folder_path + '/consent/'
-    self.responses_folder_path = env_folder_path + '/responses'
+    self.vcs_names_file_path = env_folder_path + '/vcs_names.csv'
 
   def trials(self, worker_id, randomize_order=True, reset=False):
     if not os.path.exists(self.trials_folder_path):
@@ -96,25 +98,26 @@ class Task:
       last_row = read_last_row(data_file_path)
       score = int(last_row['score'])
 
-    if not os.path.exists(self.responses_folder_path):
-      os.mkdir(self.responses_folder_path)
-
-    responses_file_path = self.responses_folder_path + '/' + data['stim_to_show'] + '.csv'
+    image = data['stim_to_show']
 
     num_responses = 1
+    num_same_responses = 1
     response_counts = {}
     with update_responses_file_lock:
-      if os.path.exists(responses_file_path):
-        response_counts = read_key_value(responses_file_path)
-        for response, count in response_counts.iteritems():
-          count = int(count)
-          response_counts[response] = count
-          num_responses += count
+      if os.path.exists(self.vcs_names_file_path):
+        rows = read_rows(self.vcs_names_file_path)
+        logger.info(rows)
+        for row in rows:
+          if image == row['image']:
+            if response == row['naming_response']:
+              num_same_responses += 1
+            num_responses += 1
 
-      response_counts[response] = response_counts.get(response, 0) + 1
-      write_key_value(responses_file_path, response_counts)
+      append_to_csv(self.vcs_names_file_path, {'image': image, 'naming_response': response})
 
-    score += response_counts[response] / num_responses
+    logger.info('num_same_responses: ' + str(num_same_responses))
+    logger.info('num_responses: ' + str(num_responses))
+    score += self.compute_score(num_same_responses, num_responses)
     bonus = self.compute_bonus(score)
     data['score'] = score
     data['bonus'] = bonus
@@ -152,6 +155,9 @@ class Task:
     ]
 
     return trials
+
+  def compute_score(self, num_same_responses, num_responses):
+    return int(math.ceil(num_same_responses / float(num_responses) * 10))
 
   def compute_bonus(self, score):
     return round_nearest_05(score * 0.3)
