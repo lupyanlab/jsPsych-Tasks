@@ -132,7 +132,7 @@ const { workerId: worker_id, fullscreen, reset } = searchParams;
   jsPsych.init({
     timeline: timeline,
     fullscreen,
-    show_progress_bar: true,
+    show_progress_bar: false,
     auto_update_progress_bar: false,
   });
 })();
