@@ -6,9 +6,9 @@ Each task takes a set of [query string parameters](https://en.wikipedia.org/wiki
 
 **Important!** Please read the task's README before opening the task. This is especially important for knowing what to set the URL query string.
 
-Every task is hosted on http://sapir.psych.wisc.edu/mturk/sandbox/tasks/<task_name> where <task_name> is the name of the task. For example: http://sapir.psych.wisc.edu/mturk/sandbox/tasks/TypicalityImageRate
+Every task is hosted on http://sapir.psych.wisc.edu/mturk/sandbox/tasks/<task_name>/index.html where <task_name> is the name of the task. For example: http://sapir.psych.wisc.edu/mturk/sandbox/tasks/TypicalityImageRate/index.html
 
-Then the query string comes after the pathname with a leading `?`. For example: http://sapir.psych.wisc.edu/mturk/sandbox/tasks/TypicalityImageRate/?worker_id=test&fullscreen=false&dev=true&reset=false where `?workerId=test&fullscreen=false&dev=true&reset=false` is its query string with parameters `workerId`, `fullscreen`, `dev`, and `reset` set.
+Then the query string comes after the pathname with a leading `?`. For example: http://sapir.psych.wisc.edu/mturk/sandbox/tasks/TypicalityImageRate/index.html?workerId=test&fullscreen=false&dev=true&reset=false where `?workerId=test&fullscreen=false&dev=true&reset=false` is its query string with parameters `workerId`, `fullscreen`, `dev`, and `reset` set.
 
 ## Development
 
@@ -152,3 +152,7 @@ For example, running `npm run create-plugin -- my-new-plugin` will generate a ne
    npm install
    pipenv install
    ```
+
+## `.htaccess`
+
+The `.htaccess` file contains a whitelist for accessible files and other Apache 2 specific options.
