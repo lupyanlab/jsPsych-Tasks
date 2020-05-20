@@ -8,6 +8,7 @@ import copy
 
 from utils.balance_utils import *
 from utils.csv_utils import *
+from client.logger import logger
 
 dirname = os.path.dirname(__file__)
 
@@ -30,7 +31,7 @@ class Task:
     self.image_counts_file_path = env_folder_path + '/image_counts.csv'
     self.consent_folder_path = env_folder_path + '/consent/'
 
-  def trials(self, worker_id, num_images, reset=False):
+  def trials(self, worker_id, num_categories, reset=False):
     if not os.path.exists(self.trials_folder_path):
       os.mkdir(self.trials_folder_path)
     trials_file_path = self.trials_folder_path + '/' + worker_id + '.csv'
@@ -40,7 +41,7 @@ class Task:
 
     if reset or not os.path.exists(trials_file_path):
       remove_files(demographics_file_path, consent_file_path, data_file_path, trials_file_path)
-      trials = self.generate_trials(worker_id, num_images)
+      trials = self.generate_trials(worker_id, num_categories)
       num_trials = len(trials)
       write_to_csv(trials_file_path, trials)
       completed_demographics = False
@@ -92,11 +93,12 @@ class Task:
   # HELPERS
   ########################################################
 
-  def generate_trials(self, worker_id, num_images):
+  def generate_trials(self, worker_id, num_categories):
     image_folders = os.listdir(self.images_folder_path)
+    logger.info("num_categories: %s", num_categories)
     images = get_next_min_keys(update_images_counts_file_lock, self.image_counts_file_path,
-                               image_folders, num_images)
-
+                               image_folders, num_categories)
+    logger.info("images %s", images)
     trials = []
     trial_number = 0
     for image in images:
@@ -112,4 +114,4 @@ class Task:
         trial_number += 1
       trials.extend(image_trials)
 
-      return trials
+    return trials
