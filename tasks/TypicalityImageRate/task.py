@@ -31,7 +31,7 @@ class Task:
     self.image_counts_file_path = env_folder_path + '/image_counts.csv'
     self.consent_folder_path = env_folder_path + '/consent/'
 
-  def trials(self, worker_id, num_categories, reset=False):
+  def trials(self, worker_id, num_categories=None, reset=False):
     if not os.path.exists(self.trials_folder_path):
       os.mkdir(self.trials_folder_path)
     trials_file_path = self.trials_folder_path + '/' + worker_id + '.csv'
@@ -93,11 +93,11 @@ class Task:
   # HELPERS
   ########################################################
 
-  def generate_trials(self, worker_id, num_categories):
+  def generate_trials(self, worker_id, num_categories=None):
     image_folders = os.listdir(self.images_folder_path)
     logger.info("num_categories: %s", num_categories)
     images = get_next_min_keys(update_images_counts_file_lock, self.image_counts_file_path,
-                               image_folders, num_categories)
+                               image_folders, num_categories if num_categories is not None else len(image_folders))
     logger.info("images %s", images)
     trials = []
     trial_number = 0

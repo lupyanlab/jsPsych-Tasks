@@ -31,4 +31,4 @@
 - `reset`: Reset current worker's data collected (Warning: current worker's data will be lost.)
   - Default: `false`
 - `num_categories`: Number of categories to use
-  - Default `2`
+  - Default `undefined` (This will be interpreted as all categories.)
