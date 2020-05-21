@@ -80,9 +80,9 @@ There should be no need to restart a server after any code changes because the l
   ```sh
   npm run pm2:status
   ```
-- Restarting Stopped/Errored Server
+- Restarting Stopped/Errored Server (No logging)
   ```sh
-  npm run pm2:restart
+  npm run restart
   ```
 
 ## Differences Between Before & After Refactor (4/6/2020)

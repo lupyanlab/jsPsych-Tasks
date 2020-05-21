@@ -11,10 +11,12 @@
     "pm2:status": "PM2_HOME=. pm2 status",
     "pm2:logs": "PM2_HOME=. pm2 logs tasks-server",
     "pm2:delete": "PM2_HOME=. pm2 delete tasks-server",
+    "pm2:kill": "PM2_HOME=. pm2 kill",
     "start": "FLASK_APP=client/client.py FLASK_ENV=development pipenv run flask run --port 7124 --host 0.0.0.0",
     "prod": "FLASK_APP=client/client.py FLASK_ENV=production pipenv run flask run --port 7124 --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "kill": "kill-port 7124"
+    "kill": "kill-port 7124",
+    "restart": "npm run pm2:kill || pkill -f flask && npm run pm2:start"
   },
   "husky ": {
     "hooks": {
@@ -43,7 +45,8 @@
     "eslint-plugin-cypress": "^2.10.3",
     "eslint-plugin-import": "^2.20.1",
     "eslint-watch": "^6.0.1",
-    "husky": "^4.2.3",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
     "prettier": "^1.19.1"
   }
 }
