@@ -30,10 +30,19 @@
 
 ### Required
 
-- `workerId`: Worker Id
-
 ### Optional
 
+- `workerId`: Worker Id
+  - Default: If `workerId` is not in local storage, `task.py` will determine it in `trials` function using [random-username library](https://pypi.org/project/random-username/).
+- `min_trials`: Minimum number of trials to complete before player may quit using a button that appears on screen
+  - Default: `None` (No option to quit ever)
+- `max_trials`: Maximum number of trials that can be completed for a player
+  - Default: `None` (As many trials that can be created)
+- `group`: An enum accepting the following:
+  - `concept`: Group trials by concept after randomly shuffling trials
+  - `anchor`: Group trials by anchor after randomly shuffling trials
+  - `none`: No grouping after randomly shuffling trials
+  - Default: `None`
 - `dev`: Put all data in `/dev` folder
   - Default: `false`
 - `fullscreen`: Enable fullscreen

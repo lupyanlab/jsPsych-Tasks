@@ -4,3 +4,4 @@ lib/jspsych-*/plugins/*
 !lib/jspsych-*/plugins/lupyanlab-*.js
 !lib/jspsych-*/plugins/template
 node_modules/
+package-lock.json

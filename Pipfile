@@ -18,6 +18,7 @@ autopep8 = "*"
 numpy = "*"
 pandas = "*"
 pytest = "*"
+random-username = "*"
 
 [requires]
 python_version = "2.7"

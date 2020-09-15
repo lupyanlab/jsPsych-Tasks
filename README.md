@@ -85,6 +85,33 @@ There should be no need to restart a server after any code changes because the l
   npm run restart
   ```
 
+## Unit testing
+
+Pytest is setup for this repository. It can be run with the `pytest -vv --color=yes <test_file_name>` command.
+
+The following is a Visual Studio Code `launch.json` configuration that can be used to run and debug the current test file.
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "PyTest",
+      "type": "python",
+      "request": "launch",
+      "stopOnEntry": false,
+      "pythonPath": "${config:python.interpreterPath}",
+      "module": "pytest",
+      "args": ["-vv", "--color=yes", "${relativeFile}"],
+      "cwd": "${workspaceRoot}",
+      "env": {},
+      "debugOptions": ["WaitOnAbnormalExit", "WaitOnNormalExit", "RedirectOutput"],
+      "console": "integratedTerminal"
+    }
+  ]
+}
+```
+
 ## Differences Between Before & After Refactor (4/6/2020)
 
 - Trials and data collection

@@ -2,7 +2,7 @@ import csv
 import os
 
 
-def append_to_csv(file_path, row):
+def append_to_csv(file_path, rows, order=None):
   '''
     Appends row to file and write headers if file or headers not exist.
 
@@ -10,16 +10,24 @@ def append_to_csv(file_path, row):
     file_path (str): File path
     row (Dict): Row to append
   '''
+  if not rows:
+    return
+
   write_headers = not os.path.exists(file_path)
 
-  with open(file_path, 'a') as f:
-    w = csv.DictWriter(f, sorted(row.keys()))
-    if write_headers:
-      w.writeheader()
-    w.writerow(row)
+  if type(rows) == dict:
+    rows = [rows]
+
+  if len(rows) > 0:
+    with open(file_path, 'a') as f:
+      w = csv.DictWriter(f, order if order else sorted(rows[0].keys()))
+      if write_headers:
+        w.writeheader()
+      for row in rows:
+        w.writerow(row)
 
 
-def write_to_csv(file_path, rows):
+def write_to_csv(file_path, rows, order=None):
   '''
     Writes rows to file. This will overwrite existing data!
 
@@ -31,7 +39,7 @@ def write_to_csv(file_path, rows):
     rows = [rows]
   if len(rows) > 0:
     with open(file_path, 'wb') as f:
-      w = csv.DictWriter(f, sorted(rows[0].keys()))
+      w = csv.DictWriter(f, order if order else sorted(rows[0].keys()))
       w.writeheader()
       for row in rows:
         w.writerow(row)
@@ -49,7 +57,7 @@ def remove_files(*file_paths):
       os.remove(file_path)
 
 
-def read_last_row(file_path):
+def read_last_row(file_path, delimiter=','):
   '''
     Read and return last row of CSV file.
 
@@ -60,11 +68,11 @@ def read_last_row(file_path):
     dict: Last row
   '''
   with open(file_path, 'rb') as f:
-    r = csv.DictReader(f)
+    r = csv.DictReader(f, delimiter=delimiter)
     return {image: count for image, count in list(r)[-1].iteritems()}
 
 
-def read_rows(file_path):
+def read_rows(file_path, delimiter=','):
   '''
     Read and return all rows of CSV file.
 
@@ -75,7 +83,7 @@ def read_rows(file_path):
     List[dict]: Rows
   '''
   with open(file_path, 'rb') as t:
-    rows = csv.DictReader(t)
+    rows = csv.DictReader(t, delimiter=delimiter)
     return list(rows)
 
 

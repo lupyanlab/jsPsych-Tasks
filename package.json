@@ -16,7 +16,7 @@
     "prod": "FLASK_APP=client/client.py FLASK_ENV=production pipenv run flask run --port 7124 --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1",
     "kill": "kill-port 7124",
-    "restart": "npm run pm2:kill || pkill -f flask && npm run pm2:start"
+    "restart": "pkill -f flask | npm run pm2:start"
   },
   "husky ": {
     "hooks": {

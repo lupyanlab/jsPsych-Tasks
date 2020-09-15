@@ -9,7 +9,8 @@
   "globals": {
     "jsPsych": true,
     "axios": true,
-    "Survey": true
+    "Survey": true,
+    "interact": true
   },
   "extends": [
     "eslint:recommended",
@@ -19,7 +20,9 @@
     "plugin:import/warnings"
   ],
   "plugins": ["cypress", "import", "chai-friendly"],
-  "rules": {},
+  "rules": {
+    "no-unused-vars": "warn"
+  },
   "settings": {
     "import/resolver": {
       "node": {
