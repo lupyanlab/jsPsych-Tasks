@@ -18,7 +18,7 @@ export default [
   {
     type: 'text',
     name: 'native language',
-    visibleIf: "{native}='No'",
+    visibleIf: "{native}='0'",
     title: 'Please indicate your native language or languages:',
   },
   {
