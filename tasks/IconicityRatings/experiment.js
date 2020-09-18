@@ -6,8 +6,9 @@ import createPariticpantId from '../../utils/create-participant-id.js';
 
 const participantId = createPariticpantId();
 
-let { workerId: worker_id, fullscreen, reset, max_batch_num } = searchParams;
+let { workerId: worker_id, fullscreen, reset, max_batch_num, consent } = searchParams;
 max_batch_num = Number(max_batch_num);
+consent = consent || 'consent';
 
 (async () => {
   await loadJsPsychPlugins();
@@ -21,7 +22,7 @@ max_batch_num = Number(max_batch_num);
 
   const consent_trial = {
     type: 'lupyanlab-consent',
-    url: './consent.html',
+    url: `./${consent}.html`,
     alert:
       'If you wish to participate, you must check the box next to the statement "I agree to participate in this study."',
     button_label: 'Start Experiment',
@@ -38,7 +39,7 @@ max_batch_num = Number(max_batch_num);
     type: 'instructions',
     key_forward: 'space',
     key_backward: 'backspace',
-pages: [
+    pages: [
       `<p class="lead"><b>Thank you for participating in this experiment!</b><br>
       In this task you will be rating some English words on their "iconicity". Please read the following instructions very carefully as they are important for doing this task.`,
 
@@ -49,14 +50,13 @@ pages: [
 
       <b>In this task, you are going to rate words for how iconic they are. You will rate each word on a scale from 1 to 7. A rating of 1 indicates that the word is not at all iconic and does not at all sound like what it means. 7 indicates that the word is high in iconicity and sounds very much like what it means.</b>`,
 
-
       `<p class="text-left"></b>
       It is important that you say the word out loud to yourself, and that you think about its meaning.<br><br>
 
       If you are unsure of the meaning or the pronunciation of a word, you have the option of skipping it.`,
 
       `<p class="text-left"></b>
-      Try to focus on the word meaning of the whole word, rather than decomposing it into parts. 
+      Try to focus on the word meaning of the whole word, rather than decomposing it into parts.
       For example, <b>when rating ‘butterfly’ think of the insect</b> rather than "butter" and "fly", and rate how well the whole meaning relates to the sound of the whole word "butterfly".`,
 
       `<p class="text-left">When you are done with this list of words, you will have the option to do 1-2 additional sets of words, which will earn you bonus pay.</p>
@@ -64,8 +64,8 @@ pages: [
 
       `<p class="lead">Please remember to say the word to yourself and to think about the meaning of each word.<br><br>
       Ready to start?</p>`,
-
-    ],    show_clickable_nav: true,
+    ],
+    show_clickable_nav: true,
   };
   if (trials.length > 0) timeline.push(instructions);
 
