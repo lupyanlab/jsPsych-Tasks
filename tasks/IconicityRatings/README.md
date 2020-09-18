@@ -40,3 +40,5 @@
   - Default: `''` Will allow infinite number of batches
 - `reset`: Reset current worker's data collected (Warning: current worker's data will be lost.)
   - Default: `false`
+- `consent`: Relative path to consent file without `.html` extension
+  - Default: `consent`
