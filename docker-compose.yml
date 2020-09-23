@@ -1,0 +1,18 @@
+version: '3.2'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    ports:
+      - '5000:5000'
+    volumes:
+      - .:/code
+  api:
+    build:
+      context: .
+      dockerfile: api.Dockerfile
+    ports:
+      - '7124:7124'
+    volumes:
+      - .:/code

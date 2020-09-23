@@ -12,7 +12,40 @@ Then the query string comes after the pathname with a leading `?`. For example: 
 
 ## Development
 
-### Trials and Data
+### Local Development Setup
+
+### Method 1: Docker
+
+#### Prerequisites
+
+- Docker installed
+
+#### Steps
+
+- Run `docker-compose up --build` at the respository root (i.e. `jsPsych-Tasks/`)
+- Open the browser at `http://localhost:5000/tasks/<task>?workerId=test123` where `<task>` is the task folder name and `?workerId=test123` can be any URL parameters described in the task folder's README file.
+  - Note that `index.html` is not part of the path unlike on Sapir which includes `index.html` in the path (i.e. `http://sapir.psych.wisc.edu/mturk/sandbox/tasks/<task>/index.html?workerId=test`).
+
+### Method 2: Without Docker
+
+#### Prerequisites
+
+- Python 2 (not 3)
+- Pipenv installed via Pip (`pip install pipenv`)
+- Node.js (LTS version)
+  - `npm` and `npx` commands are bundled with Node.js
+
+#### Steps
+
+- Run `npm install` at the respository root (i.e. `jsPsych-Tasks/`)
+- Run `pipenv install`
+- Run `npm start`
+- Open a new terminal
+- Run `npx serve`
+- Open the browser at `http://localhost:5000/tasks/<task>?workerId=test123` where `<task>` is the task folder name and `?workerId=test123` can be any URL parameters described in the task folder's README file.
+  - Note that `index.html` is not part of the path unlike on Sapir which includes `index.html` in the path (i.e. `http://sapir.psych.wisc.edu/mturk/sandbox/tasks/<task>/index.html?workerId=test`).
+
+## Trials and Data
 
 - `tasks/<task>/prod`
   - Prod data when query param `dev=False` (default)
