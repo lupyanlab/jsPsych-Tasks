@@ -6,22 +6,21 @@ verify_ssl = true
 [dev-packages]
 pytest = "*"
 rope = "*"
-autopep8 = "*"
 yapf = "*"
 
 [packages]
 flask = "*"
 flask-cors = "*"
 pylint = "*"
-futures = "*"
-autopep8 = "*"
 numpy = "*"
 pandas = "*"
 pytest = "*"
 random-username = "*"
+waitress = "*"
+hupper = "*"
 
 [requires]
-python_version = "2.7"
+python_version = "3.7"
 
 [pipenv]
 allow_prereleases = true

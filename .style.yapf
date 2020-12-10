@@ -119,7 +119,7 @@ column_limit = 99
 #       start_ts=now()-timedelta(days=3),
 #       end_ts=now(),
 #   )        # <--- this bracket is dedented and on a separate line
-#dedent_closing_brackets = False
+dedent_closing_brackets = True
 
 # Place each dictionary entry onto its own line.
 #each_dict_entry_on_separate_line = True
@@ -146,7 +146,7 @@ column_limit = 99
 #indent_dictionary_value = False
 
 # The number of columns to use for indentation.
-indent_width = 2
+#indent_width = 4
 
 # Join short lines into one line. E.g., single line 'if' statements.
 #join_multiple_lines = True

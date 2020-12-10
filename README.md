@@ -145,17 +145,20 @@ The following is a Visual Studio Code `launch.json` configuration that can be us
 }
 ```
 
-## Differences Between Before & After Refactor (4/6/2020)
+## Differences Between Before & After Refactor (12/6/2020)
 
-- Trials and data collection
-  - **Before**: Dev and prod trials and data are under same folder
-  - **After**: Dev and prod trials and data are separated under `/dev` and `/prod` respectively
-- Codebase
-  - **Before**: Tasks are in separate repos
-  - **After**: Tasks are all in `/tasks` folder and all share same utils, libraries, and server files
-- Server
+- Logging
+  - **Before**: Logging was shared in a single location under `logs/`. This caused an unorganized mix of different task logs into one. Inbound and outbound messages were included in the logs. They took up too much space in memory.
+  - **After**: Logging is now separated into a `logs/` file insided each task. This organizes the logs into their respective tasks. Inbound and outbound messages are not excluded in the logs.
+- Processes
+  - **Before**: Only a single process and thus a single port was used.
+  - **After**: Each task is now a separate independent process and each uses any of the open public ports (:7100-:7199).
+- Python 3.7
   - **Before**: Multiple servers
   - **After**: Single server calling different task modules under `tasks/template/task.py`
+- Reloading
+  - **Before**: Entire single server would reload if any \*.py file was changed.
+  - **After**: Task server will reload only if any relevant module \*.py files were changed. Reloading can be manually disabled too when it's not appropriate.
 
 <!-- - `utils/`
 

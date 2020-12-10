@@ -1,0 +1,57 @@
+from __future__ import annotations
+
+from typing import Union, Any, Hashable
+import csv
+import os
+from task_runner.logger import logger
+
+
+def append_to_csv(
+    file_path: str,
+    rows: Union[dict[Hashable, Any], list[dict[Hashable, Any]]],
+    order: list[Hashable] = None
+) -> None:
+    """
+    Appends row to file and write headers if file or headers not exist.
+
+    Parameters:
+    file_path: File path
+    row: Row(s) to append (also accepts a single row dict not in a list)
+    order: Order in which the columns must be written in (must include all the columns)
+    """
+    if isinstance(rows, dict):
+        rows = [rows]
+
+    if len(rows) > 0:
+        fields = rows[0].keys()
+
+        if order is not None:
+            if len(order) != len(rows[0].keys()
+                                 ) or len(set(order) & set(fields)) != len(set(order)):
+                raise Exception(
+                    "order is not the same as the fields in the rows. "
+                    f"order: {order}, fields: {fields}"
+                )
+            fields = order
+        else:
+            fields.sort()
+
+        # Assumes that the file will always have written headers
+        should_write_headers = not os.path.exists(file_path)
+
+        with open(file_path, 'a') as f:
+            w = csv.DictWriter(f, fields)
+            if should_write_headers:
+                w.writeheader()
+            else:
+                # Do a check on whether the fields passed and exist match
+                d_reader = csv.DictReader(f)
+                actual_fields = d_reader.fieldnames
+                if fields != actual_fields:
+                    logger.warning(
+                        "Fields in file do not match what is being appended. "
+                        "fields: %s, actual_fields: %s", fields, actual_fields
+                    )
+
+            for row in rows:
+                w.writerow(row)

@@ -108,7 +108,9 @@ celerybeat.pid
 
 # Environments
 .env
-.venv
+.venv/*
+# Keep the .venv folder though so that Pipenv will downloaded the packages within this project directory
+!.venv/README.md
 env/
 venv/
 ENV/
