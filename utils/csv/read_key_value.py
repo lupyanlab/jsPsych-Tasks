@@ -21,7 +21,7 @@ def read_key_value(file_path: str) -> dict[str, str]:
     Dictionary containing an item per csv key value row.
     """
     d = {}
-    with open(file_path, 'rb') as t:
+    with open(file_path, 'r') as t:
         rows = csv.DictReader(t)
         for row in rows:
             d[row['key']] = row['value']

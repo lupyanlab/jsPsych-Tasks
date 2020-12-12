@@ -13,6 +13,6 @@ def read_last_row(file_path: str, delimiter: str = ',') -> dict[str, str]:
     Returns:
     Last row
     """
-    with open(file_path, 'rb') as f:
+    with open(file_path, 'r') as f:
         r = csv.DictReader(f, delimiter=delimiter)
         return list(r)[-1]

@@ -6,6 +6,7 @@ import socket
 from waitress import serve
 from utils.remove_files import remove_files
 from task_runner.app import app
+import task_runner.routes  # pylint: disable=unused-import
 
 PORT_RANGE = [7100, 7199]
 
@@ -63,6 +64,15 @@ if __name__ == "__main__":
     port = next_free_port(allocated_task_ports)
     remove_files(f"tasks/{task_name}/")
 
+    # Setting the app to serve single threaded because it will entirely
+    # avoid the problems of multi-threading dealing
+    # with file writes and reads that may interfere with one another
+    # if not properly using a file lock. If multi-threading is
+    # something to aim for in the future, then switching from files
+    # to a network database should be the first step to take because it will
+    # allow transaction locks and get the most out of peformance of reads and writes.
+
     # Reload
-    # app.run(debug=True)
-    serve(app, host="0.0.0.0", port=port)
+    # app.run(debug=True, threaded=False)
+
+    serve(app, host="0.0.0.0", port=port, threads=1)

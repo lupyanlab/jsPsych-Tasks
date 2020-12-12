@@ -19,8 +19,8 @@ def write_to_csv(
         rows = [rows]
 
     if len(rows) > 0:
-        with open(file_path, 'wb') as f:
-            w = csv.DictWriter(f, order if order else sorted(rows[0].keys()))
+        with open(file_path, 'w') as f:
+            w = csv.DictWriter(f, order if order is not None else sorted(rows[0].keys()))
             w.writeheader()
             for row in rows:
                 w.writerow(row)

@@ -18,18 +18,22 @@ def test_create_join_paths_function_with_base_path_check():
         join_paths("test", "..")
     assert exc.value.path == Path("/foo")
     assert exc.value.base_path == Path("/foo")
+    assert exc.value.input_paths == ("test", "..")
 
     with pytest.raises(PathNotUnderBasePathError) as exc:
         join_paths("/bar", "test")
     assert exc.value.path == Path("/bar/test")
     assert exc.value.base_path == Path("/foo")
+    assert exc.value.input_paths == ("/bar", "test")
 
     with pytest.raises(PathNotUnderBasePathError) as exc:
         join_paths("..", "test")
     assert exc.value.path == Path("/test")
     assert exc.value.base_path == Path("/foo")
+    assert exc.value.input_paths == ("..", "test")
 
     with pytest.raises(PathNotUnderBasePathError) as exc:
         join_paths("../test")
     assert exc.value.path == Path("/test")
     assert exc.value.base_path == Path("/foo")
+    assert exc.value.input_paths == ("../test", )

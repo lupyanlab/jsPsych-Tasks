@@ -11,14 +11,17 @@ class SamePathAsBasePathError(Exception):
     """
     path: Path
     base_path: Path
+    input_paths: list[Path]
 
-    def __init__(self, path: Path, base_path: Path):
+    def __init__(self, path: Path, base_path: Path, input_paths: list[Path]):
         message = (
             f"The resulting joined path '{path}' is exactly the same path as the "
-            f"base path '{base_path}'. It should be strictly under the base path and not the same."
+            f"base path '{base_path}'. It should be strictly under the base path and not the same. "
+            f"The input was {input_paths}"
         )
         self.path = path
         self.base_path = base_path
+        self.input_paths = input_paths
 
         super().__init__(message)
 
@@ -30,14 +33,17 @@ class PathNotUnderBasePathError(Exception):
     """
     path: Path
     base_path: Path
+    input_paths: list[Path]
 
-    def __init__(self, path: Path, base_path: Path):
+    def __init__(self, path: Path, base_path: Path, input_paths: list[Path]):
         message = (
             f"The resulting joined path '{path}' is not a path under the "
             f"base path '{base_path}'. It should be under the base path."
+            f"The input path was {input_paths}"
         )
         self.path = path
         self.base_path = base_path
+        self.input_paths = input_paths
 
         super().__init__(message)
 
@@ -71,9 +77,9 @@ def create_join_paths_function_with_base_path_check(base_path: Path
         full_path = reduce(lambda acc, path: acc / path, paths, base_path).resolve()
 
         if base_path == full_path:
-            raise SamePathAsBasePathError(full_path, base_path)
+            raise SamePathAsBasePathError(full_path, base_path, paths)
         if base_path not in full_path.parents:
-            raise PathNotUnderBasePathError(full_path, base_path)
+            raise PathNotUnderBasePathError(full_path, base_path, paths)
 
         return full_path
 

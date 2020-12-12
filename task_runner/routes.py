@@ -69,8 +69,8 @@ def task():
         if len(missing_args) > 0:
             msgs.append('missing "kwargs": ' + ', '.join(missing_args))
         return 'Expecting minimum following "kwargs": ' + ', '.join(
-            '"' + arg + '"'
-            for arg in required_args) + '\nFn "' + fn + '" is ' + '; and '.join(msgs), 400
+            '"' + arg + '"' for arg in required_args
+        ) + '\nFn "' + fn + '" is ' + '; and '.join(msgs), 400
 
     outbound_message = getattr(task_instance, fn)(**kwargs)
     logger.info('Outbound message: ' + pprint.pformat(outbound_message))
