@@ -18,7 +18,9 @@ def append_to_csv(
     Parameters:
     file_path: File path
     row: Row(s) to append (also accepts a single row dict not in a list)
-    order: Order in which the columns must be written in (must include all the columns)
+    order: (Not needed because insertion order is maintained from the browser
+            and in python.) Order in which the columns must be written in 
+            (must include all the columns)
     """
     if isinstance(rows, dict):
         rows = [rows]
@@ -34,8 +36,6 @@ def append_to_csv(
                     f"order: {order}, fields: {fields}"
                 )
             fields = order
-        else:
-            fields = sorted(fields)
 
         should_write_headers = not os.path.exists(file_path)
 

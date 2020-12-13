@@ -154,8 +154,8 @@ The following is a Visual Studio Code `launch.json` configuration that can be us
   - **Before**: Only a single process and thus a single port was used.
   - **After**: Each task is now a separate independent process and each uses any of the open public ports (:7100-:7199).
 - Python 3.7
-  - **Before**: Multiple servers
-  - **After**: Single server calling different task modules under `tasks/template/task.py`
+  - **Before**: Python 2.7
+  - **After**: Python 3.7. Now, dictionaries are ordered by dictionary type so all ordering will be optional.
 - Reloading
   - **Before**: Entire single server would reload if any \*.py file was changed.
   - **After**: Task server will reload only if any relevant module \*.py files were changed. Reloading can be manually disabled too when it's not appropriate.

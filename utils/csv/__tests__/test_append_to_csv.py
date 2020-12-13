@@ -40,8 +40,8 @@ test456,888
 
 
 def test_append_to_csv_nonexistent_file_path(tmp_path: Path):
-    EXPECTED_CONTENT = """response,worker
-888,test456
+    EXPECTED_CONTENT = """worker,response
+test456,888
 """
 
     file_path = tmp_path / "test.csv"

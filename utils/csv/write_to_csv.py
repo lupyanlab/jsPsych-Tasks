@@ -14,13 +14,16 @@ def write_to_csv(
     Parameters:
     file_path (str): File path
     row: Row(s) to write (also accepts a single row dict not in a list)
+    order: (Not needed because insertion order is maintained from the browser
+            and in python.) Order in which the columns must be written in 
+            (must include all the columns)
     """
     if isinstance(rows, dict):
         rows = [rows]
 
     if len(rows) > 0:
         with open(file_path, 'w') as f:
-            w = csv.DictWriter(f, order if order is not None else sorted(rows[0].keys()))
+            w = csv.DictWriter(f, order if order is not None else rows[0].keys())
             w.writeheader()
             for row in rows:
                 w.writerow(row)

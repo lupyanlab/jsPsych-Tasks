@@ -13,6 +13,6 @@ def read_rows(file_path: str, delimiter: str = ',') -> list[dict[str, str]]:
     Returns:
     Rows
     """
-    with open(file_path, 'rb') as t:
-        rows = csv.DictReader(t, delimiter=delimiter)
-        return list(rows)
+    with open(file_path, 'r') as f:
+        rows = csv.DictReader(f, delimiter=delimiter)
+        return [dict(row) for row in rows]
