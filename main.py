@@ -1,23 +1,21 @@
 from __future__ import annotations
-import argparse
 import os
 from importlib import import_module
 import socket
 from waitress import serve
-from utils.remove_files import remove_files
 from task_runner.app import app
+from task_runner.logger import logger
 import task_runner.routes  # pylint: disable=unused-import
+from task_runner.args import task_name, reload_enabled
+from utils.remove_files import remove_files
+from utils.paths.create_join_paths_function_with_base_path_check import (
+    create_join_paths_function_with_base_path_check
+)
 
 PORT_RANGE = [7100, 7199]
 
-parser = argparse.ArgumentParser(description="This script runs a task server.")
-parser.add_argument('task', help='task folder name')
-parser.add_argument('--reload', default=False, help='enables server to reload on file changes')
 
-args = parser.parse_args()
-task_name = args.task
-
-
+# pylint: disable=redefined-outer-name
 def next_free_port(allocated_task_ports: set[int]) -> int:
     """
     Based on the following but with allocated_task_ports that are already allocated.
@@ -59,10 +57,13 @@ def get_allocated_task_ports() -> set[int]:
     return allocated_ports
 
 
+# pylint: enable=redefined-outer-name
+
 if __name__ == "__main__":
     allocated_task_ports = get_allocated_task_ports()
     port = next_free_port(allocated_task_ports)
-    remove_files(f"tasks/{task_name}/")
+    create_join_paths_function_with_base_path_check(os.getcwd())
+    remove_files(f"tasks/{task_name}/port.js")
 
     # Setting the app to serve single threaded because it will entirely
     # avoid the problems of multi-threading dealing
@@ -72,7 +73,9 @@ if __name__ == "__main__":
     # to a network database should be the first step to take because it will
     # allow transaction locks and get the most out of peformance of reads and writes.
 
-    # Reload
-    # app.run(debug=True, threaded=False)
-
-    serve(app, host="0.0.0.0", port=port, threads=1)
+    if reload_enabled:
+        logger.info("App reload is enabled.")
+        # Reload
+        app.run(debug=True, port=port, threaded=False)
+    else:
+        serve(app, host="0.0.0.0", port=port, threads=1)

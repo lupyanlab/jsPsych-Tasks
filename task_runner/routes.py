@@ -1,26 +1,21 @@
-import socket
-from flask import request, jsonify
-from importlib import import_module
-import sys
+from inspect import signature, isfunction, Parameter
 import os
-from os.path import dirname, abspath
-import pprint
-import inspect
+from importlib import import_module
+from flask import request, jsonify
 from task_runner.app import app
-from task_runner.logger import logger
+from task_runner.args import task_name
 
 tasks_folder_path = './tasks'
 
-sys.path.insert(0, dirname(dirname(abspath(__file__))))
+NEW_LINE = "\n"
 
 
 @app.route('/', methods=['POST'])
-def task():
+def task():  # pylint: disable=too-many-return-statements
     if not request.is_json:
         return 'Body must be set and in JSON', 400
 
     body = request.get_json()
-    logger.info('Inbound message: ' + pprint.pformat(body))
 
     if 'task' not in body:
         return 'Key "task" is missing from request', 400
@@ -28,52 +23,56 @@ def task():
     if 'fn' not in body:
         return 'Key "fn" is missing from request', 400
 
-    task_name = body['task']
+    kwargs = body['kwargs'] if 'kwargs' in body else {}
+    if not isinstance(kwargs, dict):
+        return 'Expected "kwargs" to be a dictionary (key/value pair)', 400
+    passed_args = kwargs.keys()
+
     try:
-        task = import_module('tasks.' + str(task_name) + '.task')
+        task_module = import_module(f"tasks.{task_name}.task")
     except ImportError:
-        return 'No task named ' + '"' + str(task_name) + '"', 404
+        return f"No task named '{task_name}'", 404
 
-    if not hasattr(task, 'Task'):
-        return 'Task "' + task_name + '" is missing the class "Task"', 500
+    if not hasattr(task_module, 'Task'):
+        return f"Task '{task_name}' is missing the class 'Task'", 500
 
-    Task = getattr(task, 'Task')
+    Task = getattr(task_module, 'Task')
 
     if 'dev' in body:
         task_instance = Task(body['dev'])
     else:
         task_instance = Task()
 
-    fn = body['fn']
-    if not hasattr(task_instance, fn):
-        return 'Function "' + str(fn) + '" is not found for task "' + task_name + '"', 404
+    fn_name = body['fn']
+    if not hasattr(task_instance, fn_name):
+        return f"Function '{fn_name}' is not found for task '{task_name}'", 404
 
-    fn_argspec = inspect.getargspec(getattr(task_instance, fn))
-    full_actual_args = set(fn_argspec[0][1:])
+    fn = getattr(task_instance, fn_name)
+    if not isfunction(fn):
+        return f"Function '{fn_name}' is not found for task '{task_name}'", 404
 
-    kwargs = body['kwargs'] if 'kwargs' in body else {}
-    if type(kwargs) != dict:
-        return 'Expected "kwargs" to be a dictionary (key/value pair)', 400
-
-    passed_args = kwargs.keys()
-    required_args = set(fn_argspec[0][1:len(fn_argspec[0]) -
-                                      len(fn_argspec[3])]) if fn_argspec[3] else full_actual_args
-    extra_args = ['"' + arg + '"' for arg in passed_args
-                  if arg not in full_actual_args] if not fn_argspec[2] else []
-    missing_args = ['"' + arg + '"' for arg in required_args if arg not in passed_args]
+    parameters = signature(fn).parameters
+    extra_args = [f"'{arg}'" for arg in passed_args if arg not in parameters or arg == "self"]
+    missing_args = [
+        f"'{p}'" for p in parameters
+        if p.name != "self" and p.default == Parameter.empty and p.name not in passed_args
+    ]
 
     if len(extra_args) > 0 or len(missing_args) > 0:
         msgs = []
         if len(extra_args) > 0:
-            msgs.append('including extra "kwargs": ' + ', '.join(extra_args))
+            msgs.append(f"Included extra 'kwargs': {', '.join(extra_args)}")
         if len(missing_args) > 0:
-            msgs.append('missing "kwargs": ' + ', '.join(missing_args))
-        return 'Expecting minimum following "kwargs": ' + ', '.join(
-            '"' + arg + '"' for arg in required_args
-        ) + '\nFn "' + fn + '" is ' + '; and '.join(msgs), 400
+            msgs.append(f"Missed 'kwargs': {', '.join(missing_args)}")
+        return (
+            f"Request body for function '{fn_name}' has the following issues: "
+            "\n".join(msgs) + "Expected minimum following 'kwargs': " + '\n'.join(
+                f"'{p.name}"
+                for p in parameters if p.name != "self" and p.default == Parameter.empty
+            )
+        ), 400
 
-    outbound_message = getattr(task_instance, fn)(**kwargs)
-    logger.info('Outbound message: ' + pprint.pformat(outbound_message))
+    outbound_message = fn(**kwargs)
     return jsonify(outbound_message)
 
 
