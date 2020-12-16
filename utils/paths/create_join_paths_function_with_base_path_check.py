@@ -1,7 +1,9 @@
 from __future__ import annotations
-from typing import Callable
+from typing import Union
 from pathlib import Path
 from functools import reduce
+from utils.mkdir import mkdir as mkdir_fn
+from utils.remove_files import remove_files
 
 
 class SamePathAsBasePathError(Exception):
@@ -48,8 +50,8 @@ class PathNotUnderBasePathError(Exception):
         super().__init__(message)
 
 
-def create_join_paths_function_with_base_path_check(base_path: Path
-                                                    ) -> Callable[[list[Path]], Path]:
+def create_join_paths_function_with_base_path_check(base_path: Path, mkdir=False
+                                                    ) -> callable[[list[Union[Path, str]]], Path]:
     """
     Creates a join_paths function that will prepend the base_path to the resulting joined path
     and include a check to make sure that the resulting path is under that base_path.
@@ -66,20 +68,43 @@ def create_join_paths_function_with_base_path_check(base_path: Path
 	)
     file_path = join_paths(worker_id)
 	# file_path == "/var/www/mturk/sandbox/tasks/TaskName/dev/trials/testWorker123"
+
     Parameters:
-    base_path: base path to assert the resulting path to be in
+    base_path: Base path to assert the resulting path to be in
+    mkdir: Create the base path folder
 
     Returns:
     A function similar to join_paths but with the additional check that will
     raise an exception if the output is not under the base path.
 	"""
-    def join_paths_with_check(*paths: list[str]) -> str:
+    if mkdir:
+        mkdir_fn(base_path)
+
+    def join_paths_with_check(
+        *paths: list[Union[Path, str]], mkdir: bool = False, rm: bool = False
+    ) -> Path:
+        """
+        Parameters:
+        *paths: Paths to join
+        mkdir: Create the folder (if path is a folder) if it doesn't exist.
+               Doesn't create the parent folders.
+        rm: Remove the file (if path is a file) if it exists.
+
+        Returns:
+        The joined path
+        """
         full_path = reduce(lambda acc, path: acc / path, paths, base_path).resolve()
 
         if base_path == full_path:
             raise SamePathAsBasePathError(full_path, base_path, paths)
         if base_path not in full_path.parents:
             raise PathNotUnderBasePathError(full_path, base_path, paths)
+
+        if mkdir:
+            mkdir_fn(full_path)
+
+        if rm:
+            remove_files(full_path)
 
         return full_path
 

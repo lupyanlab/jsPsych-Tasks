@@ -1,10 +1,13 @@
 from __future__ import annotations
+from typing import Union
+from pathlib import Path
 from utils.balance_utils.increment_counts import increment_counts
 from utils.csv.read_last_row import read_last_row
 from utils.csv.append_to_csv import append_to_csv
 
 
-def get_next_min_keys(counts_file_path: str, num_keys: int, write: bool = True) -> list[str]:
+def get_next_min_keys(counts_file_path: Union[str, Path], num_keys: int,
+                      write: bool = True) -> list[str]:
     """
     Get the next num_keys of a keys with lowest counts.
 

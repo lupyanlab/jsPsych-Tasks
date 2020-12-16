@@ -1,8 +1,9 @@
 from typing import List
 import os
+from pathlib import Path
 
 
-def remove_files(*file_paths: List[str]) -> None:
+def remove_files(*file_paths: List[Path]) -> None:
     """
     Remove files if they exist.
 

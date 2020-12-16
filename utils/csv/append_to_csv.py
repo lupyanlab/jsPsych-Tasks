@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Union, Any, Hashable
+from typing import Union, Any, Hashable, Union
 import csv
 import os
 from pathlib import Path
@@ -8,7 +8,7 @@ from task_runner.logger import logger
 
 
 def append_to_csv(
-    file_path: str,
+    file_path: Union[str, Path],
     rows: Union[dict[Hashable, Any], list[dict[Hashable, Any]]],
     order: list[Hashable] = None
 ) -> None:

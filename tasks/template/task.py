@@ -1,160 +1,110 @@
-import pandas as pd
-import numpy as np
+from __future__ import annotations
 import os
-import csv
-from threading import RLock
-import random
-import copy
+from shutil import copyfile
+from utils.balance_utils.get_next_min_key import get_next_min_key
+from utils.balance_utils.create_counts_file import create_counts_file
+from utils.csv.get_remaining_trials import get_remaining_trials_with_trial_nums
+from utils.csv.append_to_csv import append_to_csv
+from utils.csv.write_to_csv import write_to_csv
+from utils.csv.read_rows import read_rows
+from utils.get_random_username import get_random_username
+from utils.mkdir import mkdir
+from utils.paths.get_dirname import get_dirname
+from utils.paths.create_join_paths_function_with_base_path_check import (
+    create_join_paths_function_with_base_path_check as create_join_paths_fn
+)
+from utils.shuffle_without_catch_in_front import shuffle_without_catch_in_front
 
-dirname = os.path.dirname(__file__)
+dirname = get_dirname(__file__)
 
-# Need a lock for updating a file shared by all worker_ids
-# this includes the images_counts_file
-update_images_counts_file_lock = RLock()
+TRIAL_NUM_COLUMN = "trial_num"
 
 
 class Task:
     def __init__(self, dev=False):
-        self.images_folder_path = dirname + '/images/'
+        env_folder_path = dirname / ("dev" if dev else "prod")
+        mkdir(env_folder_path)
+        self.join_paths_env = create_join_paths_fn(env_folder_path)
 
-        env_folder_path = dirname + ('/dev/' if dev else '/prod/')
-        if not os.path.exists(env_folder_path):
-            os.mkdir(env_folder_path)
+        self.join_paths_trials = create_join_paths_fn(env_folder_path / "trials", mkdir=True)
+        self.join_paths_data = create_join_paths_fn(env_folder_path / "data", mkdir=True)
+        self.join_paths_demographics = create_join_paths_fn(
+            env_folder_path / "demographics", mkdir=True
+        )
+        self.join_paths_consent = create_join_paths_fn(env_folder_path / "consent", mkdir=True)
+        self.trial_lists_folder = self.join_paths_env("trial_lists")
+        self.join_paths_trial_lists = create_join_paths_fn(self.trial_lists_folder)
+        self.counts_file_path = self.join_paths_env("counts.csv")
 
-        self.trials_folder_path = env_folder_path + '/trials/'
-        self.data_folder_path = env_folder_path + '/data/'
-        self.demographics_folder_path = env_folder_path + '/demographics/'
-        self.image_counts_file_path = env_folder_path + '/image_counts.csv'
+    def trials(self, worker_id: str = get_random_username(), reset: bool = False):
+        trials_file_path = self.join_paths_trials(f"{worker_id}.csv")
+        demographics_file_path = self.join_paths_demographics(f"{worker_id}.csv")
+        consent_file_path = self.join_path_consent(self.consent_folder_path, f"{worker_id}.csv")
 
-    def trials(self, worker_id, num_images, reset=False):
-        if not os.path.exists(self.trials_folder_path):
-            os.mkdir(self.trials_folder_path)
-        trials_file_path = self.trials_folder_path + '/' + worker_id + '.csv'
-        demographics_file_path = self.demographics_folder_path + '/' + worker_id + '.csv'
+        if reset or not trials_file_path.exists():
+            data_file_path = self.join_paths_env(
+                self.data_folder_path, f"{worker_id}.csv", rm=True
+            )
+            trials = self._generate_trials(worker_id)
 
-        if reset or not os.path.exists(trials_file_path):
-            data_file_path = self.data_folder_path + '/' + worker_id + '.csv'
-            if os.path.exists(data_file_path):
-                os.remove(data_file_path)
-            trials = self.generate_trials(worker_id, num_images)
-            num_trials = len(trials)
-
-            with open(trials_file_path, 'wb') as f:
-                w = csv.DictWriter(f, sorted(trials[0].keys()))
-                w.writeheader()
-                for trial in trials:
-                    w.writerow(trial)
-
-            if os.path.exists(demographics_file_path):
-                os.remove(demographics_file_path)
+            demographics_file_path.unlink(missing_ok=True)
+            consent_file_path.unlink(missing_ok=True)
             completed_demographics = False
-
+            consent_agreed = False
         else:
-            with open(trials_file_path, 'rb') as t:
-                trial_rows = csv.DictReader(t)
-                trials = list(trial_rows)
-                num_trials = len(trials)
-            data_file_path = self.data_folder_path + '/' + worker_id + '.csv'
-            if os.path.exists(data_file_path):
-                with open(data_file_path, 'rb') as d:
-                    data_rows = csv.DictReader(d)
-                    num_data_rows = len(list(data_rows))
-                trials = trials[num_data_rows:]
-            completed_demographics = os.path.exists(demographics_file_path)
+            trials, num_trials = get_remaining_trials_with_trial_nums(
+                trials_file_path,
+                data_file_path,
+                column=TRIAL_NUM_COLUMN,
+            )
+
+            completed_demographics = demographics_file_path.exists()
+            consent_agreed = consent_file_path.exists()
 
         return {
             "trials": trials,
             "num_trials": num_trials,
-            "completed_demographics": completed_demographics
+            "completed_demographics": completed_demographics,
+            "consent_agreed": consent_agreed,
+            "worker_id": worker_id,
         }
 
-    def data(self, worker_id, **data):
-        if not os.path.exists(self.data_folder_path):
-            os.mkdir(self.data_folder_path)
+    def data(self, worker_id: str, data: dict):
+        data_file_path = self.join_paths_env(self.data_folder_path, f"{worker_id}.csv")
+        append_to_csv(data_file_path, data)
 
-        data_file_path = self.data_folder_path + '/' + worker_id + '.csv'
-        write_headers = not os.path.exists(data_file_path)
+    def demographics(self, worker_id: str, demographics: dict):
+        demographics_file_path = self.join_paths_env(
+            self.demographics_folder_path, f"{worker_id}.csv"
+        )
+        write_to_csv(demographics_file_path, demographics)
 
-        with open(data_file_path, 'a') as f:
-            w = csv.DictWriter(f, sorted(data.keys()))
-            if write_headers:
-                w.writeheader()
-            w.writerow(data)
-
-    def demographics(self, worker_id, demographics):
-        if not os.path.isdir(self.demographics_folder_path):
-            os.mkdir(self.demographics_folder_path)
-
-        demographics_file_path = self.demographics_folder_path + '/' + worker_id + '.csv'
-
-        with open(demographics_file_path, 'wb') as f:
-            w = csv.DictWriter(f, sorted(demographics.keys()))
-            w.writeheader()
-            w.writerow(demographics)
-
-        return 200
+    def consent(self, worker_id: str):
+        """
+        Endpoint to mark consent as agreed.
+        """
+        consent_file_path = self.join_paths_env(self.consent_folder_path, f"{worker_id}.txt")
+        consent_file_path.touch()
+        consent_file_path.write_text("agreed")
 
     ########################################################
     # HELPERS
     ########################################################
-    def create_images_count_file(self):
-        image_folders = os.listdir(self.images_folder_path)
-        image_counts = {image: 0 for image in image_folders}
+    def _generate_trials(self, worker_id: str):
+        # Get assigned trial list
+        if not self.counts_file_path.exists():
+            trial_lists = os.listdir(self.trial_lists_folder)
+            create_counts_file(self.counts_file_path, trial_lists)
+        trial_list = get_next_min_key(self.counts_file_path)
 
-        with open(self.image_counts_file_path, 'wb') as f:
-            w = csv.DictWriter(f, sorted(image_counts.keys()))
-            w.writeheader()
-            w.writerow(image_counts)
+        # Copy assigned trial list to trials folder
+        trial_list_path = self.join_paths_trial_lists(trial_list)
+        trial_file_path = self.join_paths_trials(f"{worker_id}.csv")
+        copyfile(trial_list_path, trial_file_path)
+        trials = read_rows(trial_file_path)
+        trials = shuffle_without_catch_in_front(trials, 15)
 
-    def increment_image_counts(self, image_counts, num_images_to_increment):
-        new_image_counts = copy.deepcopy(image_counts)
-        images_by_count = {}
-        for image, count in image_counts.iteritems():
-            images_by_count[count] = images_by_count.get(count, []) + [image]
+        # Add the trial_num column to the trials
+        trials = [{TRIAL_NUM_COLUMN: index + 1, **row} for index, row in enumerate(trials)]
 
-        for count in images_by_count:
-            random.shuffle(images_by_count[count])
-
-        final_images = []
-        curr_count = None
-        for i in range(num_images_to_increment):
-            if curr_count is None or len(images_by_count[curr_count]) == 0:
-                if curr_count is not None:
-                    del images_by_count[curr_count]
-                curr_count = min(images_by_count.keys())
-            image = images_by_count[curr_count].pop(0)
-            final_images.append(image)
-            new_image_counts[image] += 1
-            images_by_count[curr_count + 1] = images_by_count.get(curr_count + 1, []) + [image]
-
-        return new_image_counts, final_images
-
-    def generate_trials(self, worker_id, num_images):
-        with update_images_counts_file_lock:
-            if not os.path.isfile(self.image_counts_file_path):
-                self.create_images_count_file()
-
-            with open(self.image_counts_file_path, 'r+') as f:
-                r = csv.DictReader(f)
-                last_row = {image: int(count) for image, count in list(r)[-1].items()}
-                w = csv.DictWriter(f, r.fieldnames)
-                incremented_image_counts, images = self.increment_image_counts(
-                    last_row, num_images)
-                w.writerow(incremented_image_counts)
-
-                trials = []
-                trial_number = 0
-                for image in images:
-                    image_trials = []
-                    for image_file in os.listdir(self.images_folder_path + '/' + image):
-                        image_trials.append({
-                            'category': image,
-                            'image': image_file,
-                            'trial_number': trial_number,
-                            'keys': "1,2,3,4,5",
-                            'labels': "1 (Very typical),2,3,4,5 (Very atypical)"
-                        })
-                        trial_number += 1
-                    trials.extend(image_trials)
-
-                return trials
+        return trials

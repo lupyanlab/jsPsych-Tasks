@@ -1,12 +1,11 @@
-
 import random
 from pathlib import Path
 from utils.balance_utils.get_next_min_keys import get_next_min_keys
 
-random.seed(1)
-
 
 def test_get_next_min_keys(tmp_path: Path):
+    random.seed(1)
+
     CONTENT = """image1,image2,image3,image4
 3,3,2,2
 """
@@ -23,12 +22,14 @@ def test_get_next_min_keys(tmp_path: Path):
 
 
 def test_get_next_min_keys_roll_over(tmp_path: Path):
+    random.seed(1)
+
     CONTENT = """image1,image2,image3,image4
 3,3,2,2
 """
     EXPECTED_CONTENT = """image1,image2,image3,image4
 3,3,2,2
-4,3,3,3
+3,4,3,3
 """
     file_path = tmp_path / "test.csv"
     file_path.write_text(CONTENT)
@@ -39,6 +40,8 @@ def test_get_next_min_keys_roll_over(tmp_path: Path):
 
 
 def test_get_next_min_keys_roll_over_no_overlap(tmp_path: Path):
+    random.seed(1)
+
     CONTENT = """image1,image2,image3,image4
 3,3,2,2
 """
@@ -55,6 +58,8 @@ def test_get_next_min_keys_roll_over_no_overlap(tmp_path: Path):
 
 
 def test_get_next_min_keys_exceed_num_fields_limit(tmp_path: Path):
+    random.seed(1)
+
     CONTENT = """image1,image2,image3,image4
 3,3,2,2
 3,3,3,3
@@ -62,7 +67,7 @@ def test_get_next_min_keys_exceed_num_fields_limit(tmp_path: Path):
     EXPECTED_CONTENT = """image1,image2,image3,image4
 3,3,2,2
 3,3,3,3
-5,4,4,4
+4,4,4,5
 """
     file_path = tmp_path / "test.csv"
     file_path.write_text(CONTENT)

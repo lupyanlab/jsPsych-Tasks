@@ -3,10 +3,9 @@ from pathlib import Path
 from utils.balance_utils.get_next_min_key import get_next_min_key
 
 
-random.seed(1)
-
-
 def test_get_next_min_key(tmp_path: Path):
+    random.seed(1)
+
     CONTENT = """image1,image2,image3,image4
 3,3,2,2
 """
@@ -23,6 +22,8 @@ def test_get_next_min_key(tmp_path: Path):
 
 
 def test_get_next_min_key_roll_over(tmp_path: Path):
+    random.seed(3)
+
     CONTENT = """image1,image2,image3,image4
 3,3,3,3
 """

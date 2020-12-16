@@ -7,12 +7,14 @@ from task_runner.app import app
 from task_runner.logger import logger
 import task_runner.routes  # pylint: disable=unused-import
 from task_runner.args import task_name, reload_enabled
-from utils.remove_files import remove_files
 from utils.paths.create_join_paths_function_with_base_path_check import (
     create_join_paths_function_with_base_path_check
 )
+from utils.paths.get_dirname import get_dirname
 
 PORT_RANGE = [7100, 7199]
+
+dirname = get_dirname(__file__)
 
 
 # pylint: disable=redefined-outer-name
@@ -62,8 +64,10 @@ def get_allocated_task_ports() -> set[int]:
 if __name__ == "__main__":
     allocated_task_ports = get_allocated_task_ports()
     port = next_free_port(allocated_task_ports)
-    create_join_paths_function_with_base_path_check(os.getcwd())
-    remove_files(f"tasks/{task_name}/port.js")
+    join_paths = create_join_paths_function_with_base_path_check(dirname)
+    port_file_path = join_paths("tasks", task_name, "port.js", rm=True)
+    port_file_path.touch()
+    port_file_path.write_text(f"export default {port};\n")
 
     # Setting the app to serve single threaded because it will entirely
     # avoid the problems of multi-threading dealing

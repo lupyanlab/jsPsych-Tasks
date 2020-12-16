@@ -23,6 +23,9 @@ def task():  # pylint: disable=too-many-return-statements
     if 'fn' not in body:
         return 'Key "fn" is missing from request', 400
 
+    if body["fn"].startswith("_"):
+        return "Key 'fn' must not start with an underscore ('_')."
+
     kwargs = body['kwargs'] if 'kwargs' in body else {}
     if not isinstance(kwargs, dict):
         return 'Expected "kwargs" to be a dictionary (key/value pair)', 400
