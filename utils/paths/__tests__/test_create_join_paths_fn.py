@@ -1,15 +1,15 @@
 from pathlib import Path
 import pytest
-from utils.paths.create_join_paths_function_with_base_path_check import (
-    create_join_paths_function_with_base_path_check,
+from utils.paths.create_join_paths_fn import (
+    create_join_paths_fn,
     SamePathAsBasePathError,
     PathNotUnderBasePathError,
 )
 
 
-def test_create_join_paths_function_with_base_path_check():
+def test_create_join_paths_fn():
     base_path = Path("/foo")
-    join_paths = create_join_paths_function_with_base_path_check(base_path)
+    join_paths = create_join_paths_fn(base_path)
 
     assert join_paths("test.py") == Path("/foo/test.py")
     assert join_paths("bar", "test.py") == Path("/foo/bar/test.py")
@@ -39,9 +39,9 @@ def test_create_join_paths_function_with_base_path_check():
     assert exc.value.input_paths == ("../test", )
 
 
-def test_create_join_paths_function_with_base_path_check_mkdir(tmp_path: Path):
+def test_create_join_paths_fn_mkdir(tmp_path: Path):
     base_path = tmp_path
-    join_paths = create_join_paths_function_with_base_path_check(base_path)
+    join_paths = create_join_paths_fn(base_path)
 
     folder_path = join_paths("bar")
     assert not folder_path.exists()
@@ -50,9 +50,9 @@ def test_create_join_paths_function_with_base_path_check_mkdir(tmp_path: Path):
     assert folder_path.exists()
 
 
-def test_create_join_paths_function_with_base_path_check_rm(tmp_path: Path):
+def test_create_join_paths_fn_rm(tmp_path: Path):
     base_path = tmp_path
-    join_paths = create_join_paths_function_with_base_path_check(base_path)
+    join_paths = create_join_paths_fn(base_path)
 
     # No errors if file doesn't exist
     file_path = join_paths("foo.py", rm=True)

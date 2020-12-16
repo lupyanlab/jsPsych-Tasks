@@ -50,8 +50,7 @@ class PathNotUnderBasePathError(Exception):
         super().__init__(message)
 
 
-def create_join_paths_function_with_base_path_check(base_path: Path, mkdir=False
-                                                    ) -> callable[[list[Union[Path, str]]], Path]:
+def create_join_paths_fn(base_path: Path, mkdir=False) -> callable[[list[Union[Path, str]]], Path]:
     """
     Creates a join_paths function that will prepend the base_path to the resulting joined path
     and include a check to make sure that the resulting path is under that base_path.
@@ -63,7 +62,7 @@ def create_join_paths_function_with_base_path_check(base_path: Path, mkdir=False
 
     Example:
     worker_id = testWorker123
-    join_paths = create_join_paths_function_with_base_path_check(
+    join_paths = create_join_paths_fn(
 		'/var/www/mturk/sandbox/tasks/TaskName/dev/trials'
 	)
     file_path = join_paths(worker_id)
