@@ -37,11 +37,11 @@ def get_remaining_trials(
 
     trials = read_rows(trials_file_path) if trials_file_path.exists() else []
     if len(trials) == 0:
-        return trials
+        return trials, len(trials)
 
     data = read_rows(data_file_path) if data_file_path.exists() else []
     if len(data) == 0:
-        return trials
+        return trials, len(trials)
 
     if trial_key_fn is not None and data_key_fn is not None:
         existing_keys = set(data_key_fn(data_record) for data_record in data)

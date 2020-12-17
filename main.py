@@ -1,5 +1,4 @@
 from __future__ import annotations
-import os
 from importlib import import_module
 import socket
 from waitress import serve
@@ -7,9 +6,7 @@ from task_runner.app import app
 from task_runner.logger import logger
 import task_runner.routes  # pylint: disable=unused-import
 from task_runner.args import task_name, reload_enabled
-from utils.paths.create_join_paths_function_with_base_path_check import (
-    create_join_paths_function_with_base_path_check
-)
+from utils.paths.create_join_paths_fn import (create_join_paths_fn)
 from utils.paths.get_dirname import get_dirname
 
 PORT_RANGE = [7100, 7199]
@@ -34,6 +31,8 @@ def next_free_port(allocated_task_ports: set[int]) -> int:
                 sock.bind(('', port))
                 sock.close()
                 return port
+        except OSError:
+            pass
         finally:
             port += 1
     raise IOError('no free ports')
@@ -45,7 +44,10 @@ def get_allocated_task_ports() -> set[int]:
     If a port is None, then it treats that the task as unactive.
     """
     allocated_ports = set()
-    tasks = os.listdir('tasks')
+    tasks = [
+        item for item in (dirname / "tasks").iterdir()
+        if item.is_dir() and item.name != "__pycache__" and item.name != task_name
+    ]
     for task in tasks:
         try:
             port_module = import_module(f'tasks.{task}.port')
@@ -64,10 +66,14 @@ def get_allocated_task_ports() -> set[int]:
 if __name__ == "__main__":
     allocated_task_ports = get_allocated_task_ports()
     port = next_free_port(allocated_task_ports)
-    join_paths = create_join_paths_function_with_base_path_check(dirname)
-    port_file_path = join_paths("tasks", task_name, "port.js", rm=True)
-    port_file_path.touch()
-    port_file_path.write_text(f"export default {port};\n")
+    join_paths = create_join_paths_fn(dirname)
+    js_port_file_path = join_paths("tasks", task_name, "port.js", rm=True)
+    js_port_file_path.touch()
+    js_port_file_path.write_text(f"export default {port};\n")
+
+    py_port_file_path = join_paths("tasks", task_name, "port.py", rm=True)
+    py_port_file_path.touch()
+    py_port_file_path.write_text(f"PORT = {port}\n")
 
     # Setting the app to serve single threaded because it will entirely
     # avoid the problems of multi-threading dealing

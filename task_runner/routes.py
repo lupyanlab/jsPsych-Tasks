@@ -1,4 +1,4 @@
-from inspect import signature, isfunction, Parameter
+from inspect import signature, ismethod, Parameter
 import os
 from importlib import import_module
 from flask import request, jsonify
@@ -51,13 +51,13 @@ def task():  # pylint: disable=too-many-return-statements
         return f"Function '{fn_name}' is not found for task '{task_name}'", 404
 
     fn = getattr(task_instance, fn_name)
-    if not isfunction(fn):
+    if not ismethod(fn):
         return f"Function '{fn_name}' is not found for task '{task_name}'", 404
 
-    parameters = signature(fn).parameters
-    extra_args = [f"'{arg}'" for arg in passed_args if arg not in parameters or arg == "self"]
+    parameters_map = signature(fn).parameters
+    extra_args = [f"'{arg}'" for arg in passed_args if arg not in parameters_map or arg == "self"]
     missing_args = [
-        f"'{p}'" for p in parameters
+        f"'{p}'" for p in parameters_map.values()
         if p.name != "self" and p.default == Parameter.empty and p.name not in passed_args
     ]
 
@@ -70,8 +70,8 @@ def task():  # pylint: disable=too-many-return-statements
         return (
             f"Request body for function '{fn_name}' has the following issues: "
             "\n".join(msgs) + "Expected minimum following 'kwargs': " + '\n'.join(
-                f"'{p.name}"
-                for p in parameters if p.name != "self" and p.default == Parameter.empty
+                f"'{p.name}" for p in parameters_map.values()
+                if p.name != "self" and p.default == Parameter.empty
             )
         ), 400
 

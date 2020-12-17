@@ -50,7 +50,8 @@ class PathNotUnderBasePathError(Exception):
         super().__init__(message)
 
 
-def create_join_paths_fn(base_path: Path, mkdir=False) -> callable[[list[Union[Path, str]]], Path]:
+def create_join_paths_fn(base_path: Path,
+                         mkdir=False) -> callable[[list[Union[Path, str]], bool, bool], Path]:
     """
     Creates a join_paths function that will prepend the base_path to the resulting joined path
     and include a check to make sure that the resulting path is under that base_path.

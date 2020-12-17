@@ -8,12 +8,35 @@ class InsufficientNumNonCatchTrialsError(Exception):
 
     Parameters:
     actual_num_non_catch_trials: Actual number of non-catch trials
-    expected_num_catch_trials: Expected number of non-catch trials
+    expected_num_non_catch_trials: Expected number of non-catch trials
     """
-    def __init__(self, actual_num_non_catch_trials: int, expected_num_catch_trials: int):
+    actual_num_non_catch_trials: int
+    expected_num_non_catch_trials: int
+
+    def __init__(self, actual_num_non_catch_trials: int, expected_num_non_catch_trials: int):
+        self.actual_num_non_catch_trials = actual_num_non_catch_trials
+        self.expected_num_non_catch_trials = expected_num_non_catch_trials
+
         super().__init__(
-            "Thee is not enough non-catch trials to shuffle. "
-            f"Found {actual_num_non_catch_trials}. Expected {expected_num_catch_trials}."
+            "There is not enough non-catch trials to shuffle. "
+            f"Found {actual_num_non_catch_trials}. Expected {expected_num_non_catch_trials}."
+        )
+
+
+class MissingQuestionTypeColumnError(Exception):
+    """
+    Error for when the question type column is missing
+
+    Parameters:
+    expected_column_name: Expected question type column name
+    """
+    expected_column_name: str
+
+    def __init__(self, expected_column_name: str = None):
+        self.expected_column_name = expected_column_name
+        super().__init__(
+            "Missing the question type column. "
+            f"Expected '{expected_column_name}' column."
         )
 
 
@@ -35,7 +58,10 @@ def shuffle_without_catch_in_front(
     Returns:
     SHuffled trials with the required catch trials positions
     """
-    non_catch_trials = [trial for trial in trials if trial[type_key] != catch_type_value]
+    try:
+        non_catch_trials = [trial for trial in trials if trial[type_key] != catch_type_value]
+    except KeyError as e:
+        raise MissingQuestionTypeColumnError(type_key) from e
     if len(non_catch_trials) < num_leading_non_catch_trials:
         raise InsufficientNumNonCatchTrialsError(
             len(non_catch_trials), num_leading_non_catch_trials
