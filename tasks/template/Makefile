@@ -5,3 +5,11 @@ all:
 reload:
 	echo $(shell basename $(CURDIR))
 	npm run reload -- --only $(shell basename $(CURDIR))
+
+show:
+	echo $(shell basename $(CURDIR))
+	npm run show -- $(shell basename $(CURDIR))
+
+status:
+	npm run status
+

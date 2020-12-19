@@ -27,8 +27,8 @@ make
 ```sh
 # Ensure task is running
 # And ensure auto reload is enabled (check that npm_lifecycle_event is *reload* and not *start*)
-npm run status
-npm run show -- <folder_name>
+make status
+make show
 
 # If either above not met (not running or is not in auto reload mode)
 make reload
