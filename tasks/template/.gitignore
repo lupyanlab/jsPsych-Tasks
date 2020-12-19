@@ -4,3 +4,4 @@ port.py
 port.js
 logs
 test
+*.pid
