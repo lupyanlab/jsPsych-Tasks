@@ -55,7 +55,7 @@ def get_remaining_trials(
 def get_remaining_trials_with_trial_nums(
     trials_file_path: Path,
     data_file_path: Path,
-    column: str = "trial_num",
+    trial_num_column_name: str = "trial_num",
 ) -> tuple[list[dict[str, str]], int]:
     """
     Helper function for get_remaining_trials where the key is just the trial number
@@ -64,7 +64,7 @@ def get_remaining_trials_with_trial_nums(
     Parameters:
     trials_file_path: Path to trials file
     data_file_path: Path to data file
-    column: The trial number column name
+    trial_num_column_name: The trial number column name
 
     Returns:
     Tuple of the remaining trials (ordered as is from the trials file) and the total number
@@ -73,6 +73,6 @@ def get_remaining_trials_with_trial_nums(
     return get_remaining_trials(
         trials_file_path,
         data_file_path,
-        trial_key_fn=lambda trial: trial[column],
-        data_key_fn=lambda data: data[column],
+        trial_key_fn=lambda trial: trial[trial_num_column_name],
+        data_key_fn=lambda data: data[trial_num_column_name],
     )

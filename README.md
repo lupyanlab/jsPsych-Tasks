@@ -1,5 +1,146 @@
 # Tasks Monorepo
 
+# TL;DR
+
+> Whenever `<folder_name>` is used, it refers to the folder name of the task.
+>
+> **Note** All the below tasks are run under the `tasks/<folder_name>` directory
+
+## Copying a new task folder
+
+```sh
+# After copying, run
+make reload
+```
+
+## Editing existing `task.py`:
+
+### Method 1
+
+```sh
+# Run everytime you save a new change in onlytask.py
+make
+```
+
+### Method 2 (Auto reloading on file change)
+
+```sh
+# Ensure task is running
+# And ensure auto reload is enabled (check that npm_lifecycle_event is *reload* and not *start*)
+npm run status
+npm run show -- <folder_name>
+
+# If either above not met (not running or is not in auto reload mode)
+make reload
+
+```
+
+## Before MTurk
+
+```sh
+# Run to disable the auto reloading effect
+make
+```
+
+## Opening on the browser
+
+Example link (replace query parameters with whatever is in the task's repsective `README.md`):
+
+```
+http://sapir.psych.wisc.edu/mturk/jsPsych-Tasks/tasks/<folder_name>/index.html?workerId=test&fullscreen=false&dev=true&reset=false
+```
+
+where `?workerId=test&fullscreen=false&dev=true&reset=false` is its query string with parameters `workerId`, `fullscreen`, `dev`, and `reset` set.
+
+<!--
+## Running Pytest tests
+
+```sh
+# Run following if haven't before for this account
+sh configure.sh && source ~/.bashrc
+
+# Enter Pipenv shell
+pipenv shell
+
+# You can now run any pytest, python, and coverage scripts
+``` -->
+
+# Overview
+
+This is a single code repository for all the tasks. Each task consists of a `experiment.js` for the frontend (JavaScript) and a `task.py` for the backend (Python). This code repository is structured such that tasks can have their unique logic within their task folder under `tasks` and have shared logic in folders in `utils` (utility/helper functions) and `lib` (third-party libraries). There is also a shared list of packages (`Pipfile`) that is used for all the tasks.
+
+This code structure is meant to enable convenient code editing on Sapir.
+
+Check the `README.md` in the folders for more specific information relating to the folder and usage.
+
+# Local Setup From Scratch
+
+> Still WIP
+
+## Prerequisites
+
+- Python 3.7+ (Command `python3.7` is available)
+- Pipenv installed via Pip (`pip install pipenv`)
+- Node.js (LTS version)
+
+## Initial Setup Steps
+
+These steps are only meant
+
+1. Run `git clone https://github.com/lupyanlab/jsPsych-Tasks`
+   - Clones the code repository from GitHub
+2. Run `git checkout master-v2`
+   - Switch to the most updated framework branch.
+3. Run `sh configure.sh`
+   - Sets the proper environment variables in `~/.bashrc` to install the virtual environment and Python packages within the project directory. This is to avoid the problem where users would install their own copy of the virtual environment and packages within their home directory which will conflict with other users' installations.
+4. Run `source ~/.bashrc`
+   - Loads the new environment variables inserted from the previous step into the current terminal bash instance.
+5. Run `npm install`
+   - Installs the listed Node dependencies from `package.json`
+6. Run `pipenv install`
+   - Installs the listed Python packages from Pipfile
+7. Run `npm run logrotate`
+   - Starts a process that will maintain reasonable log state. https://github.com/keymetrics/pm2-logrotate
+
+## Starting New Task Servers
+
+Each task has their own server that lives in the `tasks` folder. The run scripts can be run anywhere from under the project directory.
+
+The task server can be started and will update on new changes in `task.py` by running
+
+```sh
+npm run reload -- --only <folder_name>
+# where <folder_name> is the name of the folder under tasks
+# (i.e. npm run reload -- --only template)
+```
+
+When the task server is ready for public traffic, run the following to disable the update on new changes and use a production WSGI server.
+
+```sh
+npm run start -- --only <folder_name>
+# (i.e. npm run start -- --only template)
+# Note: In constrast to the previous reload command, this is using npm run start instread.
+```
+
+## Starting Local Web HTML Server
+
+The
+
+- Open a new terminal
+- Run `npx serve`
+- Open the browser at `http://localhost:5000/tasks/<task>?workerId=test123` where `<task>` is the task folder name and `?workerId=test123` can be any URL parameters described in the task folder's README file.
+  - Note that `index.html` is not part of the path unlike on Sapir which includes `index.html` in the path (i.e. `http://sapir.psych.wisc.edu/mturk/sandbox/tasks/<task>/index.html?workerId=test`).
+
+## Logs
+
+Logs are stored within the `tasks` folder.
+
+To flush or clear the logs, run
+
+```
+npm run flush -- <folder_name>
+```
+
 ## Opening a Task Link
 
 Each task takes a set of [query string parameters](https://en.wikipedia.org/wiki/Query_string) as input in its URL.
@@ -9,41 +150,6 @@ Each task takes a set of [query string parameters](https://en.wikipedia.org/wiki
 Every task is hosted on http://sapir.psych.wisc.edu/mturk/sandbox/tasks/<task_name>/index.html where <task_name> is the name of the task. For example: http://sapir.psych.wisc.edu/mturk/sandbox/tasks/TypicalityImageRate/index.html
 
 Then the query string comes after the pathname with a leading `?`. For example: http://sapir.psych.wisc.edu/mturk/sandbox/tasks/TypicalityImageRate/index.html?workerId=test&fullscreen=false&dev=true&reset=false where `?workerId=test&fullscreen=false&dev=true&reset=false` is its query string with parameters `workerId`, `fullscreen`, `dev`, and `reset` set.
-
-## Development
-
-### Local Development Setup
-
-### Method 1: Docker
-
-#### Prerequisites
-
-- Docker installed
-
-#### Steps
-
-- Run `docker-compose up --build` at the respository root (i.e. `jsPsych-Tasks/`)
-- Open the browser at `http://localhost:5000/tasks/<task>?workerId=test123` where `<task>` is the task folder name and `?workerId=test123` can be any URL parameters described in the task folder's README file.
-  - Note that `index.html` is not part of the path unlike on Sapir which includes `index.html` in the path (i.e. `http://sapir.psych.wisc.edu/mturk/sandbox/tasks/<task>/index.html?workerId=test`).
-
-### Method 2: Without Docker
-
-#### Prerequisites
-
-- Python 2 (not 3)
-- Pipenv installed via Pip (`pip install pipenv`)
-- Node.js (LTS version)
-  - `npm` and `npx` commands are bundled with Node.js
-
-#### Steps
-
-- Run `npm install` at the respository root (i.e. `jsPsych-Tasks/`)
-- Run `pipenv install`
-- Run `npm start`
-- Open a new terminal
-- Run `npx serve`
-- Open the browser at `http://localhost:5000/tasks/<task>?workerId=test123` where `<task>` is the task folder name and `?workerId=test123` can be any URL parameters described in the task folder's README file.
-  - Note that `index.html` is not part of the path unlike on Sapir which includes `index.html` in the path (i.e. `http://sapir.psych.wisc.edu/mturk/sandbox/tasks/<task>/index.html?workerId=test`).
 
 ## Trials and Data
 
@@ -219,3 +325,17 @@ For example, running `npm run create-plugin -- my-new-plugin` will generate a ne
 ## `.htaccess`
 
 The `.htaccess` file contains a whitelist for accessible files and other Apache 2 specific options.
+
+## Troubleshoot
+
+If you get this problem:
+
+```
+pkg_resources.VersionConflict: (importlib-metadata 3.3.0 (/home/kmui2/.pyenv/versions/anaconda3-2020.02/lib/python3.7/site-packages), Requirement.parse('importlib-metadata<2,>=0.12; python_version < "3.8"'))
+```
+
+Upgrade virtualenv:
+
+```
+.venv/bin/python -m pip install -U virtualenv
+```

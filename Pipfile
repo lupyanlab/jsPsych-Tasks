@@ -3,21 +3,18 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
-[dev-packages]
-pytest = "*"
-rope = "*"
-yapf = "*"
-
 [packages]
 flask = "*"
 flask-cors = "*"
 pylint = "*"
-numpy = "*"
-pandas = "*"
-pytest = "*"
 random-username = "*"
 waitress = "*"
-hupper = "*"
+pytest = "*"
+rope = "*"
+yapf = "*"
+coverage = "*"
+snapshottest = "*"
+paste = "*"
 
 [requires]
 python_version = "3.7"

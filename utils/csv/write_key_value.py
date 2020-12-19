@@ -1,8 +1,7 @@
 import csv
-from typing import Any, Hashable
 
 
-def write_key_value(file_path: str, data: dict[Hashable, Any]) -> None:
+def write_key_value(file_path: str, data: dict) -> None:
     """
     Write a csv file with a key and value column
     and parse each row into a single item in a dict.
@@ -17,7 +16,7 @@ def write_key_value(file_path: str, data: dict[Hashable, Any]) -> None:
     file_path (str): File path
     data: Key value pairs to write
     """
-    with open(file_path, 'wb') as f:
+    with open(file_path, 'w') as f:
         w = csv.DictWriter(f, ('key', 'value'))
         w.writeheader()
         for k, v in data.items():

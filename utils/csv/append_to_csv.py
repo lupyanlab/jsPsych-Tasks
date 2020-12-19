@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from typing import Union, Any, Hashable, Union
 import csv
 import os
 from pathlib import Path
+from typing import Any, Hashable, Union
+
 from task_runner.logger import logger
 
 
@@ -19,14 +20,14 @@ def append_to_csv(
     file_path: File path
     row: Row(s) to append (also accepts a single row dict not in a list)
     order: (Not needed because insertion order is maintained from the browser
-            and in python.) Order in which the columns must be written in 
+            and in python.) Order in which the columns must be written in
             (must include all the columns)
     """
     if isinstance(rows, dict):
         rows = [rows]
 
     if len(rows) > 0:
-        fields = rows[0].keys()
+        fields = list(rows[0].keys())
 
         if order is not None:
             if len(order) != len(rows[0].keys()

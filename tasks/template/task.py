@@ -17,11 +17,17 @@ from utils.shuffle_without_catch_in_front import shuffle_without_catch_in_front
 dirname = get_dirname(__file__)
 
 TRIAL_NUM_COLUMN = "trial_num"
+NUM_LEADING_NON_CATCH_TRIALS = 2
+QUESTION_TYPE_COLUMN = "question_type"
+CATCH_VALUE = "catch"
 
 
 class Task:
-    def __init__(self, dev=False):
+    def __init__(self, dev=False, test=False):
         env_folder_path = dirname / ("dev" if dev else "prod")
+        if test:
+            env_folder_path = dirname / "test"
+
         mkdir(env_folder_path)
         self.trial_lists_folder = dirname / "trial_lists"
 
@@ -60,7 +66,7 @@ class Task:
             trials, num_trials = get_remaining_trials_with_trial_nums(
                 trials_file_path,
                 data_file_path,
-                column=TRIAL_NUM_COLUMN,
+                trial_num_column_name=TRIAL_NUM_COLUMN,
             )
 
             completed_demographics = demographics_file_path.exists()
@@ -104,7 +110,12 @@ class Task:
         trial_list_path = self.trial_lists_folder / trial_list
         trial_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
         trials = read_rows(trial_list_path)
-        trials = shuffle_without_catch_in_front(trials, 15)
+        trials = shuffle_without_catch_in_front(
+            trials,
+            NUM_LEADING_NON_CATCH_TRIALS,
+            type_key=QUESTION_TYPE_COLUMN,
+            catch_type_value=CATCH_VALUE
+        )
 
         # Add the trial_num column to the trials
         trials = [{TRIAL_NUM_COLUMN: index + 1, **row} for index, row in enumerate(trials)]

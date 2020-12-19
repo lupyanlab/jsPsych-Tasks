@@ -5,18 +5,18 @@
   "main": "index.js",
   "scripts": {
     "lint:watch": "esw --watch --color .",
-    "pm2:start": "cross-env PM2_HOME=. pm2 start",
-    "pm2:restart": "PM2_HOME=. pm2 restart tasks-server",
-    "pm2:stop": "PM2_HOME=. pm2 stop tasks-server",
-    "pm2:status": "PM2_HOME=. pm2 status",
-    "pm2:logs": "PM2_HOME=. pm2 logs tasks-server",
-    "pm2:delete": "PM2_HOME=. pm2 delete tasks-server",
-    "pm2:kill": "PM2_HOME=. pm2 kill",
-    "start": "FLASK_APP=client/client.py FLASK_ENV=development pipenv run flask run --port 7124 --host 0.0.0.0",
-    "prod": "FLASK_APP=client/client.py FLASK_ENV=production pipenv run flask run --port 7124 --host 0.0.0.0",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "kill": "kill-port 7124",
-    "restart": "pkill -f flask | npm run pm2:start"
+    "pm2": "cross-env PM2_HOME=. pm2",
+    "reload": "cross-env PM2_HOME=. TASK_RELOAD_ENABLED=1 pm2 start",
+    "start": "cross-env PM2_HOME=. pm2 start",
+    "stop": "cross-env PM2_HOME=. pm2 stop",
+    "restart": "cross-env PM2_HOME=. pm2 restart",
+    "status": "cross-env PM2_HOME=. pm2 status",
+    "logs": "cross-env PM2_HOME=. pm2 logs",
+    "delete": "cross-env PM2_HOME=. pm2 delete",
+    "kill": "cross-env PM2_HOME=. pm2 kill",
+    "show": "cross-env PM2_HOME=. pm2 show",
+    "flush": "cross-env PM2_HOME=. pm2 flush",
+    "logrotate": "cross-env PM2_HOME=. pm2 install pm2-logrotate"
   },
   "husky ": {
     "hooks": {
@@ -36,7 +36,6 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
@@ -47,6 +46,7 @@
     "eslint-watch": "^6.0.1",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
+    "pm2": "^4.5.1",
     "prettier": "^1.19.1"
   }
 }

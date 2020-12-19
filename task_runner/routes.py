@@ -1,24 +1,43 @@
-from inspect import signature, ismethod, Parameter
 import os
 from importlib import import_module
-from flask import request, jsonify
-from task_runner.app import app
-from task_runner.args import task_name
+from inspect import Parameter, ismethod, signature
 
-tasks_folder_path = './tasks'
+import werkzeug
+from flask import jsonify, render_template, request
+
+from task_runner.app import app
+from task_runner.logger import logger
+from utils.constants import APP_TASK_NAME_KEY
+from utils.paths.get_dirname import get_dirname
+
+dirname = get_dirname(__file__)
 
 NEW_LINE = "\n"
 
 
+# Always log the error and respond with only the error message
+@app.errorhandler(Exception)
+def after_request(e):
+    logger.exception(e)
+    return f"Check exception: {e}", 500
+
+
+@app.route('/', methods=['GET'])
+def home():
+    task_name = app.config[APP_TASK_NAME_KEY]
+    tasks_folder_path = dirname / "tasks" / task_name / "index.html"
+
+    return render_template(str(tasks_folder_path))
+
+
 @app.route('/', methods=['POST'])
 def task():  # pylint: disable=too-many-return-statements
+    task_name = app.config[APP_TASK_NAME_KEY]
+
     if not request.is_json:
         return 'Body must be set and in JSON', 400
 
     body = request.get_json()
-
-    if 'task' not in body:
-        return 'Key "task" is missing from request', 400
 
     if 'fn' not in body:
         return 'Key "fn" is missing from request', 400
@@ -41,10 +60,7 @@ def task():  # pylint: disable=too-many-return-statements
 
     Task = getattr(task_module, 'Task')
 
-    if 'dev' in body:
-        task_instance = Task(body['dev'])
-    else:
-        task_instance = Task()
+    task_instance = Task(dev=body.get("dev"), test=body.get("test"))
 
     fn_name = body['fn']
     if not hasattr(task_instance, fn_name):
@@ -69,10 +85,10 @@ def task():  # pylint: disable=too-many-return-statements
             msgs.append(f"Missed 'kwargs': {', '.join(missing_args)}")
         return (
             f"Request body for function '{fn_name}' has the following issues: "
-            "\n".join(msgs) + "Expected minimum following 'kwargs': " + '\n'.join(
+            "\n".join(msgs) + " Expected minimum following 'kwargs': [" + '\n'.join(
                 f"'{p.name}" for p in parameters_map.values()
                 if p.name != "self" and p.default == Parameter.empty
-            )
+            ) + "]"
         ), 400
 
     outbound_message = fn(**kwargs)
