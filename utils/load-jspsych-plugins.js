@@ -1,10 +1,11 @@
+const ENDPOINT = `http://${window.location.hostname}:`;
 /**
  * This imports all the plugins without having to
  * manually add each a new script element!
  */
-export default () => {
+export default (port) => {
   const pluginsPath = '../../lib/jspsych-6.1.0/plugins/';
-  return axios.get('http://sapir.psych.wisc.edu:7124/jspsych-plugins').then(({ data: plugins }) =>
+  return axios.get(`${ENDPOINT}${port}/jspsych-plugins`).then(({ data: plugins }) =>
     Promise.all(
       plugins.map((plugin) => {
         const script = document.createElement('script');
@@ -13,6 +14,8 @@ export default () => {
           script.onerror = reject;
           script.src = pluginsPath + plugin;
           document.head.appendChild(script);
+        }).catch((error) => {
+          console.warn(error);
         });
       }),
     ),

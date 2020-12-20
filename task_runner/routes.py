@@ -2,8 +2,7 @@ import os
 from importlib import import_module
 from inspect import Parameter, ismethod, signature
 
-import werkzeug
-from flask import jsonify, render_template, request
+from flask import jsonify, request
 
 from task_runner.app import app
 from task_runner.logger import logger
@@ -17,17 +16,16 @@ NEW_LINE = "\n"
 
 # Always log the error and respond with only the error message
 @app.errorhandler(Exception)
-def after_request(e):
+def errorhandler(e):
     logger.exception(e)
     return f"Check exception: {e}", 500
 
 
-@app.route('/', methods=['GET'])
-def home():
-    task_name = app.config[APP_TASK_NAME_KEY]
-    tasks_folder_path = dirname / "tasks" / task_name / "index.html"
-
-    return render_template(str(tasks_folder_path))
+@app.after_request
+def after_request(response):
+    if response.status_code != 200:
+        logger.warning(response.data)
+    return response
 
 
 @app.route('/', methods=['POST'])
@@ -60,9 +58,10 @@ def task():  # pylint: disable=too-many-return-statements
 
     Task = getattr(task_module, 'Task')
 
-    task_instance = Task(dev=body.get("dev"), test=body.get("test"))
+    task_instance = Task(dev=body.get("dev"))
 
     fn_name = body['fn']
+    logger.info("fn requested: %s", fn_name)
     if not hasattr(task_instance, fn_name):
         return f"Function '{fn_name}' is not found for task '{task_name}'", 404
 
@@ -91,13 +90,15 @@ def task():  # pylint: disable=too-many-return-statements
             ) + "]"
         ), 400
 
+    if "worker_id" in body:
+        logger.info("worker_id requested: %s", body["worker_id"])
+
     outbound_message = fn(**kwargs)
     return jsonify(outbound_message)
 
 
 @app.route('/jspsych-plugins', methods=['GET'])
 def get_jspsych_plugins_list():
-    dirname = os.path.dirname(__file__)
     default_jspsych_plugins_folder = os.path.join(dirname, '../lib/jspsych-6.1.0/plugins')
     plugins = [file for file in os.listdir(default_jspsych_plugins_folder) if file.endswith('.js')]
     return jsonify(plugins)

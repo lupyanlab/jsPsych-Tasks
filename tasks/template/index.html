@@ -6,18 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="../../lib/jspsych-6.1.0/jspsych.js"></script>
     <!-- ADDING <SCRIPT> ELEMENTS FOR PLUGINS ARE NOT NECESSARY -->
-    <!-- ALL PLUGINS IN PLUGIN FOLDER WILL BE IMPORTED IN INDEX.JS -->
+    <!-- ALL PLUGINS IN PLUGIN FOLDER WILL BE IMPORTED IN INDEX.HTML -->
     <link href="../../lib/jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css" />
-    <script src="../../lib/axios-0.19.2/dist/axios.js"></script>
+    <link href="../../lib/survey.css" rel="stylesheet" type="text/css" />
+    <script src="../../lib/axios-0.19.2/axios.min.js"></script>
     <script src="../../lib/jquery.min.js"></script>
     <script src="../../lib/survey.jquery.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="../../lib/bootstrap.min.css" /> -->
-    <link rel="stylesheet" type="text/css" href="./main.css" />
-
-    <title>Picture Rate</title>
+    <script type="module" src="../../utils/add-title.js"></script>
   </head>
 
   <body style="position:relative;height:100%;">
+    <script type="module" src="../../utils/preloader.js"></script>
     <script type="module" src="./experiment.js"></script>
   </body>
 </html>

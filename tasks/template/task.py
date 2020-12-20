@@ -1,17 +1,20 @@
 from __future__ import annotations
+
 from time import time
-from utils.remove_files import remove_files
-from utils.balance_utils.get_next_min_key import get_next_min_key
+
+from task_runner.app import app
 from utils.balance_utils.create_counts_file import create_counts_file
-from utils.csv.get_remaining_trials import get_remaining_trials_with_trial_nums
+from utils.balance_utils.get_next_min_key import get_next_min_key
+from utils.constants import ENV_FOLDER_PATH_KEY
 from utils.csv.append_to_csv import append_to_csv
-from utils.csv.write_to_csv import write_to_csv
+from utils.csv.get_remaining_trials import get_remaining_trials_with_trial_nums
 from utils.csv.read_rows import read_rows
+from utils.csv.write_to_csv import write_to_csv
 from utils.get_random_username import get_random_username
 from utils.listdir import listdir
-from utils.mkdir import mkdir
+from utils.paths.create_join_paths_fn import create_join_paths_fn as create_safe_join_paths_fn
 from utils.paths.get_dirname import get_dirname
-from utils.paths.create_join_paths_fn import (create_join_paths_fn as create_safe_join_paths_fn)
+from utils.remove_files import remove_files
 from utils.shuffle_without_catch_in_front import shuffle_without_catch_in_front
 
 dirname = get_dirname(__file__)
@@ -23,12 +26,13 @@ CATCH_VALUE = "catch"
 
 
 class Task:
-    def __init__(self, dev=False, test=False):
+    def __init__(self, dev=False):
         env_folder_path = dirname / ("dev" if dev else "prod")
-        if test:
-            env_folder_path = dirname / "test"
 
-        mkdir(env_folder_path)
+        # This is for different environments that can be set in Pytest
+        if ENV_FOLDER_PATH_KEY in app.config:
+            env_folder_path = app.config[ENV_FOLDER_PATH_KEY]
+
         self.trial_lists_folder = dirname / "trial_lists"
 
         # dev/prod folders/files
@@ -52,7 +56,7 @@ class Task:
     ):
         trials_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
         demographics_file_path = self.safe_join_paths_demographics(f"{worker_id}.csv")
-        consent_file_path = self.safe_join_paths_consent(f"{worker_id}.csv")
+        consent_file_path = self.safe_join_paths_consent(f"{worker_id}.txt")
         data_file_path = self.safe_join_paths_data(f"{worker_id}.csv", rm=True)
 
         if reset or not trials_file_path.exists():

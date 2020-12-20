@@ -13,3 +13,6 @@ show:
 status:
 	npm run status
 
+stop:
+	echo $(shell basename $(CURDIR))
+	npm run stop -- $(shell basename $(CURDIR))

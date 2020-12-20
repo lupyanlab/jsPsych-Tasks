@@ -39,7 +39,7 @@ def is_port_open(port: int, timeout=10) -> bool:
             sock.close()
             logger.info(f"Port {port} opened!")
             return True
-        except OSError as e:
+        except OSError:
             sleep(0.25)
     logger.info(f"Port {port} did open after {timeout} seconds. Looking for a different port...")
     return False
