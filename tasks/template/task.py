@@ -47,13 +47,11 @@ class Task:
         self.safe_join_paths_demographics = create_safe_join_paths_fn_env("demographics")
         self.safe_join_paths_consent = create_safe_join_paths_fn_env("consent")
 
-    def trials(
-        self,
-        # If not provided, generate a random username with the seconds
+    def trials(self, worker_id: str = None, reset: bool = False):
+        # If worker_id not provided, generate a random username with the seconds
         # # since the epoch appended at the end.
-        worker_id: str = f"{get_random_username()}_{int(time())}",
-        reset: bool = False
-    ):
+        if worker_id is None:
+            worker_id = f"{get_random_username()}_{int(time())}"
         trials_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
         demographics_file_path = self.safe_join_paths_demographics(f"{worker_id}.csv")
         consent_file_path = self.safe_join_paths_consent(f"{worker_id}.txt")

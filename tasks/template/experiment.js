@@ -1,14 +1,24 @@
-import loadJsPsychPlugins from '../../utils/load-jspsych-plugins.js';
 import createApi from '../../utils/create-api.js';
 import demographics_questions from './demograhpics.js';
 import searchParams from '../../utils/search-params.js';
 import PORT from './port.js';
 
+const errors = [];
+
+const old_console_error = console.error;
+console.error = function(message) {
+  errors.push(message);
+  old_console_error.apply(console, arguments);
+};
+
+const createErrorMessage = (error) =>
+  `<h3>Something went wrong. Please try reloading again and check your connection before contacting us.</h3>Unexpected error: ${
+    error.message
+  }.<br /> Additional error logs:<br />${errors.join('<br />')}`;
+
 const handleError = (error) => {
   console.error(error);
-  jsPsych.endExperiment(
-    `Something went wrong. Please try reloading again and check your connection before contacting us. \nUnexpected error: ${error.message}`,
-  );
+  jsPsych.endExperiment(createErrorMessage(error));
 };
 
 (async () => {
@@ -17,9 +27,7 @@ const handleError = (error) => {
     let { workerId: worker_id, fullscreen, reset } = searchParams;
 
     // "task" will be automatically populated with the value of TASK
-    const api = createApi(PORT);
-
-    await loadJsPsychPlugins(PORT);
+    const api = createApi(PORT, handleError);
 
     const {
       trials,
@@ -40,7 +48,19 @@ const handleError = (error) => {
     worker_id = trials_response['worker_id'];
     localStorage.setItem('workerId', worker_id);
 
+    ////////////////////////////////
+    // Timeline
+    ////////////////////////////////
     const main_timeline = [];
+
+    const fullscreen_trial = {
+      type: 'fullscreen',
+      fullscreen_mode: true,
+      message: '<p>This will switch to full screen mode when you press the button below</p>',
+      button_label: 'Continue',
+    };
+
+    if (fullscreen) main_timeline.push(fullscreen_trial);
 
     const consent_trial = {
       type: 'lupyanlab-consent',
@@ -49,7 +69,7 @@ const handleError = (error) => {
         'If you wish to participate, you must check the box next to the statement "I agree to participate in this study."',
       button_label: 'Start Experiment',
       on_finish: () => {
-        return api({ fn: 'consent', kwargs: { worker_id } }).catch(handleError);
+        return api({ fn: 'consent', kwargs: { worker_id } });
       },
     };
 
@@ -120,9 +140,7 @@ const handleError = (error) => {
       type: 'lupyanlab-surveyjs',
       questions: demographics_questions,
       on_finish: (response) => {
-        return api({ fn: 'demographics', kwargs: { worker_id, demographics: response } }).catch(
-          handleError,
-        );
+        return api({ fn: 'demographics', kwargs: { worker_id, demographics: response } });
       },
     };
     if (!completed_demographics) main_timeline.push(demographics_trial);
@@ -149,13 +167,9 @@ const handleError = (error) => {
     });
   } catch (error) {
     console.error(error);
-    alert(
-      `Something went wrong. Please try reloading again and check your connection before contacting us. \nUnexpected error: ${error.message}`,
-    );
     if (document.getElementById('preloader-gif-container') != null) {
-      document.getElementById(
-        'preloader-gif-container',
-      ).innerHTML = `Something went wrong. Please try reloading again and check your connection before contacting us. \nUnexpected error: ${error.message}`;
+      document.getElementById('preloader-gif-container').remove();
     }
+    document.body.innerHTML = createErrorMessage(error);
   }
 })();

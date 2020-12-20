@@ -1,4 +1,3 @@
-import os
 from importlib import import_module
 from inspect import Parameter, ismethod, signature
 
@@ -95,10 +94,3 @@ def task():  # pylint: disable=too-many-return-statements
 
     outbound_message = fn(**kwargs)
     return jsonify(outbound_message)
-
-
-@app.route('/jspsych-plugins', methods=['GET'])
-def get_jspsych_plugins_list():
-    default_jspsych_plugins_folder = os.path.join(dirname, '../lib/jspsych-6.1.0/plugins')
-    plugins = [file for file in os.listdir(default_jspsych_plugins_folder) if file.endswith('.js')]
-    return jsonify(plugins)
