@@ -160,3 +160,4 @@ pids/
 
 redis-stable/
 dump.rdb
+modules/
