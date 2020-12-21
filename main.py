@@ -76,7 +76,7 @@ def get_allocated_task_ports() -> set[int]:
     """
     allocated_ports = set()
     tasks = [
-        item for item in (dirname / "tasks").iterdir()
+        item.name for item in (dirname / "tasks").iterdir()
         if item.is_dir() and item.name != "__pycache__" and item.name != task_name
     ]
     for task in tasks:
@@ -108,26 +108,19 @@ if __name__ == "__main__":
         join_paths = create_join_paths_fn(dirname)
         py_port_file_path = join_paths("tasks", task_name, "port.py", rm=False)
 
-        # We need to use the same port because sometimes when restarting, the port
-        # is still occupied for the next minute for some reason. Waitress serve
-        # will always overwrite the port.
-        if py_port_file_path.exists():
-            port = getattr(import_module(f"tasks.{task_name}.port"), 'PORT')
-            logger.info("Using existing port: %s", port)
-        else:
-            logger.info("looking for port")
+        logger.info("looking for port")
 
-            # if not existing_port_is_open:
-            allocated_task_ports = get_allocated_task_ports()
-            port = next_free_port(allocated_task_ports)
+        # if not existing_port_is_open:
+        allocated_task_ports = get_allocated_task_ports()
+        port = next_free_port(allocated_task_ports)
 
-            py_port_file_path = join_paths("tasks", task_name, "port.py", rm=True)
-            py_port_file_path.touch()
-            py_port_file_path.write_text(f"PORT = {port}\n")
+        py_port_file_path = join_paths("tasks", task_name, "port.py", rm=True)
+        py_port_file_path.touch()
+        py_port_file_path.write_text(f"PORT = {port}\n")
 
-            js_port_file_path = join_paths("tasks", task_name, "port.js", rm=True)
-            js_port_file_path.touch()
-            js_port_file_path.write_text(f"export default {port};\n")
+        js_port_file_path = join_paths("tasks", task_name, "port.js", rm=True)
+        js_port_file_path.touch()
+        js_port_file_path.write_text(f"export default {port};\n")
 
         logger.info("App is started.")
         logger.info(f"Listening on port {port}")

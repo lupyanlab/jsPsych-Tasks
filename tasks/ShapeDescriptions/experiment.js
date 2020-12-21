@@ -14,11 +14,16 @@ console.error = function(message) {
 const createErrorMessage = (error) =>
   `<h3>Something went wrong. Please try reloading again and check your connection before contacting us.</h3>Unexpected error: ${
     error.message
-  }.<br /> <br />Additional error logs:<br />${errors.join('<br />')}`;
+  }.<br /><br /> Additional error logs:<br />${errors.join('<br />')}`;
 
 const handleError = (error) => {
   console.error(error);
-  jsPsych.endExperiment(createErrorMessage(error));
+  const error_message = createErrorMessage(error);
+  try {
+    jsPsych.endExperiment(error_message);
+  } catch (_) {
+    document.body.innerHTML = error_message;
+  }
 };
 
 (async () => {
@@ -30,7 +35,7 @@ const handleError = (error) => {
 
     const {
       trials,
-      // num_trials,
+      num_trials,
       consent_agreed,
       completed_demographics,
       ...trials_response
@@ -86,44 +91,37 @@ const handleError = (error) => {
     };
     if (has_trials_remaining.length > 0) main_timeline.push(instructions);
 
-    // const image_trials_block = {
-    //   type: 'lupyanlab-typicality-image-rate',
-    //   score_prefix_label: 'Your score: ',
-    //   score_suffix_label: '',
-    //   bonus_prefix_label: 'Current bonus: $',
-    //   bonus_suffix_label: '',
-    //   question: 'Please name this shape',
-    //   input_placeholder: 'type here',
-    //   submit_button_label: 'Submit',
-    //   input_feedback_duration: 500,
-    //   // Nested timeline:  https://www.jspsych.org/overview/timeline/#nested-timelines
-    //   timeline: trials.map((trial) => ({
-    //     trial_progress_text: `Trial ${Number(trial.trial_number) + 1} of ${num_trials}`,
-    //     prompt: `How typical is this ${trial.category}?`,
-    //     image: images_folder_path + trial.category + '/' + trial.image,
-    //     shape_image: trial.shape_image,
-    //     keys: trial.keys.split(','),
-    //     labels: trial.labels.split(','),
-    //     on_start: () => {
-    //       jsPsych.setProgressBar((Number(trial.trial_number) + 1) / num_trials);
-    //     },
-    //     on_finish: ({ rt, key, label }) => {
-    //       api({
-    //         fn: 'data',
-    //         kwargs: {
-    //           choice_label: label,
-    //           choice_key: key,
-    //           worker_id,
-    //           rt,
-    //           image: trial.image,
-    //           trial_number: trial.trial_number,
-    //           category: trial.category,
-    //         },
-    //       });
-    //     },
-    //   })),
-    // };
-    // main_timeline.push(image_trials_block);
+    const data_trials_block = {
+      type: 'lupyanlab-shape-descriptions',
+      timeline: trials.map((trial) => ({
+        trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
+        A: trial.A,
+        B: trial.B,
+        stimuli: trial.stimuli.map((stim) => `stimuli/${stim}`),
+        stim_not_moved_alert: 'Please move all shapes to continue',
+        finish_button_label: 'FINISH',
+        stim_size: 100,
+        on_start: () => {
+          jsPsych.setProgressBar((trial.trial_num - 1) / num_trials);
+        },
+        on_finish: ({ rt, stim_infos, window_width, window_height }) => {
+          return api({
+            fn: 'data',
+            kwargs: {
+              worker_id,
+              data: {
+                ...trial,
+                rt,
+                response: stim_infos,
+                window_width,
+                window_height,
+              },
+            },
+          });
+        },
+      })),
+    };
+    main_timeline.push(data_trials_block);
 
     const demographics_questions_instructions = {
       type: 'instructions',

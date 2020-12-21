@@ -1,11 +1,10 @@
 from __future__ import annotations
-from os import mkdir
 
+import json
+from random import choice, shuffle
 from time import time
 
 from task_runner.app import app
-from utils.balance_utils.create_counts_file import create_counts_file
-from utils.balance_utils.get_next_min_key import get_next_min_key
 from utils.constants import ENV_FOLDER_PATH_KEY
 from utils.csv.append_to_csv import append_to_csv
 from utils.csv.get_remaining_trials import get_remaining_trials_with_trial_nums
@@ -16,7 +15,6 @@ from utils.listdir import listdir
 from utils.paths.create_join_paths_fn import create_join_paths_fn as create_safe_join_paths_fn
 from utils.paths.get_dirname import get_dirname
 from utils.remove_files import remove_files
-from utils.shuffle_without_catch_in_front import shuffle_without_catch_in_front
 
 dirname = get_dirname(__file__)
 
@@ -34,15 +32,8 @@ class Task:
         if ENV_FOLDER_PATH_KEY in app.config:
             env_folder_path = app.config[ENV_FOLDER_PATH_KEY]
 
-        if not env_folder_path.exists():
-            mkdir(env_folder_path)
+        self.trial_lists_folder_path = dirname / "trial_files"
 
-        self.trial_lists_folder = dirname / "trial_lists"
-
-        # dev/prod folders/files
-        self.counts_file_path = env_folder_path / "counts.csv"
-
-        # dev/prod folder join paths functions for below to use
         create_safe_join_paths_fn_env = lambda folder: create_safe_join_paths_fn(
             env_folder_path / folder, mkdir=True
         )
@@ -50,6 +41,9 @@ class Task:
         self.safe_join_paths_data = create_safe_join_paths_fn_env("data")
         self.safe_join_paths_demographics = create_safe_join_paths_fn_env("demographics")
         self.safe_join_paths_consent = create_safe_join_paths_fn_env("consent")
+
+        # self.safe_join_paths_stimuli = create_safe_join_paths_fn(dirname / "stimuli")
+        self.stimuli_folder_path = dirname / "stimuli"
 
     def trials(self, worker_id: str = None, reset: bool = False):
         # If worker_id not provided, generate a random username with the seconds
@@ -59,11 +53,13 @@ class Task:
         trials_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
         demographics_file_path = self.safe_join_paths_demographics(f"{worker_id}.csv")
         consent_file_path = self.safe_join_paths_consent(f"{worker_id}.txt")
-        data_file_path = self.safe_join_paths_data(f"{worker_id}.csv", rm=True)
+        data_file_path = self.safe_join_paths_data(f"{worker_id}.csv")
 
         if reset or not trials_file_path.exists():
             trials = self._generate_trials(worker_id)
             num_trials = len(trials)
+
+            remove_files(data_file_path)
 
             remove_files(demographics_file_path, consent_file_path)
             completed_demographics = False
@@ -77,6 +73,7 @@ class Task:
 
             # Parse the CSV strings into their proper data type
             for trial in trials:
+                trial["stimuli"] = json.loads(trial["stimuli"].replace("'", '"'))
                 trial[TRIAL_NUM_COLUMN] = int(trial[TRIAL_NUM_COLUMN])
 
             completed_demographics = demographics_file_path.exists()
@@ -110,24 +107,27 @@ class Task:
     # HELPERS
     ########################################################
     def _generate_trials(self, worker_id: str):
-        # Get assigned trial list
-        if not self.counts_file_path.exists():
-            trial_lists = [
-                trial_list_path.name for trial_list_path in listdir(self.trial_lists_folder)
-            ]
-            create_counts_file(self.counts_file_path, trial_lists)
-        trial_list = get_next_min_key(self.counts_file_path)
+        stimuli_names = [
+            stim_file_path.name for stim_file_path in listdir(self.stimuli_folder_path)
+        ]
+        trials = []
+        for label_folder_path in listdir(self.trial_lists_folder_path):
+            for file_path in listdir(label_folder_path):
+                rows = read_rows(file_path)
+                for row in rows:
+                    a_left = choice([True, False])
+                    if a_left:
+                        row["left"] = "A"
+                        row["right"] = "B"
+                    else:
+                        row["left"] = "B"
+                        row["right"] = "A"
+                    row["stimuli"] = stimuli_names
+                trials.extend(rows)
 
-        # Copy assigned trial list to trials folder
-        trial_list_path = self.trial_lists_folder / trial_list
         trial_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
-        trials = read_rows(trial_list_path)
-        trials = shuffle_without_catch_in_front(
-            trials,
-            NUM_LEADING_NON_CATCH_TRIALS,
-            type_key=QUESTION_TYPE_COLUMN,
-            catch_type_value=CATCH_VALUE
-        )
+
+        shuffle(trials)
 
         # Add the trial_num column to the trials
         trials = [{TRIAL_NUM_COLUMN: index + 1, **row} for index, row in enumerate(trials)]

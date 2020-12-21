@@ -83,7 +83,7 @@ def task():  # pylint: disable=too-many-return-statements
             msgs.append(f"Missed 'kwargs': {', '.join(missing_args)}")
         return (
             f"Request body for function '{fn_name}' has the following issues: "
-            "\n".join(msgs) + " Expected minimum following 'kwargs': [" + '\n'.join(
+            "\n".join(msgs) + " Expected minimum following 'kwargs': [" + ','.join(
                 f"'{p.name}" for p in parameters_map.values()
                 if p.name != "self" and p.default == Parameter.empty
             ) + "]"

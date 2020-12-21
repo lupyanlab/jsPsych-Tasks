@@ -161,3 +161,6 @@ pids/
 redis-stable/
 dump.rdb
 modules/
+
+.DS_Store
+.Rhistory
