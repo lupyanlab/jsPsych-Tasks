@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from os import mkdir
 from random import choice, shuffle
 from time import time
 
@@ -31,6 +32,9 @@ class Task:
         # This is for different environments that can be set in Pytest
         if ENV_FOLDER_PATH_KEY in app.config:
             env_folder_path = app.config[ENV_FOLDER_PATH_KEY]
+
+        if not env_folder_path.exists():
+            mkdir(env_folder_path)
 
         self.trial_lists_folder_path = dirname / "trial_files"
 
