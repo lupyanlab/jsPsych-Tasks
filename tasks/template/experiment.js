@@ -3,31 +3,15 @@ import demographics_questions from './demograhpics.js';
 import searchParams from '../../utils/search-params.js';
 import PORT from './port.js';
 
-const errors = [];
-
-const old_console_error = console.error;
-console.error = function(message) {
-  errors.push(message);
-  old_console_error.apply(console, arguments);
-};
-
 const createErrorMessage = (error) =>
-  `<h3>Something went wrong. Please try reloading again and check your connection before contacting us.</h3>Unexpected error: ${
-    error.message
-  }.<br /> Additional error logs:<br />${errors.join('<br />')}`;
-
-const handleError = (error) => {
-  console.error(error);
-  jsPsych.endExperiment(createErrorMessage(error));
-};
+  `<h3>Something went wrong. Please try reloading again and check your connection before contacting us.</h3>Unexpected error: ${error.message}.`;
 
 (async () => {
   try {
-    // TODO: fullscreen doesn't work
     let { workerId: worker_id, fullscreen, reset } = searchParams;
 
     // "task" will be automatically populated with the value of TASK
-    const api = createApi(PORT, handleError);
+    const api = createApi(PORT);
 
     const {
       trials,

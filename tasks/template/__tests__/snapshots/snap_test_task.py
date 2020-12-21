@@ -13,17 +13,17 @@ snapshots['test_trials 1'] = {
     'num_trials': 3,
     'trials': [
         {
-            'anchor_neg': 'ugly',
-            'anchor_pos': 'beautiful',
-            'question_type': 'real',
-            'stim': 'dog',
-            'trial_num': 1
-        },
-        {
             'anchor_neg': '壞',
             'anchor_pos': '好',
             'question_type': 'real',
             'stim': '狗',
+            'trial_num': 1
+        },
+        {
+            'anchor_neg': 'ugly',
+            'anchor_pos': 'beautiful',
+            'question_type': 'real',
+            'stim': 'dog',
             'trial_num': 2
         },
         {
@@ -38,8 +38,8 @@ snapshots['test_trials 1'] = {
 }
 
 snapshots['test_trials 2'] = '''trial_num,stim,anchor_neg,anchor_pos,question_type
-1,dog,ugly,beautiful,real
-2,狗,壞,好,real
+1,狗,壞,好,real
+2,dog,ugly,beautiful,real
 3,dog,small,large,catch
 '''
 
