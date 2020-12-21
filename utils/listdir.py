@@ -1,10 +1,8 @@
 from __future__ import annotations
-import os
-from typing import Union
 from pathlib import Path
 
 
-def listdir(path: Union[Path, str]) -> list[str]:
+def listdir(path: Path) -> list[Path]:
     """
     Same as os.listdir except that hidden files (starting with a dot '.')
     are excluded.
@@ -16,4 +14,4 @@ def listdir(path: Union[Path, str]) -> list[str]:
     List of files and directories in the path
     """
 
-    return [item for item in os.listdir(path) if not item.startswith('.')]
+    return [item for item in path.iterdir() if not path.name.startswith('.')]

@@ -1,4 +1,5 @@
 from __future__ import annotations
+from os import mkdir
 
 from time import time
 
@@ -32,6 +33,9 @@ class Task:
         # This is for different environments that can be set in Pytest
         if ENV_FOLDER_PATH_KEY in app.config:
             env_folder_path = app.config[ENV_FOLDER_PATH_KEY]
+
+        if not env_folder_path.exists():
+            mkdir(env_folder_path)
 
         self.trial_lists_folder = dirname / "trial_lists"
 
@@ -104,7 +108,9 @@ class Task:
     def _generate_trials(self, worker_id: str):
         # Get assigned trial list
         if not self.counts_file_path.exists():
-            trial_lists = listdir(self.trial_lists_folder)
+            trial_lists = [
+                trial_list_path.name for trial_list_path in listdir(self.trial_lists_folder)
+            ]
             create_counts_file(self.counts_file_path, trial_lists)
         trial_list = get_next_min_key(self.counts_file_path)
 
