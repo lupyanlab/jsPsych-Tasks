@@ -19,6 +19,7 @@ from utils.paths.get_dirname import get_dirname
 PORT_RANGE = [7100, 7199]
 
 dirname = get_dirname(__file__)
+join_paths = create_join_paths_fn(dirname)
 
 
 # pylint: disable=redefined-outer-name
@@ -79,16 +80,20 @@ def get_allocated_task_ports() -> set[int]:
         item.name for item in (dirname / "tasks").iterdir()
         if item.is_dir() and item.name != "__pycache__" and item.name != task_name
     ]
+
     for task in tasks:
-        try:
-            port_module = import_module(f'tasks.{task}.port')
-            if not hasattr(port_module, 'PORT'):
-                raise Exception(f'Task "{task}" is missing the PORT variable')
-            port = getattr(port_module, 'PORT')
-            if port is not None:
-                allocated_ports.add(port)
-        except Exception as e:
-            raise Exception(f"Unable to parse port.py for task '{task}'") from e
+        if join_paths("tasks", task, "port.py").exists():
+            try:
+                port_module = import_module(f'tasks.{task}.port')
+                if not hasattr(port_module, 'PORT'):
+                    raise Exception(f'Task "{task}" is missing the PORT variable')
+                port = getattr(port_module, 'PORT')
+                if port is not None:
+                    allocated_ports.add(port)
+            except Exception as e:
+                raise Exception(f"Unable to parse port.py for task '{task}'") from e
+        else:
+            logger.warning("No port.py file found for task %s", task)
     return allocated_ports
 
 
@@ -105,7 +110,6 @@ if __name__ == "__main__":
     logger.info("is_reloading_child=%s", is_reloading_child)
     # Only update port before debug mode has started or in production WSGI server
     if not is_reloading_child:
-        join_paths = create_join_paths_fn(dirname)
         py_port_file_path = join_paths("tasks", task_name, "port.py", rm=False)
 
         logger.info("looking for port")
