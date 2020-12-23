@@ -37,7 +37,7 @@ class Task:
         if not env_folder_path.exists():
             mkdir(env_folder_path)
 
-        self.trial_lists_folder = dirname / "trial_lists"
+        self.trial_lists_folder_path = dirname / "trial_lists"
 
         # dev/prod folders/files
         self.counts_file_path = env_folder_path / "counts.csv"
@@ -113,13 +113,13 @@ class Task:
         # Get assigned trial list
         if not self.counts_file_path.exists():
             trial_lists = [
-                trial_list_path.name for trial_list_path in listdir(self.trial_lists_folder)
+                trial_list_path.name for trial_list_path in listdir(self.trial_lists_folder_path)
             ]
             create_counts_file(self.counts_file_path, trial_lists)
         trial_list = get_next_min_key(self.counts_file_path)
 
         # Copy assigned trial list to trials folder
-        trial_list_path = self.trial_lists_folder / trial_list
+        trial_list_path = self.trial_lists_folder_path / trial_list
         trial_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
         trials = read_rows(trial_list_path)
         trials = shuffle_without_catch_in_front(

@@ -4,6 +4,8 @@ import json
 from os import mkdir
 from random import choice, shuffle
 from time import time
+from utils.balance_utils.get_next_min_key import get_next_min_key
+from utils.balance_utils.create_counts_file import create_counts_file
 
 from task_runner.app import app
 from utils.constants import ENV_FOLDER_PATH_KEY
@@ -37,6 +39,12 @@ class Task:
             mkdir(env_folder_path)
 
         self.trial_lists_folder_path = dirname / "trial_files"
+        self.withLabels_folder_path = self.trial_lists_folder_path / "withLabels"
+        self.noLabels_folder_path = self.trial_lists_folder_path / "noLabels"
+
+        # dev/prod folders/files
+        self.noLabels_counts_file_path = env_folder_path / "noLabels_counts.csv"
+        self.withLabels_counts_file_path = env_folder_path / "withLabels_counts.csv"
 
         create_safe_join_paths_fn_env = lambda folder: create_safe_join_paths_fn(
             env_folder_path / folder, mkdir=True
@@ -111,23 +119,38 @@ class Task:
     # HELPERS
     ########################################################
     def _generate_trials(self, worker_id: str):
+        if not self.noLabels_counts_file_path.exists():
+            trial_lists = [
+                trial_list_path.name for trial_list_path in listdir(self.noLabels_folder_path)
+            ]
+            create_counts_file(self.noLabels_counts_file_path, trial_lists)
+
+        if not self.withLabels_counts_file_path.exists():
+            trial_lists = [
+                trial_list_path.name for trial_list_path in listdir(self.withLabels_folder_path)
+            ]
+            create_counts_file(self.withLabels_counts_file_path, trial_lists)
+        noLabels_trial_list = get_next_min_key(self.noLabels_counts_file_path)
+        noLabels_file_path = self.noLabels_folder_path / noLabels_trial_list
+        withLabels_trial_list = get_next_min_key(self.withLabels_counts_file_path)
+        withLabels_file_path = self.withLabels_folder_path / withLabels_trial_list
+
         stimuli_names = [
             stim_file_path.name for stim_file_path in listdir(self.stimuli_folder_path)
         ]
         trials = []
-        for label_folder_path in listdir(self.trial_lists_folder_path):
-            for file_path in listdir(label_folder_path):
-                rows = read_rows(file_path)
-                for row in rows:
-                    a_left = choice([True, False])
-                    if a_left:
-                        row["left"] = "A"
-                        row["right"] = "B"
-                    else:
-                        row["left"] = "B"
-                        row["right"] = "A"
-                    row["stimuli"] = stimuli_names
-                trials.extend(rows)
+        for file_path in (noLabels_file_path, withLabels_file_path):
+            rows = read_rows(file_path)
+            for row in rows:
+                a_left = choice([True, False])
+                if a_left:
+                    row["left"] = "A"
+                    row["right"] = "B"
+                else:
+                    row["left"] = "B"
+                    row["right"] = "A"
+                row["stimuli"] = stimuli_names
+            trials.extend(rows)
 
         trial_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
 
