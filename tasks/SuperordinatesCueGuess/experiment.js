@@ -113,7 +113,7 @@ const handleError = (error) => {
           <br>`,
         questions: [{ prompt: '', name: '', rows: 1, columns: 30, required: true }],
         on_start: () => {
-          jsPsych.setProgressBar(trial.trial_num / num_trials);
+          jsPsych.setProgressBar((trial.trial_num - 1) / num_trials);
         },
         on_finish: ({ rt, responses }) => {
           const response = JSON.parse(responses).Q0;

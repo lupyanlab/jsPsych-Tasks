@@ -105,7 +105,7 @@ const handleError = (error) => {
         keys: trial.keys.split(','),
         labels: trial.labels.split(','),
         on_start: () => {
-          jsPsych.setProgressBar(trial.trial_num / num_trials);
+          jsPsych.setProgressBar((trial.trial_num - 1) / num_trials);
         },
         on_finish: ({ rt, key, label }) => {
           return api({

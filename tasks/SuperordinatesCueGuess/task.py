@@ -59,7 +59,7 @@ class Task:
         trials_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
         demographics_file_path = self.safe_join_paths_demographics(f"{worker_id}.csv")
         consent_file_path = self.safe_join_paths_consent(f"{worker_id}.txt")
-        data_file_path = self.safe_join_paths_data(f"{worker_id}.csv", rm=True)
+        data_file_path = self.safe_join_paths_data(f"{worker_id}.csv")
 
         if reset or not trials_file_path.exists():
             trials = self._generate_trials(worker_id)
