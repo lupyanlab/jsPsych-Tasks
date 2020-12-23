@@ -4,10 +4,10 @@ import json
 from os import mkdir
 from random import choice, shuffle
 from time import time
-from utils.balance_utils.get_next_min_key import get_next_min_key
-from utils.balance_utils.create_counts_file import create_counts_file
 
 from task_runner.app import app
+from utils.balance_utils.create_counts_file import create_counts_file
+from utils.balance_utils.get_next_min_key import get_next_min_key
 from utils.constants import ENV_FOLDER_PATH_KEY
 from utils.csv.append_to_csv import append_to_csv
 from utils.csv.get_remaining_trials import get_remaining_trials_with_trial_nums
@@ -68,12 +68,12 @@ class Task:
         data_file_path = self.safe_join_paths_data(f"{worker_id}.csv")
 
         if reset or not trials_file_path.exists():
+            remove_files(
+                demographics_file_path, consent_file_path, data_file_path, trials_file_path
+            )
             trials = self._generate_trials(worker_id)
             num_trials = len(trials)
 
-            remove_files(data_file_path)
-
-            remove_files(demographics_file_path, consent_file_path)
             completed_demographics = False
             consent_agreed = False
         else:
