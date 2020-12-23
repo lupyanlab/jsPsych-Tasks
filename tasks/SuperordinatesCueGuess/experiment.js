@@ -25,6 +25,11 @@ const handleError = (error) => {
   try {
     let { workerId: worker_id, fullscreen, reset } = searchParams;
 
+    if (worker_id) {
+      //make sure that nobody can enter anything damaging or crazy for workerId
+      worker_id.replace(/[^A-Za-z0-9_]/g, '');
+    }
+
     // "task" will be automatically populated with the value of TASK
     const api = createApi(PORT, handleError);
 
@@ -77,48 +82,50 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `<p class="lead">In this HIT, you will see various images of familiar objects. For each image, please rate how typical it is of its category.
-        For example, you may be shown a series of motorcycles and asked how typical each one is of motorcyles in general.
-        </p> <p class="lead">Use the  1-5 keys on the keyboard to respond. 1 means very typical. 5 means very atypical. Please try to use the entire scale, not just the 1/5 keys. If you rush through without attending to the images, we may deny payment.
-        </p>`,
+        /* html */ `In this study, you will be given 3 words that are members of a category. Your task is to guess the name of the category.
+		  <br><br>
+		  For example, if you were given the words &#34;red&#34;, &#34;blue&#34; and &#34;yellow&#34;, you might guess:
+		  <br><br>
+      <strong>colors</strong>
+      <br><br>
+		  If you were given the words &#34;soda&#34;, &#34;wine&#34; and &#34;beer&#34;, you might guess:
+		  <br><br>
+		  <strong>beverages</strong><br><br>
+		  The name of each category should only be a single word (for example, not &#34;primary colors&#34;).
+		  <br>"+ "<br>
+		  "You will guess names for "+ trialsNum +" categories. Press Continue to begin.<br>`,
       ],
       show_clickable_nav: true,
     };
     if (has_trials_remaining.length > 0) main_timeline.push(instructions);
 
     const data_trials_block = {
-      type: 'lupyanlab-typicality-image-rate',
-      score_prefix_label: 'Your score: ',
-      score_suffix_label: '',
-      bonus_prefix_label: 'Current bonus: $',
-      bonus_suffix_label: '',
-      question: 'Please name this shape',
-      input_placeholder: 'type here',
-      submit_button_label: 'Submit',
+      type: 'survey-text',
       input_feedback_duration: 500,
-      // Nested timeline:  https://www.jspsych.org/overview/timeline/#nested-timelines
       timeline: trials.map((trial) => ({
-        trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
-        prompt: `How typical is this ${trial.category}?`,
-        // image: images_folder_path + trial.category + '/' + trial.image,
-        shape_image: trial.shape_image,
-        keys: trial.keys.split(','),
-        labels: trial.labels.split(','),
+        preamble: /*html*/ `List 3 more members of this category:
+          <br><br>
+          ${trial.r1}
+          <br><br>
+          ${trial.r2}
+          <br><br>
+          ${trial.r3}
+          <br>`,
+        questions: [{ prompt: '', name: '', rows: 1, columns: 30, required: true }],
         on_start: () => {
           jsPsych.setProgressBar(trial.trial_num / num_trials);
         },
-        on_finish: ({ rt, key, label }) => {
+        on_finish: ({ rt, responses }) => {
+          const response = JSON.parse(responses).Q0;
+
           return api({
             fn: 'data',
             kwargs: {
               worker_id,
               data: {
-                choice_label: label,
-                choice_key: key,
+                response,
                 rt,
-                image: trial.image,
-                trial_num: trial.trial_num,
-                category: trial.category,
+                ...trial,
               },
             },
           });
@@ -146,16 +153,40 @@ const handleError = (error) => {
     };
     if (!completed_demographics) main_timeline.push(demographics_trial);
 
+    //create random code for final message
+    const randLetter = () => {
+      var a_z = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var int = Math.floor(Math.random() * a_z.length);
+      var rand_letter = a_z[int];
+      return rand_letter;
+    };
+
+    var secretCode = 'zsupz'; // this is the 'key'
+    var code = '';
+
+    for (let i = 0; i < 7; i++) {
+      code = code.concat(randLetter());
+    }
+
+    code = code.concat(secretCode);
+
+    for (let i = 0; i < 7; i++) {
+      code = code.concat(randLetter());
+    }
+
     const debrief_block = {
       type: 'html-keyboard-response',
       choices: [],
       stimulus: function() {
-        return /* html */ `Thank you for participating!
-          <p>The purpose of this HIT is to assess the extent to which different people agree what makes
-          a particular dog, cat, or car typical.
-  
-          <p>
-          If you have any questions or comments, please email cschonberg@wisc.edu.`;
+        return /* html */ `<p>Thanks for participating!</p>" 
+        <p>If you have any questions, please feel free to send us a message (lrissman@wisc.edu).</p>
+        <br><br>
+        <center>Your completion code for mTurk is</center>
+        <br>
+        <center><u><b style="font-size:20px">${code}</b></u></center>
+        <br>
+        <center>Please copy/paste this code into the mTurk box' 
+        <p><b>Click the Continue button to complete the experiment.</b> Thank you!</p>`;
       },
     };
     main_timeline.push(debrief_block);
