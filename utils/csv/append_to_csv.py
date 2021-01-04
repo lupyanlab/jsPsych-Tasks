@@ -42,11 +42,9 @@ def append_to_csv(
 
         Path(file_path).touch()
 
-        with open(file_path, 'r+') as f:
-            if should_write_headers:
-                w = csv.DictWriter(f, fields)
-                w.writeheader()
-            else:
+        if not should_write_headers:
+            # Replace fields with the actual fields in the file
+            with open(file_path, "r") as f:
                 reader = csv.DictReader(f)
                 actual_fields = reader.fieldnames
                 # Do a check on whether the fields passed and exist match
@@ -55,7 +53,24 @@ def append_to_csv(
                         "Fields in file do not match what is being appended. "
                         "fields: %s, actual_fields: %s", fields, actual_fields
                     )
-                w = csv.DictWriter(f, actual_fields)
+                fields = actual_fields
 
+        # FIXME: Doing a read sometimes overwrites last line in some race condition
+        with open(file_path, 'a+') as f:
+            w = csv.DictWriter(f, fields)
+            if should_write_headers:
+                w.writeheader()
+            # else:
+            # FIXME: Doing a read sometimes overwrites last line in some race condition
+            # reader = csv.DictReader(f)
+            # actual_fields = reader.fieldnames
+            # # Do a check on whether the fields passed and exist match
+            # if fields != actual_fields:
+            #     logger.warning(
+            #         "Fields in file do not match what is being appended. "
+            #         "fields: %s, actual_fields: %s", fields, actual_fields
+            #     )
+            # w = csv.DictWriter(f, actual_fields)
+            # w = csv.DictWriter(f, fields)
             for row in rows:
                 w.writerow(row)

@@ -16,7 +16,7 @@ def test_append_to_csv(tmp_path: Path):
     file_path = tmp_path / "test.csv"
     file_path.write_text(CONTENT)
 
-    append_to_csv(file_path, {"worker": "test456", "response": 888})
+    append_to_csv(file_path, {"response": 888, "worker": "test456"})
 
     assert EXPECTED_CONTENT == file_path.read_text()
 
@@ -100,11 +100,11 @@ def test_append_to_csv_multiple_fields(tmp_path: Path):
     append_to_csv(
         file_path,
         [{
+            "response": 888,
             "worker": "test456",
-            "response": 888
         }, {
+            "response": 777,
             "worker": "test789",
-            "response": 777
         }]
     )
 

@@ -37,3 +37,21 @@ def test_get_next_min_key_roll_over(tmp_path: Path):
     get_next_min_key(str(file_path), 3)
 
     assert EXPECTED_CONTENT == file_path.read_text()
+
+
+def test_get_next_min_key_key_blacklist(tmp_path: Path):
+    random.seed(1)
+
+    CONTENT = """image1,image2
+1,0
+"""
+    EXPECTED_CONTENT = """image1,image2
+1,0
+2,0
+"""
+    file_path = tmp_path / "test.csv"
+    file_path.write_text(CONTENT)
+
+    get_next_min_key(file_path, key_blacklist=["image2"])
+
+    assert EXPECTED_CONTENT == file_path.read_text()
