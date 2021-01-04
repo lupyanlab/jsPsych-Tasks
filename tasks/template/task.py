@@ -62,10 +62,12 @@ class Task:
         data_file_path = self.safe_join_paths_data(f"{worker_id}.csv")
 
         if reset or not trials_file_path.exists():
+            remove_files(
+                demographics_file_path, consent_file_path, data_file_path, trials_file_path
+            )
             trials = self._generate_trials(worker_id)
             num_trials = len(trials)
 
-            remove_files(demographics_file_path, consent_file_path)
             completed_demographics = False
             consent_agreed = False
         else:
