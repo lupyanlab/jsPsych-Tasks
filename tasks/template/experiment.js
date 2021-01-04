@@ -18,7 +18,12 @@ const createErrorMessage = (error) =>
 
 const handleError = (error) => {
   console.error(error);
-  jsPsych.endExperiment(createErrorMessage(error));
+  const error_message = createErrorMessage(error);
+  try {
+    jsPsych.endExperiment(error_message);
+  } catch (_) {
+    document.body.innerHTML = error_message;
+  }
 };
 
 (async () => {
