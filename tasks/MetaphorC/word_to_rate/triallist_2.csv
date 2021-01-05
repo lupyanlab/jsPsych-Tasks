@@ -1,85 +1,85 @@
-word	question_prompt_pre	question_prompt_post	question_type	bin	choice1	choice2	choice3	choice4	choice5	choice6	choice7	word1_en	word2_en	question_id
-melancholy vs autumn	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	melancholy	autumn	1
-cloudy vs moon	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	cloudy	moon	2
-quilt vs skin	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	quilt	skin	3
-understand vs sun	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	understand	sun	4
-law vs water level	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	law	water level	5
-rigid vs woods	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	rigid	woods	6
-meditation vs dim	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	meditation	dim	7
-control vs hand shake	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	control	hand shake	8
-forthright vs stone	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	forthright	stone	9
-boost vs offer	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	boost	offer	10
-worry vs door	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	worry	door	11
-covenant vs knife	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	covenant	knife	12
-adopt vs grasp	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	adopt	grasp	13
-disaster vs burn	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	disaster	burn	14
-mundane world vs soil	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	mundane world	soil	15
-rich vs grain	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	rich	grain	16
-worship vs mountain	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	worship	mountain	17
-spirit vs grain	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	spirit	grain	18
-thought vs footprint	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	thought	footprint	19
-editor vs knots	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	editor	knots	20
-analysis vs knife	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	analysis	knife	21
-accumulation vs field	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	accumulation	field	22
-basic vs soil	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	basic	soil	23
-frequently vs step	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	frequently	step	24
-body vs capital	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	body	capital	25
-levels vs cloud	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	levels	cloud	26
-unsophisticated vs wood	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	unsophisticated	wood	27
-miscellaneous vs silk thread	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	miscellaneous	silk thread	28
-lead  vs cattle	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	lead 	cattle	29
-general vs float	How similar are these words?		critical	1	1 (very different)	2	3	4	5	6	7 (very similar)	general	float	30
-expert vs dolphin	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	expert	dolphin	31
-computer vs breeze	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	computer	breeze	32
-chandelier  vs tranquil	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	chandelier 	tranquil	33
-number vs serene	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	number	serene	34
-fishhook vs salute	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	fishhook	salute	35
-key vs muscle	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	key	muscle	36
-moss vs hail	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	moss	hail	37
-chair vs river	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	chair	river	38
-poison vs sea	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	poison	sea	39
-brutal vs baseball	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	brutal	baseball	40
-deep vs granddaughter	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	deep	granddaughter	41
-donkey vs enlightment	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	donkey	enlightment	42
-comb vs cultivate	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	comb	cultivate	43
-glove vs cloud	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	glove	cloud	44
-sofa vs change	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	sofa	change	45
-science vs rent	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	science	rent	46
-future vs cloud	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	future	cloud	47
-pillow vs technology	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	pillow	technology	48
-cypress vs sun	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	cypress	sun	49
-king vs sandy soil	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	king	sandy soil	50
-literature vs neat	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	literature	neat	51
-bike vs morning	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	bike	morning	52
- basic  vs china bowl	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	 basic 	china bowl	53
- morning vs  lip	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	 morning	 lip	54
-conference vs  cloudy	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	conference	 cloudy	55
-seaweed  vs nervous	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	seaweed 	nervous	56
- type  vs rice	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	 type 	rice	57
-call  vs sea	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	call 	sea	58
-collect  vs emotion	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	collect 	emotion	59
-shower vs  valley	How similar are these words?		control_shape	1	1 (very different)	2	3	4	5	6	7 (very similar)	shower	 valley	60
-hurt vs guess	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	hurt	guess	61
-run vs ugly	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	run	ugly	62
-long-lasting vs imitate	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	long-lasting	imitate	63
-fixed vs cold	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	fixed	cold	64
-float vs neat	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	float	neat	65
-special vs terminate	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	special	terminate	66
-precious vs intertwine	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	precious	intertwine	67
-tremble vs spacious	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	tremble	spacious	68
-flower vs fluffy	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	flower	fluffy	69
-lonely vs passion	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	lonely	passion	70
-snail vs baseball	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	snail	baseball	71
-information vs snowflake	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	information	snowflake	72
-sad vs dry	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	sad	dry	73
-explain vs population	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	explain	population	74
-midnight vs chopstick	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	midnight	chopstick	75
-attachment vs stretch	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	attachment	stretch	76
-handsome vs quiet	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	handsome	quiet	77
-fat vs lamp	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	fat	lamp	78
-wall vs cup	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	wall	cup	79
-ruler vs glove	How similar are these words?		control_language	1	1 (very different)	2	3	4	5	6	7 (very similar)	ruler	glove	80
-6 is larger than 5	Please answer the following question:		catch	1	1 (strongly disagree)	2	3	4	5	6	7 (strongly agree)			
-triangles have three sides	Please answer the following question:		catch	1	1 (strongly disagree)	2	3	4	5	6	7 (strongly agree)			
-The word red has two letters	Please answer the following question:		catch	1	1 (strongly disagree)	2	3	4	5	6	7 (strongly agree)			
-Squares have four sides	Please answer the following question:		catch	1	1 (strongly disagree)	2	3	4	5	6	7 (strongly agree)			
+word	question_prompt_pre	question_prompt_post	question_type	bin	choice1	choice2	choice3	choice4	choice5	choice6	choice7	word1	word2	word1_en	word2_en	question_id
+忧愁 vs 秋天	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	忧愁	秋天	melancholy	autumn	1
+阴天 vs 月亮	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	阴天	月亮	cloudy	moon	2
+被子 vs 皮肤	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	被子	皮肤	quilt	skin	3
+明白 vs 太阳	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	明白	太阳	understand	sun	4
+法律 vs 水平面	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	法律	水平面	law	water level	5
+森严 vs 树林	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	森严	树林	rigid	woods	6
+冥想 vs 昏暗	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	冥想	昏暗	meditation	dim	7
+掌控 vs 握手	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	掌控	握手	control	hand shake	8
+磊落 vs 石头	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	磊落	石头	forthright	stone	9
+吹捧 vs 奉送	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	吹捧	奉送	boost	offer	10
+烦闷 vs 屋门	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	烦闷	屋门	worry	door	11
+契约 vs 刀具	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	契约	刀具	covenant	knife	12
+采纳 vs 抓住	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	采纳	抓住	adopt	grasp	13
+灾难 vs 燃烧	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	灾难	燃烧	disaster	burn	14
+红尘 vs 泥土	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	红尘	泥土	mundane world	soil	15
+富裕 vs 稻谷	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	富裕	稻谷	rich	grain	16
+崇拜 vs 山峰	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	崇拜	山峰	worship	mountain	17
+精神 vs 粮食	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	精神	粮食	spirit	grain	18
+思路 vs 足迹	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	思路	足迹	thought	footprint	19
+编辑 vs 绳结	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	编辑	绳结	editor	knots	20
+解析 vs 刀具	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	解析	刀具	analysis	knife	21
+积累 vs 稻田	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	积累	稻田	accumulation	field	22
+基本 vs 泥土	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	基本	泥土	basic	soil	23
+频频 vs 脚步	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	频频	脚步	frequently	step	24
+身体  vs 本金	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	身体 	本金	body	capital	25
+层次  vs 白云 	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	层次 	白云 	levels	cloud	26
+纯朴  vs 木头 	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	纯朴 	木头 	unsophisticated	wood	27
+繁杂  vs 丝线 	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	繁杂 	丝线 	miscellaneous	silk thread	28
+牵头  vs  耕牛	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	牵头 	 耕牛	lead 	cattle	29
+泛泛  vs 漂浮	这两个词有多相似？		critical	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	泛泛 	漂浮	general	float	30
+专家 vs 海豚	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	专家	海豚	expert	dolphin	31
+电脑 vs 微风	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	电脑	微风	computer	breeze	32
+吊灯 vs 宁静	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	吊灯	宁静	chandelier 	tranquil	33
+数字 vs 安详	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	数字	安详	number	serene	34
+鱼钩 vs 敬礼	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	鱼钩	敬礼	fishhook	salute	35
+钥匙 vs 肌肉	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	钥匙	肌肉	key	muscle	36
+苔藓 vs 欢呼	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	苔藓	欢呼	moss	hail	37
+椅子 vs 河流	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	椅子	河流	chair	river	38
+毒药 vs 大海	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	毒药	大海	poison	sea	39
+残暴 vs 排球	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	残暴	排球	brutal	baseball	40
+深厚 vs 孙女	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	深厚	孙女	deep	granddaughter	41
+驴子 vs 启示	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	驴子	启示	donkey	enlightment	42
+梳子 vs 培育	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	梳子	培育	comb	cultivate	43
+手套 vs 云朵	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	手套	云朵	glove	cloud	44
+沙发 vs 变化	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	沙发	变化	sofa	change	45
+科学   vs 出租	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	科学  	出租	science	rent	46
+未来 vs 云朵	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	未来	云朵	future	cloud	47
+枕头 vs 技术	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	枕头	技术	pillow	technology	48
+柏树 vs 太阳	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	柏树	太阳	cypress	sun	49
+国王 vs 沙土 	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	国王	沙土 	king	sandy soil	50
+文学 vs 整齐 	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	文学	整齐 	literature	neat	51
+单车 vs 早上	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	单车	早上	bike	morning	52
+基本 vs  瓷钵	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	基本	 瓷钵	 basic 	china bowl	53
+早晨  vs 嘴唇	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	早晨 	嘴唇	 morning	 lip	54
+会议  vs 多云	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	会议 	云朵 	conference	 cloudy	55
+紫菜 vs  紧张 	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	紫菜	 紧张 	seaweed 	nervous	56
+类型  vs 米饭	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	类型 	米饭	 type 	rice	57
+召唤  vs 大海	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	召唤 	大海	call 	sea	58
+汇总  vs 情绪 	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	汇总 	情绪 	collect 	emotion	59
+沐浴  vs 山谷 	这两个词有多相似？		control_shape	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	沐浴 	山谷 	shower	 valley	60
+疼痛 vs 猜测	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	疼痛	猜测	hurt	guess	61
+奔腾 vs 丑陋	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	奔腾	丑陋	run	ugly	62
+长久 vs 模仿	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	长久	模仿	long-lasting	imitate	63
+固定 vs 寒冷	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	固定	寒冷	fixed	cold	64
+漂浮 vs 整齐	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	漂浮	整齐	float	neat	65
+特殊 vs 消灭	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	特殊	消灭	special	terminate	66
+珍贵 vs 缠绕	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	珍贵	缠绕	precious	intertwine	67
+颤抖 vs 宽敞	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	颤抖	宽敞	tremble	spacious	68
+鲜花 vs 蓬松	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	鲜花	蓬松	flower	fluffy	69
+孤独 vs 激情	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	孤独	激情	lonely	passion	70
+蜗牛 vs 棒球	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	蜗牛	棒球	snail	baseball	71
+信息 vs 雪花	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	信息	雪花	information	snowflake	72
+悲伤 vs 干燥	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	悲伤	干燥	sad	dry	73
+解释 vs 群众	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	解释	群众	explain	population	74
+午夜 vs 竹筷	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	午夜	竹筷	midnight	chopstick	75
+依恋 vs 舒展	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	依恋	舒展	attachment	stretch	76
+英俊 vs 安静	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	英俊	安静	handsome	quiet	77
+肥胖 vs 台灯	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	肥胖	台灯	fat	lamp	78
+墙壁 vs 杯子	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	墙壁	杯子	wall	cup	79
+尺子 vs 手套	这两个词有多相似？		control_language	1	1 (非常不同）	2	3	4	5	6	7 (非常相似)	尺子	手套	ruler	glove	80
+6比5大	请回答以下问题：		catch	1	1 (完全不同意)	2	3	4	5	6	7 (完全同意)					
+三角形有三条边	请回答以下问题：		catch	1	1 (完全不同意)	2	3	4	5	6	7 (完全同意)					
+人字有三笔划	请回答以下问题：		catch	1	1 (完全不同意)	2	3	4	5	6	7 (完全同意)					
+正方形有四条边	请回答以下问题：		catch	1	1 (完全不同意)	2	3	4	5	6	7 (完全同意)					
