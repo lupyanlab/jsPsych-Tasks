@@ -26,6 +26,28 @@ const handleError = (error) => {
   }
 };
 
+//create random code for final message
+function randLetter() {
+  var a_z = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var int = Math.floor(Math.random() * a_z.length);
+  var rand_letter = a_z[int];
+  return rand_letter;
+}
+
+var secretCode = 'lswags'; // this is the 'key'
+var code = '';
+
+for (let i = 0; i < 7; i++) {
+  code = code.concat(randLetter());
+}
+
+code = code.concat(secretCode);
+
+for (let i = 0; i < 7; i++) {
+  code = code.concat(randLetter());
+}
+//end code creation script
+
 (async () => {
   try {
     let { workerId: worker_id, fullscreen, reset } = searchParams;
@@ -82,9 +104,8 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `<p class="lead">In this HIT, you will see various images of familiar objects. For each image, please rate how typical it is of its category.
-        For example, you may be shown a series of motorcycles and asked how typical each one is of motorcyles in general.
-        </p> <p class="lead">Use the  1-5 keys on the keyboard to respond. 1 means very typical. 5 means very atypical. Please try to use the entire scale, not just the 1/5 keys. If you rush through without attending to the images, we may deny payment.
+        /* html */ `<p class="lead">In this HIT, you will see some dot patterns. On the left-top and right-top of the screen, you will also see two descriptions of the dot patterns from a previous turker. We want you to use these descriptions to sort the dot patterns into two groups. You will complete two sorts, with two sets of descriptions.
+        </p> <p class="lead">The task is easy, but please take time to consider the descriptions. If you rush through without attending to the descriptions, we may deny payment.
         </p>`,
       ],
       show_clickable_nav: true,
@@ -126,7 +147,7 @@ const handleError = (error) => {
     const demographics_questions_instructions = {
       type: 'instructions',
       pages: [
-        `<p class="lead">Thank you! We'll now ask a few demographic questions and you'll be transferred to a qualtrics survey. Then you'll be done!
+        `<p class="lead">Thank you! We'll now ask a few demographic questions and then you'll be done!
               </p>`,
       ],
       show_clickable_nav: true,
@@ -147,12 +168,20 @@ const handleError = (error) => {
       choices: [],
       stimulus: function() {
         return /* html */ `Thank you for participating!
-          <p>The purpose of this HIT is to assess the extent to which different people agree what makes
-          a particular dog, cat, or car typical.
+          <p>The purpose of this HIT is to assess what makes a good category description.
   
           <p>
-          If you have any questions or comments, please email cschonberg@wisc.edu.`;
-      },
+          If you have any questions or comments, please email suffill@wisc.edu.`+
+          '<br>' +
+          '<br>' +
+          '<center>Your completion code for mTurk is</center>' +
+          '<br>' +
+          '<center><u><b style="font-size:20px">' +
+          code +
+          '</b></u></center>' +
+          '<br>' +
+          '<center>Please copy/paste this code into the mTurk box'
+        },
     };
     main_timeline.push(debrief_block);
 

@@ -1,0 +1,85 @@
+word	question_prompt_pre	question_prompt_post	question_type	bin	choice1	choice2	choice3	choice4	choice5	choice6	choice7	word1_en	word2_en	question_id
+melancholy vs autumn	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	melancholy	autumn	1
+cloudy vs moon	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	cloudy	moon	2
+quilt vs skin	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	quilt	skin	3
+understand vs sun	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	understand	sun	4
+law vs water level	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	law	water level	5
+rigid vs woods	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	rigid	woods	6
+meditation vs dim	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	meditation	dim	7
+control vs hand shake	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	control	hand shake	8
+forthright vs stone	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	forthright	stone	9
+boost vs offer	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	boost	offer	10
+worry vs door	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	worry	door	11
+covenant vs knife	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	covenant	knife	12
+adopt vs grasp	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	adopt	grasp	13
+disaster vs burn	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	disaster	burn	14
+mundane world vs soil	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	mundane world	soil	15
+rich vs grain	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	rich	grain	16
+worship vs mountain	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	worship	mountain	17
+spirit vs grain	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	spirit	grain	18
+thought vs footprint	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	thought	footprint	19
+editor vs knots	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	editor	knots	20
+analysis vs knife	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	analysis	knife	21
+accumulation vs field	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	accumulation	field	22
+basic vs soil	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	basic	soil	23
+frequently vs step	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	frequently	step	24
+body vs capital	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	body	capital	25
+levels vs cloud	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	levels	cloud	26
+unsophisticated vs wood	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	unsophisticated	wood	27
+miscellaneous vs silk thread	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	miscellaneous	silk thread	28
+lead  vs cattle	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	lead 	cattle	29
+general vs float	这两个词有多相似？		critical	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	general	float	30
+expert vs dolphin	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	expert	dolphin	31
+computer vs breeze	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	computer	breeze	32
+chandelier  vs tranquil	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	chandelier 	tranquil	33
+number vs serene	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	number	serene	34
+fishhook vs salute	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	fishhook	salute	35
+key vs muscle	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	key	muscle	36
+moss vs hail	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	moss	hail	37
+chair vs river	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	chair	river	38
+poison vs sea	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	poison	sea	39
+brutal vs baseball	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	brutal	baseball	40
+deep vs granddaughter	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	deep	granddaughter	41
+donkey vs enlightment	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	donkey	enlightment	42
+comb vs cultivate	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	comb	cultivate	43
+glove vs cloud	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	glove	cloud	44
+sofa vs change	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	sofa	change	45
+science vs rent	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	science	rent	46
+future vs cloud	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	future	cloud	47
+pillow vs technology	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	pillow	technology	48
+cypress vs sun	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	cypress	sun	49
+king vs sandy soil	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	king	sandy soil	50
+literature vs neat	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	literature	neat	51
+bike vs morning	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	bike	morning	52
+ basic  vs china bowl	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	 basic 	china bowl	53
+ morning vs  lip	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	 morning	 lip	54
+conference vs  cloudy	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	conference	 cloudy	55
+seaweed  vs nervous	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	seaweed 	nervous	56
+ type  vs rice	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	 type 	rice	57
+call  vs sea	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	call 	sea	58
+collect  vs emotion	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	collect 	emotion	59
+shower vs  valley	这两个词有多相似？		control_shape	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	shower	 valley	60
+hurt vs guess	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	hurt	guess	61
+run vs ugly	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	run	ugly	62
+long-lasting vs imitate	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	long-lasting	imitate	63
+fixed vs cold	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	fixed	cold	64
+float vs neat	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	float	neat	65
+special vs terminate	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	special	terminate	66
+precious vs intertwine	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	precious	intertwine	67
+tremble vs spacious	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	tremble	spacious	68
+flower vs fluffy	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	flower	fluffy	69
+lonely vs passion	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	lonely	passion	70
+snail vs baseball	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	snail	baseball	71
+information vs snowflake	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	information	snowflake	72
+sad vs dry	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	sad	dry	73
+explain vs population	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	explain	population	74
+midnight vs chopstick	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	midnight	chopstick	75
+attachment vs stretch	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	attachment	stretch	76
+handsome vs quiet	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	handsome	quiet	77
+fat vs lamp	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	fat	lamp	78
+wall vs cup	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	wall	cup	79
+ruler vs glove	这两个词有多相似？		control_language	1	1 (完全不同)	2	3	4	5	6	7 (非常相似)	ruler	glove	80
+6比5大	请回答以下问题：		catch	1	1 (完全同意)	2	3	4	5	6	7 (完全不同意)			catch1
+三角形有三条边	请回答以下问题：		catch	1	1 (完全同意)	2	3	4	5	6	7 (完全不同意)			catch2
+人字有三笔划	请回答以下问题：		catch	1	1 (完全同意)	2	3	4	5	6	7 (完全不同意)			catch3
+正方形有四条边	请回答以下问题：		catch	1	1 (完全同意)	2	3	4	5	6	7 (完全不同意)			catch4
