@@ -110,7 +110,7 @@ for (let i = 0; i < 7; i++) {
       ],
       show_clickable_nav: true,
     };
-    if (has_trials_remaining.length > 0) main_timeline.push(instructions);
+    if (has_trials_remaining > 0) main_timeline.push(instructions);
 
     const data_trials_block = {
       type: 'lupyanlab-shape-descriptions',
@@ -167,11 +167,12 @@ for (let i = 0; i < 7; i++) {
       type: 'html-keyboard-response',
       choices: [],
       stimulus: function() {
-        return /* html */ `Thank you for participating!
+        return (
+          /* html */ `Thank you for participating!
           <p>The purpose of this HIT is to assess what makes a good category description.
   
           <p>
-          If you have any questions or comments, please email suffill@wisc.edu.`+
+          If you have any questions or comments, please email suffill@wisc.edu.` +
           '<br>' +
           '<br>' +
           '<center>Your completion code for mTurk is</center>' +
@@ -181,7 +182,8 @@ for (let i = 0; i < 7; i++) {
           '</b></u></center>' +
           '<br>' +
           '<center>Please copy/paste this code into the mTurk box'
-        },
+        );
+      },
     };
     main_timeline.push(debrief_block);
 

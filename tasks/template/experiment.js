@@ -89,7 +89,7 @@ const handleError = (error) => {
       ],
       show_clickable_nav: true,
     };
-    if (has_trials_remaining.length > 0) main_timeline.push(instructions);
+    if (has_trials_remaining > 0) main_timeline.push(instructions);
 
     const data_trials_block = {
       type: 'lupyanlab-typicality-image-rate',
