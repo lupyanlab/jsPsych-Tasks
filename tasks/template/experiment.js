@@ -92,38 +92,32 @@ const handleError = (error) => {
     if (has_trials_remaining > 0) main_timeline.push(instructions);
 
     const data_trials_block = {
-      type: 'lupyanlab-typicality-image-rate',
-      score_prefix_label: 'Your score: ',
-      score_suffix_label: '',
-      bonus_prefix_label: 'Current bonus: $',
-      bonus_suffix_label: '',
-      question: 'Please name this shape',
-      input_placeholder: 'type here',
-      submit_button_label: 'Submit',
+      type: 'survey-text',
       input_feedback_duration: 500,
-      // Nested timeline:  https://www.jspsych.org/overview/timeline/#nested-timelines
       timeline: trials.map((trial) => ({
-        trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
-        prompt: `How typical is this ${trial.category}?`,
-        // image: images_folder_path + trial.category + '/' + trial.image,
-        shape_image: trial.shape_image,
-        keys: trial.keys.split(','),
-        labels: trial.labels.split(','),
+        preamble: /*html*/ `List 3 more members of this category:
+          <br><br>
+          ${trial.anchor_neg}
+          <br><br>
+          ${trial.stim}
+          <br><br>
+          ${trial.anchor_pos}
+          <br>`,
+        questions: [{ prompt: '', name: '', rows: 1, columns: 30, required: true }],
         on_start: () => {
           jsPsych.setProgressBar((trial.trial_num - 1) / num_trials);
         },
-        on_finish: ({ rt, key, label }) => {
+        on_finish: ({ rt, responses }) => {
+          const response = JSON.parse(responses).Q0;
+
           return api({
             fn: 'data',
             kwargs: {
               worker_id,
               data: {
-                choice_label: label,
-                choice_key: key,
+                response,
                 rt,
-                image: trial.image,
-                trial_num: trial.trial_num,
-                category: trial.category,
+                ...trial,
               },
             },
           });
