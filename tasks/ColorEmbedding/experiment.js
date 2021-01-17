@@ -98,9 +98,9 @@ Press Continue to begin.<br>`,
       type: 'survey-text',
       input_feedback_duration: 500,
       timeline: trials.map((trial) => ({
-        preamble: /*html*/ `What is something that is 
+        preamble: /*html*/ `
           <br><br>
-          <b>${trial.r1}</b> and <b>${trial.r2}</b>?
+          <b>${trial.r1}</b> and <b>${trial.r2}</b>
           <br><br>
           <br><br>
           <br>`,
