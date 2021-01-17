@@ -82,23 +82,17 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `In this study, you will be given 3 words that are members of a category. Your task is to guess the name of the category.
-		  <br><br>
-		  For example, if you were given the words &#34;red&#34;, &#34;blue&#34; and &#34;yellow&#34;, you might guess:
-		  <br><br>
-      <strong>colors</strong>
-      <br><br>
-		  If you were given the words &#34;soda&#34;, &#34;wine&#34; and &#34;beer&#34;, you might guess:
-		  <br><br>
-		  <strong>beverages</strong><br><br>
-		  The name of each category should only be a single word (for example, not &#34;primary colors&#34;).
-		  <br>"+ "<br>
-		  "You will guess names for "+ trialsNum +" categories. Press Continue to begin.<br>`,
+        /* html */ `You will be shown about 100 word pairs. One is a color (e.g., "red"). The other is an adjective (e.g., "fast"). Your task is to respond with a word that is well described by that color and the. <br><br>
+        For example, if asked about something that is <b>red</b> and <b>fast</b>, you might say sportscar. <br><br>
+        Some combinations might seem odd. It might be hard to think of something that is "silver" and "ripe", or something that is "blue" and "selfish". For such pairs, just follow your intuition. No need to overthink it. <br><br>
+        Please restrict your responses to a single word. <br><br>
+
+Press Continue to begin.<br>`,
       ],
       show_clickable_nav: true,
     };
-    //if (has_trials_remaining > 0) main_timeline.push(instructions);
-    if (has_trials_remaining) main_timeline.push(instructions);
+    //if (has_trials_remaining.length > 0) main_timeline.push(instructions);
+     if (has_trials_remaining ) main_timeline.push(instructions);
 
     const data_trials_block = {
       type: 'survey-text',

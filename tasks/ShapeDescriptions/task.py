@@ -22,7 +22,7 @@ from utils.remove_files import remove_files
 dirname = get_dirname(__file__)
 
 TRIAL_NUM_COLUMN = "trial_num"
-NUM_LEADING_NON_CATCH_TRIALS = 2
+NUM_LEADING_NON_CATCH_TRIALS = 4
 QUESTION_TYPE_COLUMN = "question_type"
 CATCH_VALUE = "catch"
 
