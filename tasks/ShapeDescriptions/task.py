@@ -8,6 +8,7 @@ from time import time
 from task_runner.app import app
 from utils.balance_utils.create_counts_file import create_counts_file
 from utils.balance_utils.get_next_min_key import get_next_min_key
+from utils.balance_utils.get_next_min_keys import get_next_min_keys
 from utils.constants import ENV_FOLDER_PATH_KEY
 from utils.csv.append_to_csv import append_to_csv
 from utils.csv.get_remaining_trials import get_remaining_trials_with_trial_nums
@@ -129,17 +130,16 @@ class Task:
             trial_lists = [
                 trial_list_path.name for trial_list_path in listdir(self.withLabels_folder_path)
             ]
-            create_counts_file(self.withLabels_counts_file_path, trial_lists)
-        noLabels_trial_list = get_next_min_key(self.noLabels_counts_file_path)
-        noLabels_file_path = self.noLabels_folder_path / noLabels_trial_list
-        withLabels_trial_list = get_next_min_key(self.withLabels_counts_file_path)
-        withLabels_file_path = self.withLabels_folder_path / withLabels_trial_list
+        noLabels_trial_lists = get_next_min_keys(self.noLabels_counts_file_path, 4)
+        noLabels_file_path = [self.noLabels_folder_path / noLabels_trial_list for noLabels_trial_list in noLabels_trial_lists]
+        withLabels_trial_lists = get_next_min_keys(self.withLabels_counts_file_path, 4)
+        withLabels_file_path = [self.withLabels_folder_path / withLabels_trial_list for withLabels_trial_list in withLabels_trial_lists]
 
         stimuli_names = [
             stim_file_path.name for stim_file_path in listdir(self.stimuli_folder_path)
         ]
         trials = []
-        for file_path in (noLabels_file_path, withLabels_file_path):
+        for file_path in (noLabels_file_path+withLabels_file_path):
             rows = read_rows(file_path)
             for row in rows:
                 a_left = choice([True, False])
