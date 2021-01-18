@@ -116,12 +116,12 @@ for (let i = 0; i < 7; i++) {
       type: 'lupyanlab-shape-descriptions',
       timeline: trials.map((trial) => ({
         trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
-        A: trial.A,
-        B: trial.B,
+        left: trial.left === 'A' ? trial.A : trial.B,
+        right: trial.right === 'A' ? trial.A : trial.B,
         stimuli: trial.stimuli.map((stim) => `stimuli/${stim}`),
         stim_not_moved_alert: 'Please move all shapes to continue',
         finish_button_label: 'FINISH',
-        stim_size:100,
+        stim_size: 100,
         on_start: () => {
           jsPsych.setProgressBar((trial.trial_num - 1) / num_trials);
         },
@@ -167,11 +167,12 @@ for (let i = 0; i < 7; i++) {
       type: 'html-keyboard-response',
       choices: [],
       stimulus: function() {
-        return /* html */ `Thank you for participating!
+        return (
+          /* html */ `Thank you for participating!
           <p>The purpose of this HIT is to assess what makes a good category description.
   
           <p>
-          If you have any questions or comments, please email suffill@wisc.edu.`+
+          If you have any questions or comments, please email suffill@wisc.edu.` +
           '<br>' +
           '<br>' +
           '<center>Your completion code for mTurk is</center>' +
@@ -181,7 +182,8 @@ for (let i = 0; i < 7; i++) {
           '</b></u></center>' +
           '<br>' +
           '<center>Please copy/paste this code into the mTurk box'
-        },
+        );
+      },
     };
     main_timeline.push(debrief_block);
 
