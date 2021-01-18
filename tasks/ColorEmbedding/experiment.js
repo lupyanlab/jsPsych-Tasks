@@ -92,13 +92,14 @@ Press Continue to begin.<br>`,
       show_clickable_nav: true,
     };
     //if (has_trials_remaining.length > 0) main_timeline.push(instructions);
-     if (has_trials_remaining ) main_timeline.push(instructions);
+    if (has_trials_remaining) main_timeline.push(instructions);
 
     const data_trials_block = {
       type: 'survey-text',
       input_feedback_duration: 500,
       timeline: trials.map((trial) => ({
         preamble: /*html*/ `
+          <h4>Trial ${trial.trial_num} of ${num_trials}</h4>
           <br><br>
           <b>${trial.r1}</b> and <b>${trial.r2}</b>
           <br><br>
@@ -106,7 +107,7 @@ Press Continue to begin.<br>`,
           <br>`,
         questions: [{ prompt: '', name: '', rows: 1, columns: 30, required: true }],
         on_start: () => {
-          jsPsych.setProgressBar((trial.trial_num - 1) / num_trials);
+          // jsPsych.setProgressBar((trial.trial_num - 1) / num_trials);
         },
         on_finish: ({ rt, responses }) => {
           const response = JSON.parse(responses).Q0;
@@ -171,14 +172,14 @@ Press Continue to begin.<br>`,
       type: 'html-keyboard-response',
       choices: [],
       stimulus: function() {
-        return /* html */ `<p>Thanks for participating!</p>" 
+        return /* html */ `<p>Thanks for participating!</p>"
         <p>If you have any questions, please feel free to send us a message (lrissman@wisc.edu).</p>
         <br><br>
         <center>Your completion code for mTurk is</center>
         <br>
         <center><u><b style="font-size:20px">${code}</b></u></center>
         <br>
-        <center>Please copy/paste this code into the mTurk box' 
+        <center>Please copy/paste this code into the mTurk box'
         <p><b>Click the Continue button to complete the experiment.</b> Thank you!</p>`;
       },
     };
@@ -187,7 +188,7 @@ Press Continue to begin.<br>`,
     jsPsych.init({
       timeline: main_timeline,
       fullscreen,
-      show_progress_bar: true,
+      show_progress_bar: false,
       auto_update_progress_bar: false,
     });
   } catch (error) {
