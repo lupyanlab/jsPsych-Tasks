@@ -93,7 +93,7 @@ const handleError = (error) => {
 		  <strong>beverages</strong><br><br>
 		  The name of each category should only be a single word (for example, not &#34;primary colors&#34;).
 		  <br>"+ "<br>
-		  "You will guess names for "+ trialsNum +" categories. Press Next to begin.<br>`,
+		  "You will guess names for ${num_trials} categories. Press Next to begin.<br>`,
       ],
       show_clickable_nav: true,
     };
