@@ -178,15 +178,15 @@ const handleError = (error) => {
       type: 'html-keyboard-response',
       choices: [],
       stimulus: function() {
-        return /* html */ `<p>Thanks for participating!</p>" 
+        return /* html */ `<p>Thanks for participating!</p>
         <p>If you have any questions, please feel free to send us a message (lrissman@wisc.edu).</p>
         <br><br>
         <center>Your completion code for mTurk is</center>
         <br>
         <center><u><b style="font-size:20px">${code}</b></u></center>
         <br>
-        <center>Please copy/paste this code into the mTurk box' 
-        <p><b>Click the Continue button to complete the experiment.</b> Thank you!</p>`;
+        <center>Please copy/paste this code into the mTurk box
+        <p>Thank you!</p>`;
       },
     };
     main_timeline.push(debrief_block);
