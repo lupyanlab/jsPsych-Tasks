@@ -104,13 +104,14 @@ for (let i = 0; i < 7; i++) {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `<p class="lead">In this HIT, you will see some dot patterns. On the left-top and right-top of the screen, you will also see two descriptions of the dot patterns from a previous turker. We want you to use these descriptions to sort the dot patterns into two groups. You will complete two sorts, with two sets of descriptions.
+        /* html */ `<p class="lead"><b>Thank you for accepting the HIT!</b><br>
+        You will see some dot patterns. On the left-top and right-top of the screen, you will also see two descriptions of the dot patterns from a previous turker. We want you to use these descriptions to sort the dot patterns into two groups. You will complete eight sorts, with eight pairs of descriptions.
         </p> <p class="lead">The task is easy, but please take time to consider the descriptions. If you rush through without attending to the descriptions, we may deny payment.
         </p>`,
       ],
       show_clickable_nav: true,
     };
-    if (has_trials_remaining.length > 0) main_timeline.push(instructions);
+    if (has_trials_remaining) main_timeline.push(instructions);
 
     const data_trials_block = {
       type: 'lupyanlab-shape-descriptions',
@@ -132,6 +133,7 @@ for (let i = 0; i < 7; i++) {
               worker_id,
               data: {
                 ...trial,
+                worker_id,
                 rt,
                 response: stim_infos,
                 window_width,

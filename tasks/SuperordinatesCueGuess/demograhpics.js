@@ -39,7 +39,7 @@ export default [
       '3|Some college, no degree',
       "4|Associate's degree",
       "5|Bachelor's degree",
-      '6|PhD, law, or medical degree',
+      '6|graduate, law, or medical degree',
       'NA|Prefer not to say',
     ],
   },

@@ -92,7 +92,7 @@ Press Continue to begin.<br>`,
       show_clickable_nav: true,
     };
     //if (has_trials_remaining.length > 0) main_timeline.push(instructions);
-    if (has_trials_remaining) main_timeline.push(instructions);
+     if (has_trials_remaining ) main_timeline.push(instructions);
 
     const data_trials_block = {
       type: 'survey-text',
@@ -101,7 +101,7 @@ Press Continue to begin.<br>`,
         preamble: /*html*/ `
           <h4>Trial ${trial.trial_num} of ${num_trials}</h4>
           <br><br>
-          <b>${trial.r1}</b> and <b>${trial.r2}</b>
+          <b>${trial.r1}</b> ${trial.r3} <b>${trial.r2}</b>
           <br><br>
           <br><br>
           <br>`,
@@ -173,14 +173,13 @@ Press Continue to begin.<br>`,
       choices: [],
       stimulus: function() {
         return /* html */ `<p>Thanks for participating!</p>"
-        <p>If you have any questions, please feel free to send us a message (lrissman@wisc.edu).</p>
+        <p>If you have any questions, please feel free to send us a message <qliu295@wisc.edu>.</p>
         <br><br>
         <center>Your completion code for mTurk is</center>
         <br>
         <center><u><b style="font-size:20px">${code}</b></u></center>
         <br>
-        <center>Please copy/paste this code into the mTurk box'
-        <p><b>Click the Continue button to complete the experiment.</b> Thank you!</p>`;
+        <center>Please copy/paste this code into the mTurk box'`;
       },
     };
     main_timeline.push(debrief_block);

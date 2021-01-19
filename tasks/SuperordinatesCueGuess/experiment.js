@@ -93,7 +93,7 @@ const handleError = (error) => {
 		  <strong>beverages</strong><br><br>
 		  The name of each category should only be a single word (for example, not &#34;primary colors&#34;).
 		  <br>"+ "<br>
-		  "You will guess names for "+ trialsNum +" categories. Press Continue to begin.<br>`,
+		  "You will guess names for "+ trialsNum +" categories. Press Next to begin.<br>`,
       ],
       show_clickable_nav: true,
     };
@@ -103,7 +103,7 @@ const handleError = (error) => {
       type: 'survey-text',
       input_feedback_duration: 500,
       timeline: trials.map((trial) => ({
-        preamble: /*html*/ `List 3 more members of this category:
+        preamble: /*html*/ `What is the name of this category:
           <br><br>
           ${trial.r1}
           <br><br>
@@ -137,7 +137,7 @@ const handleError = (error) => {
     const demographics_questions_instructions = {
       type: 'instructions',
       pages: [
-        `<p class="lead">Thank you! We'll now ask a few demographic questions and you'll be transferred to a qualtrics survey. Then you'll be done!
+        `<p class="lead">Thank you! We'll now ask a few demographic questions. Then you'll be done!
               </p>`,
       ],
       show_clickable_nav: true,

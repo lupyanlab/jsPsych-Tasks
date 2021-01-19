@@ -130,6 +130,8 @@ class Task:
             trial_lists = [
                 trial_list_path.name for trial_list_path in listdir(self.withLabels_folder_path)
             ]
+            create_counts_file(self.withLabels_counts_file_path, trial_lists)
+            
         noLabels_trial_lists = get_next_min_keys(self.noLabels_counts_file_path, 4)
         noLabels_file_path = [self.noLabels_folder_path / noLabels_trial_list for noLabels_trial_list in noLabels_trial_lists]
         withLabels_trial_lists = get_next_min_keys(self.withLabels_counts_file_path, 4)
