@@ -26,7 +26,13 @@ export default [
     name: 'languages',
     title: "What other languages do you speak? Please enter 'none' if just English.",
   },
-  { type: 'text', name: 'age', title: 'How old are you?', width: 'auto' },
+  {
+    type: 'text',
+    name: 'age',
+    isRequired: true,
+    title: 'How old are you?',
+    width: 'auto',
+  },
   {
     type: 'radiogroup',
     name: 'degree',
