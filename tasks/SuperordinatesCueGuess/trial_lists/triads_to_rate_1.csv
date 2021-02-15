@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,diseases,chicken pox,polio,diabetes,0.48116588,1
+exp1a,label,appetizers,breadsticks,pineapple slices,deviled eggs,0.418101382,1
+exp1a,label,hobbies,surfing,swimming,dancing,0.392116211,1
+exp1a,label,animals,tiger,elephant,zebra,0.472544407,1
+exp1a,label,pets,pot bellied pigs,parakeet,parrot,0.480981546,1
+exp1a,label,vegetables,spinach,cabbage,onion,0.563605463,1
+exp1a,label,chores,mopping floor,vacuuming,dusting,0.497875182,1
+exp1a,label,plants,shrub,cactus,conifers,0.504879057,1
+exp1a,label,flowers,lily,aster,nasturtium,0.468936648,1
+exp1a,label,furniture,dining table,bed,shelf,0.480627043,1
+exp1a,label,clothing,coat,trousers,pants,0.558508119,1
+exp1a,label,mammals,invertebrates,mammals,reptiles,0.69681475,1
+exp1a,label,food,steak,vegetables,milk,0.534652231,1
+exp1a,label,desserts,cookie,brownie,candy,0.459150306,1
+exp1a,label,toys,cards,doll,colors,0.552592892,1
+exp1a,label,tools,screwdriver,saw,awl,0.363438809,1
+exp1a,label,fruit,pear,peach,lemon,0.597226674,1
+exp1a,label,vehicles,bmw,fiat,kia,0.269688244,1
+exp1a,label,games,hopscotch,puzzles,football,0.643508823,1
+exp1a,label,weapons,brass knuckles,fist,taser,0.495309196,1

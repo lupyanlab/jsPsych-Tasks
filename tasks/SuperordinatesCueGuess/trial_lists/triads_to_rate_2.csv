@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,mammals,seal,hamster,bear,0.348208588,2
+exp1a,label,games,clue,sorry,blackjack,0.266265699,2
+exp1a,label,food,french fries,peach,apple,0.484500651,2
+exp1a,label,diseases,hepatitis,disease,niaid's,0.59700742,2
+exp1a,label,toys,doll,toy car,ball,0.444447115,2
+exp1a,label,vegetables,beet,pea,cucumber,0.50392981,2
+exp1a,label,weapons,ball and bat,stick,spear,0.497033853,2
+exp1a,label,flowers,sunflower,carnation,lily,0.531565974,2
+exp1a,label,hobbies,painting,crochet,mineral collecting,0.388103746,2
+exp1a,label,desserts,brownie,gelato,cheesecake,0.469547724,2
+exp1a,label,clothing,socks,underwear,jacket,0.559052977,2
+exp1a,label,chores,washing windows,walking the dog,mailing letters,0.448054532,2
+exp1a,label,furniture,table,bed,dresser,0.464966119,2
+exp1a,label,animals,bird,lion,tiger,0.471399735,2
+exp1a,label,plants,tree,willow,daffodil,0.451859155,2
+exp1a,label,vehicles,bicycle,plane,boat,0.513903154,2
+exp1a,label,appetizers,french fries,onion rings,jalapeno poppers,0.429695554,2
+exp1a,label,pets,ferret,bird,fish,0.474971638,2
+exp1a,label,tools,mallet,lever,crowbar,0.409162786,2
+exp1a,label,fruit,orange,pineapple,watermelon,0.584499996,2
