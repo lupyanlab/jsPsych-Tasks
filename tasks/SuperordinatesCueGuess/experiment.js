@@ -82,7 +82,7 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `In this study, you will be given 3 words that are members of a category. Your task is to guess the name of the category.
+        /* html */ `In this study, you will be given 3 words or phrases that are members of a category. Your task is to guess the name of the category.
 		  <br><br>
 		  For example, if you were given the words &#34;red&#34;, &#34;blue&#34; and &#34;yellow&#34;, you might guess:
 		  <br><br>
@@ -103,7 +103,7 @@ const handleError = (error) => {
       type: 'survey-text',
       input_feedback_duration: 500,
       timeline: trials.map((trial) => ({
-        preamble: /*html*/ `What is the name of this category:
+        preamble: /*html*/ `Name the category: these are all ____
           <br><br>
           ${trial.r1}
           <br><br>

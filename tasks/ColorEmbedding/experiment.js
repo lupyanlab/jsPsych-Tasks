@@ -82,7 +82,7 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `You will be shown about 100 word pairs. One is a color (e.g., "red"). The other is an adjective (e.g., "fast"). Your task is to respond with a word that is well described by that color and the. <br><br>
+        /* html */ `You will be shown about 100 word pairs. One is a color (e.g., "red"). The other is an adjective (e.g., "fast"). Your task is to respond with a word that is well described by that color and the adjective. <br><br>
         For example, if asked about something that is <b>red</b> and <b>fast</b>, you might say sportscar. <br><br>
         Some combinations might seem odd. It might be hard to think of something that is "silver" and "ripe", or something that is "blue" and "selfish". For such pairs, just follow your intuition. No need to overthink it. <br><br>
         Please restrict your responses to a single word. <br><br>
