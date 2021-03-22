@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,chores,shopping,building,mowing,0.407142798,12
+exp1a,label,hobbies,coloring,painting,reading,0.344070355,12
+exp1a,label,pets,hamster,fish,rabbit,0.483181524,12
+exp1a,label,tools,nail,axe,chainsaw,0.41244945,12
+exp1a,label,fruit,grape,jackfruit,mango,0.640954233,12
+exp1a,label,games,chess,checkers,connect 4,0.349364839,12
+exp1a,label,appetizers,nuts,sliders,crackers,0.415165392,12
+exp1a,label,desserts,pie,sorbet,yogurt,0.466081535,12
+exp1a,label,vehicles,scooter,truck,bus,0.54173415,12
+exp1a,label,diseases,alzheimer's,pneumonia,heart disease,0.590617497,12
+exp1a,label,animals,kangaroo,hippo,ram,0.406235812,12
+exp1a,label,food,cucumber,lettuce,cheese,0.443793608,12
+exp1a,label,mammals,dog,cat,goat,0.347388066,12
+exp1a,label,furniture,chair,stool,cushions,0.491592888,12
+exp1a,label,clothing,socks,underwear,jacket,0.567461619,12
+exp1a,label,weapons,shotgun,sword,ar-15,0.555022648,12
+exp1a,label,flowers,hibiscus,sunflower,tulip,0.522216164,12
+exp1a,label,plants,aloe,indoor,outdoor,0.432524048,12
+exp1a,label,toys,army men miniatures,action figures,automotive models,0.430499337,12
+exp1a,label,vegetables,broccoli,corn,asparagus,0.58457001,12

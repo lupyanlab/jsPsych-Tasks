@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,tools,power drill,handsaw,jackhammer,0.436281189,38
+exp1a,label,vehicles,blimp,boat,motorcycle,0.483300506,38
+exp1a,label,food,vegetables,beans,fruit,0.52173558,38
+exp1a,label,weapons,brass knuckles,fist,taser,0.495309196,38
+exp1a,label,games,clue,sorry,blackjack,0.266265699,38
+exp1a,label,clothing,dress,jeans,coat,0.60017755,38
+exp1a,label,furniture,end table,night stand,kitchen table,0.435464536,38
+exp1a,label,toys,cards,doll,colors,0.552592892,38
+exp1a,label,mammals,lion,wolf,monkey,0.355082933,38
+exp1a,label,hobbies,knitting,crochet,photography,0.395179321,38
+exp1a,label,appetizers,mahi mahi,shrimp cocktail,artichoke hearts,0.421473247,38
+exp1a,label,pets,fish,pig,donkey,0.449321865,38
+exp1a,label,plants,lily,vines,grass,0.498100103,38
+exp1a,label,flowers,impatiens,gladiolus,rose,0.525218891,38
+exp1a,label,diseases,chicken pox,polio,diabetes,0.48116588,38
+exp1a,label,fruit,grape,jackfruit,mango,0.640954233,38
+exp1a,label,animals,bird,lion,tiger,0.471399735,38
+exp1a,label,vegetables,corn,radish,squash,0.502405396,38
+exp1a,label,chores,vacuuming,windows,mowing,0.479371309,38
+exp1a,label,desserts,boston cream pie,german chocolate cake,cream puff,0.532230988,38

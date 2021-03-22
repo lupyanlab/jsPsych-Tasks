@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,tools,pliers,mallet,saw,0.385128645,16
+exp1b,exemplar,mammals,elephant,giraffe,rhinoceros,0.449728699,16
+exp1b,exemplar,flowers,weed,grass,tree,0.47937132,16
+exp1b,exemplar,toys,hot wheels,american doll,baby alive,0.490274502,16
+exp1b,exemplar,desserts,cookie,fudge,cupcake,0.417365384,16
+exp1b,exemplar,appetizers,broccoli,mashed potatoes,burger,0.376672485,16
+exp1b,exemplar,pets,horse,cow,raccoon,0.41608235,16
+exp1b,exemplar,clothing,jacket,shirt,pant,0.560460709,16
+exp1b,exemplar,vegetables,broccoli,corn,spinach,0.58513855,16
+exp1b,exemplar,hobbies,weight lifting,biking,hiking,0.372770781,16
+exp1b,exemplar,diseases,cold,bronchitis,pneumonia,0.444068169,16
+exp1b,exemplar,fruit,lemon,tomato,grape,0.590074819,16
+exp1b,exemplar,animals,goldfish,parrot,pig,0.453555367,16
+exp1b,exemplar,furniture,desk,table,dresser,0.481939262,16
+exp1b,exemplar,food,nuts,berries,meat,0.496598122,16
+exp1b,exemplar,games,cricket,basketball,football,0.512347322,16
+exp1b,exemplar,plants,plants,nature,woods,0.652540059,16
+exp1b,exemplar,vehicles,suv,van,camper,0.345295431,16
+exp1b,exemplar,weapons,axe,sabre,rifle,0.451237107,16
+exp1b,exemplar,chores,washing dishes,making the bed,vacuuming,0.485023577,16

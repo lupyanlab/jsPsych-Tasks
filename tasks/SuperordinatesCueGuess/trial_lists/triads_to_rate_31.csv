@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,tools,socket,saw,pliers,0.395242436,31
+exp1a,label,flowers,violet,hydrangea,lily,0.501674455,31
+exp1a,label,weapons,sling,grapeshot,flame thrower,0.448719188,31
+exp1a,label,diseases,eczema,measles,blindness,0.501026843,31
+exp1a,label,animals,kangaroo,hippo,ram,0.406235812,31
+exp1a,label,vehicles,bus,wagon,trailers,0.585609584,31
+exp1a,label,chores,dishes,vacuuming,dusting,0.479486144,31
+exp1a,label,mammals,lion,horse,fox,0.350028406,31
+exp1a,label,desserts,mousse,pie,brownie,0.442167115,31
+exp1a,label,hobbies,coloring,painting,reading,0.344070355,31
+exp1a,label,fruit,strawberry,gooseberry,blackberry,0.591163642,31
+exp1a,label,furniture,loveseat,rocking chair,night stand,0.436508089,31
+exp1a,label,pets,hamster,fish,rabbit,0.483181524,31
+exp1a,label,toys,stuffed animal,tablet,play kitchen,0.494858686,31
+exp1a,label,food,french fries,peach,apple,0.484500651,31
+exp1a,label,appetizers,queso dip,breadsticks,salad,0.407927638,31
+exp1a,label,clothing,socks,underwear,jacket,0.567461619,31
+exp1a,label,games,adventure,role-playing,strategy,0.470452431,31
+exp1a,label,vegetables,onion,potato,pepper,0.502950657,31
+exp1a,label,plants,daffodil,daisy,pansy,0.369578221,31

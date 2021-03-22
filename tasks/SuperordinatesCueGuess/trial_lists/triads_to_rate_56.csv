@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,tools,hammer,wrench,mallet,0.391602093,56
+exp1b,exemplar,hobbies,reading,stamp collecting,knitting,0.353161056,56
+exp1b,exemplar,vegetables,carrot,peas,beans,0.502164563,56
+exp1b,exemplar,toys,jacks,slinky,jump rope,0.354723568,56
+exp1b,exemplar,appetizers,pie,lobster,crab,0.365092261,56
+exp1b,exemplar,furniture,keyboard,mouse,monitor,0.318279657,56
+exp1b,exemplar,chores,clean windows,scrub floor,folding clothes,0.391695324,56
+exp1b,exemplar,diseases,diabetes,influenza,hepatitis,0.545555629,56
+exp1b,exemplar,flowers,gerbera,tulip,chrysanthemum,0.549725557,56
+exp1b,exemplar,fruit,cherry,blueberry,mango,0.579559552,56
+exp1b,exemplar,desserts,ice cream,cookie,baked alaska,0.443581913,56
+exp1b,exemplar,food,nuts,berries,meat,0.496598122,56
+exp1b,exemplar,vehicles,plane,tank,unicycle,0.456269982,56
+exp1b,exemplar,animals,lion,jaguar,platypus,0.423371518,56
+exp1b,exemplar,clothing,pants,tie,skirt,0.490677632,56
+exp1b,exemplar,weapons,razor,scissors,axe,0.362483916,56
+exp1b,exemplar,mammals,hamster,bird,fish,0.450135485,56
+exp1b,exemplar,games,xbox,gears of war,atari,0.443904044,56
+exp1b,exemplar,plants,weed,shrub,vines,0.508743879,56
+exp1b,exemplar,pets,rabbit,mouse,hamster,0.429038383,56

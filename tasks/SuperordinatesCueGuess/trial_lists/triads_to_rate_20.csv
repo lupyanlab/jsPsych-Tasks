@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,tools,drill,saw,wrench,0.377596257,20
+exp1b,exemplar,weapons,mallet,chainsaw,bat,0.360815863,20
+exp1b,exemplar,diseases,flu,hiv,?,0.448334729,20
+exp1b,exemplar,desserts,frozen yogurt,sundae,popsicle,0.495993197,20
+exp1b,exemplar,games,fable,ps4,nintendo,0.355035107,20
+exp1b,exemplar,chores,shoveling snow,doing laundry,vacuuming carpet,0.465254321,20
+exp1b,exemplar,pets,bird,snake,rat,0.395452529,20
+exp1b,exemplar,hobbies,swimming,diving,singing,0.350100035,20
+exp1b,exemplar,flowers,lily,orchid,gardenias,0.551629019,20
+exp1b,exemplar,furniture,coffee table,end table,chair,0.448557937,20
+exp1b,exemplar,food,hotdog,tacos,spaghetti,0.449192577,20
+exp1b,exemplar,vegetables,tomato,peppers,onion,0.557927305,20
+exp1b,exemplar,clothing,socks,underwear,sweater,0.592769266,20
+exp1b,exemplar,animals,elephant,gazelle,crocodile,0.445898217,20
+exp1b,exemplar,appetizers,jalapeno poppers,pigs in a blanket,french fries,0.364434246,20
+exp1b,exemplar,fruit,banana,apple,raspberry,0.615534112,20
+exp1b,exemplar,toys,board games,ball,blocks,0.451636365,20
+exp1b,exemplar,plants,weed,shrub,vines,0.508743879,20
+exp1b,exemplar,vehicles,boat,bus,bicycle,0.488983517,20
+exp1b,exemplar,mammals,bird,horse,shark,0.382501311,20

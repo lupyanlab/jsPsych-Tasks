@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,diseases,flu,cold,cancer,0.497315355,51
+exp1b,exemplar,mammals,whale,cat,moose,0.429634297,51
+exp1b,exemplar,toys,hula hoop,freebee,baseball,0.325915253,51
+exp1b,exemplar,appetizers,french fries,nachos,garlic bread,0.4327231,51
+exp1b,exemplar,pets,frog,turtle,rabbit,0.37197799,51
+exp1b,exemplar,hobbies,dancing,drawing,cooking,0.363554967,51
+exp1b,exemplar,tools,drill,saw,wrench,0.377596257,51
+exp1b,exemplar,chores,washing dishes,making the bed,vacuuming,0.485023577,51
+exp1b,exemplar,food,cherry,rhubarb,peach,0.341473633,51
+exp1b,exemplar,games,scrabble,trivial pursuit,battleship,0.424424805,51
+exp1b,exemplar,vehicles,bus,motorcycle,ship,0.513159367,51
+exp1b,exemplar,desserts,zucchini bread,ice cycle,cinnamon bread,0.458580665,51
+exp1b,exemplar,animals,horse,rabbit,bird,0.502346847,51
+exp1b,exemplar,flowers,lily,orchid,gardenias,0.551629019,51
+exp1b,exemplar,vegetables,green beans,peas,corn,0.552101405,51
+exp1b,exemplar,weapons,arrow,bat,sword,0.41644916,51
+exp1b,exemplar,clothing,underwear,jacket,sweater,0.61679646,51
+exp1b,exemplar,fruit,pineapple,watermelon,raspberry,0.601688478,51
+exp1b,exemplar,furniture,table,dresser,bookshelf,0.481088425,51
+exp1b,exemplar,plants,basil,lavender,cilantro,0.367079653,51

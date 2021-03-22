@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,animals,tiger,elephant,giraffe,0.487740212,11
+exp1a,label,vehicles,garbage truck,sports car,utility van,0.568764893,11
+exp1a,label,clothing,underwear,shoes,jeans,0.574235582,11
+exp1a,label,fruit,pineapple,kiwi,strawberry,0.592309819,11
+exp1a,label,desserts,boston cream pie,german chocolate cake,cream puff,0.532230988,11
+exp1a,label,diseases,lung disease,diabetes,parkinson's,0.55810457,11
+exp1a,label,hobbies,photography,cycling,reading,0.371484601,11
+exp1a,label,games,checkers,marbles,darts,0.432605959,11
+exp1a,label,mammals,giraffe,antelope,deer,0.43147651,11
+exp1a,label,plants,rose,dandelion,hibiscus,0.433562856,11
+exp1a,label,furniture,gaming chair,lazyboy,futon,0.513108895,11
+exp1a,label,flowers,violet,hydrangea,lily,0.501674455,11
+exp1a,label,appetizers,mushrooms,chips and salsa,soup,0.43684724,11
+exp1a,label,chores,dusting,clean toilet,taking out trash,0.425852746,11
+exp1a,label,toys,scooter,skateboard,ball,0.426119645,11
+exp1a,label,tools,scissors,pliers,anvil,0.415786334,11
+exp1a,label,pets,ferret,gerbil,hamster,0.474047899,11
+exp1a,label,vegetables,peas,carrot,corn,0.541095898,11
+exp1a,label,weapons,bat,missile,fist,0.512484616,11
+exp1a,label,food,steak,potato,banana,0.418742299,11

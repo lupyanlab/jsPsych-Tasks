@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,vegetables,squash,zucchini,broccoli,0.571711562,45
+exp1a,label,chores,washing windows,walking the dog,mailing letters,0.448054532,45
+exp1a,label,plants,aloe,indoor,outdoor,0.432524048,45
+exp1a,label,weapons,missile,sniper rifle,machine gun,0.543940986,45
+exp1a,label,food,meatballs,salad,chocolate,0.466072188,45
+exp1a,label,mammals,seal,hamster,bear,0.348208588,45
+exp1a,label,clothing,underwear,shoes,jeans,0.574235582,45
+exp1a,label,appetizers,breadsticks,pineapple slices,deviled eggs,0.418101382,45
+exp1a,label,toys,video games,scooter,bicycle,0.464392739,45
+exp1a,label,vehicles,sedan,delivery truck,semi truck,0.479901857,45
+exp1a,label,pets,fish,pig,turtle,0.463966618,45
+exp1a,label,fruit,grape,honeydew,kiwi,0.57702993,45
+exp1a,label,animals,monkey,giraffe,elephant,0.490536665,45
+exp1a,label,desserts,mochi,macarons,cake,0.500901596,45
+exp1a,label,games,scene it?,mario,zelda,0.380185113,45
+exp1a,label,flowers,hibiscus,sunflower,tulip,0.522216164,45
+exp1a,label,hobbies,singing,photography,scuba diving,0.389143103,45
+exp1a,label,tools,scissors,pliers,anvil,0.415786334,45
+exp1a,label,furniture,table,bed,dresser,0.464966119,45
+exp1a,label,diseases,covid-19,cold,cancer,0.498110517,45

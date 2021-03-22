@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,furniture,chair,painting,cabinet,0.500979186,59
+exp1b,exemplar,hobbies,prancing,laughing,running,0.279752205,59
+exp1b,exemplar,vehicles,van,truck,wagon,0.505520604,59
+exp1b,exemplar,toys,legos,barbie,gi joe,0.345303452,59
+exp1b,exemplar,plants,daffodil,rose,honeysuckle,0.403109229,59
+exp1b,exemplar,flowers,carnation,daisy,poppy,0.510153505,59
+exp1b,exemplar,mammals,wolf,fox,deer,0.387637427,59
+exp1b,exemplar,desserts,german chocolate cake,pineapple upside down cake,red velvet cake,0.499146448,59
+exp1b,exemplar,weapons,katana,mace,stun gun,0.515861635,59
+exp1b,exemplar,animals,rabbit,fox,chicken,0.437051336,59
+exp1b,exemplar,food,spaghetti,steak,wings,0.437833105,59
+exp1b,exemplar,diseases,ms,crohn's,ra,0.017751128,59
+exp1b,exemplar,clothing,socks,bra,skirt,0.489877755,59
+exp1b,exemplar,vegetables,lettuce,broccoli,cauliflower,0.616879236,59
+exp1b,exemplar,chores,shoveling snow,doing laundry,vacuuming carpet,0.465254321,59
+exp1b,exemplar,pets,bird,snake,mouse,0.390764479,59
+exp1b,exemplar,tools,pliers,mallet,saw,0.385128645,59
+exp1b,exemplar,games,jump rope,tag,hide and seek,0.326588849,59
+exp1b,exemplar,fruit,lemon,tomato,grape,0.590074819,59
+exp1b,exemplar,appetizers,satay,charcuterie,pigs in a blanket,0.353505971,59

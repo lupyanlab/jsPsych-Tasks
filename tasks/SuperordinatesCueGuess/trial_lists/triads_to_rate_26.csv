@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,weapons,machine gun,bb gun,revolver,0.508320088,26
+exp1b,exemplar,toys,hula hoop,freebee,baseball,0.325915253,26
+exp1b,exemplar,plants,violet,rose,ivy,0.343503267,26
+exp1b,exemplar,vehicles,van,truck,wagon,0.505520604,26
+exp1b,exemplar,flowers,daisy,cala,gardenias,0.48053332,26
+exp1b,exemplar,pets,rabbit,mouse,hamster,0.429038383,26
+exp1b,exemplar,tools,screw,nail,drill,0.404192271,26
+exp1b,exemplar,mammals,deer,lion,antelope,0.44377338,26
+exp1b,exemplar,chores,watering flowers,organic gardening,cutting,0.38673789,26
+exp1b,exemplar,furniture,chair,painting,cabinet,0.500979186,26
+exp1b,exemplar,desserts,pecan pie,cupcake,gelato,0.476602341,26
+exp1b,exemplar,diseases,arthritis,bladder cancer,diabetes,0.56666802,26
+exp1b,exemplar,fruit,pineapple,watermelon,raspberry,0.601688478,26
+exp1b,exemplar,appetizers,chips and dip,veggie platter,canapes,0.497181297,26
+exp1b,exemplar,games,ski,squash,rugby,0.381785299,26
+exp1b,exemplar,food,cherry,rhubarb,peach,0.341473633,26
+exp1b,exemplar,vegetables,green beans,peas,corn,0.552101405,26
+exp1b,exemplar,clothing,dress,skirt,jacket,0.591774704,26
+exp1b,exemplar,hobbies,acting,orating,dancing,0.329020259,26
+exp1b,exemplar,animals,elephant,hamster,goldfish,0.472780369,26

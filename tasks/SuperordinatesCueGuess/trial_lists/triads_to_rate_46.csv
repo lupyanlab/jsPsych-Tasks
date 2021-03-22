@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,toys,legos,matchbox,blocks,0.486501478,46
+exp1b,exemplar,pets,rabbit,hamster,parrot,0.427793582,46
+exp1b,exemplar,chores,vacuuming,laundry,dish washing,0.510900142,46
+exp1b,exemplar,mammals,lion,tiger,panda,0.36401711,46
+exp1b,exemplar,plants,lettuce,rutabaga,cauliflower,0.394885745,46
+exp1b,exemplar,tools,drill,saw,socket,0.344439548,46
+exp1b,exemplar,vehicles,train,tractor,helicopter,0.496417315,46
+exp1b,exemplar,games,reading,soccer,baseball,0.457749609,46
+exp1b,exemplar,weapons,mallet,chainsaw,bat,0.360815863,46
+exp1b,exemplar,fruit,kiwi,pineapple,watermelon,0.564133949,46
+exp1b,exemplar,flowers,daisy,cala,gardenias,0.48053332,46
+exp1b,exemplar,clothing,shorts,nightwear,winter wear,0.537856288,46
+exp1b,exemplar,desserts,cookie,scone,jello,0.393441836,46
+exp1b,exemplar,hobbies,crochet,walking,watching tv,0.311431042,46
+exp1b,exemplar,furniture,table,lamp,bench,0.427908716,46
+exp1b,exemplar,appetizers,pizza,mozzarella sticks,chicken strips,0.407137744,46
+exp1b,exemplar,vegetables,onion,garlic,leek,0.496694017,46
+exp1b,exemplar,food,burrito,tacos,burger,0.462999465,46
+exp1b,exemplar,diseases,diabetes,syphilis,hiv,0.498864276,46
+exp1b,exemplar,animals,giraffe,seal,dolphin,0.426676938,46

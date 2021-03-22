@@ -103,14 +103,15 @@ const handleError = (error) => {
       type: 'survey-text',
       input_feedback_duration: 500,
       timeline: trials.map((trial) => ({
-        preamble: /*html*/ `Name the category: these are all ____
+        preamble: /*html*/ `
           <br><br>
-          ${trial.r1}
+          ${trial.r4}
           <br><br>
-          ${trial.r2}
+          ${trial.r5}
           <br><br>
-          ${trial.r3}
-          <br>`,
+          ${trial.r6}
+          <br><br>
+		  <strong>Name the category: these are all ____</strong>`,
         questions: [{ prompt: '', name: '', rows: 1, columns: 30, required: true }],
         on_start: () => {
           jsPsych.setProgressBar((trial.trial_num - 1) / num_trials);

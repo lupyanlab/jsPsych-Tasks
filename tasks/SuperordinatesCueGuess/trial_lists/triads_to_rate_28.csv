@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,fruit,mango,kumquat,apple,0.628567068,28
+exp1b,exemplar,games,farm quest,solitaire,jewel,0.342241341,28
+exp1b,exemplar,weapons,mace,bow and arrow,spear,0.457645746,28
+exp1b,exemplar,tools,saw,screw,wrench,0.372773968,28
+exp1b,exemplar,pets,horse,fish,snake,0.397419774,28
+exp1b,exemplar,furniture,dresser,table,night stand,0.435483096,28
+exp1b,exemplar,appetizers,pizza,mozzarella sticks,chicken strips,0.407137744,28
+exp1b,exemplar,desserts,brownie,cookie,donuts,0.42580379,28
+exp1b,exemplar,food,salad,french fries,pasta,0.468457454,28
+exp1b,exemplar,mammals,lion,tiger,panda,0.36401711,28
+exp1b,exemplar,vehicles,van,limo,suv,0.348093051,28
+exp1b,exemplar,clothing,shoes,socks,belt,0.528378891,28
+exp1b,exemplar,vegetables,carrot,lettuce,onion,0.513827333,28
+exp1b,exemplar,diseases,diabetes,cold,pneumonia,0.48879399,28
+exp1b,exemplar,plants,perennials,ivy,flowering,0.460767049,28
+exp1b,exemplar,flowers,cauliflower,eggplant flower,lotus,0.553483369,28
+exp1b,exemplar,animals,horse,rabbit,bird,0.502346847,28
+exp1b,exemplar,hobbies,crochet,gluing,painting,0.303260407,28
+exp1b,exemplar,toys,doll,action figures,puzzles,0.525281609,28
+exp1b,exemplar,chores,vacuuming,scrubbing,polishing,0.451216324,28

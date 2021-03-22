@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,toys,legos,gi joe,puzzles,0.378598783,17
+exp1b,exemplar,diseases,heart disease,copd,aids,0.580177458,17
+exp1b,exemplar,plants,lily,daffodil,sunflower,0.434784966,17
+exp1b,exemplar,hobbies,reading books,watching television,playing sports,0.455328037,17
+exp1b,exemplar,weapons,cannon,tank,bow and arrow,0.470728317,17
+exp1b,exemplar,furniture,bed,cabinet,desk,0.477148466,17
+exp1b,exemplar,flowers,rose,tulip,carnation,0.545093095,17
+exp1b,exemplar,animals,coyote,cheetah,pig,0.444049444,17
+exp1b,exemplar,pets,ferret,parakeet,cockatiel,0.420597463,17
+exp1b,exemplar,chores,dusting,mopping,vacuuming,0.476117445,17
+exp1b,exemplar,food,burrito,tacos,burger,0.462999465,17
+exp1b,exemplar,games,battleship,risk,candyland,0.319123142,17
+exp1b,exemplar,clothing,trousers,shirt,saree,0.535865359,17
+exp1b,exemplar,desserts,muffin,coffee cake,danish,0.436247155,17
+exp1b,exemplar,fruit,cherry,orange,pineapple,0.559892836,17
+exp1b,exemplar,vegetables,carrot,peas,beans,0.502164563,17
+exp1b,exemplar,mammals,zebra,fox,lion,0.366139578,17
+exp1b,exemplar,vehicles,plane,tank,unicycle,0.456269982,17
+exp1b,exemplar,appetizers,french fries,nachos,garlic bread,0.4327231,17
+exp1b,exemplar,tools,jigsaw,drill,wrench,0.408776395,17

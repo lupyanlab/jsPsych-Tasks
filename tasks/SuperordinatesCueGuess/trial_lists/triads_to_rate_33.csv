@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,diseases,polio,cancer,alzheimer's,0.529467535,33
+exp1a,label,fruit,orange,nectarine,peach,0.636642738,33
+exp1a,label,toys,doll,toy car,ball,0.444447115,33
+exp1a,label,pets,pot bellied pigs,parakeet,parrot,0.480981546,33
+exp1a,label,animals,tiger,elephant,zebra,0.472544407,33
+exp1a,label,food,tomato,pasta,radish,0.448055807,33
+exp1a,label,furniture,office chair,lounge chair,dining table,0.517716871,33
+exp1a,label,clothing,jeans,coat,sweater,0.550688218,33
+exp1a,label,flowers,hibiscus,forget-me-not,pansy,0.504272411,33
+exp1a,label,mammals,invertebrates,mammals,reptiles,0.69681475,33
+exp1a,label,chores,bathroom,sweeping,folding,0.432729954,33
+exp1a,label,tools,grubbing hoe,shovel,grass clippers,0.430125605,33
+exp1a,label,weapons,bat,bomb,fireworks,0.5101348,33
+exp1a,label,desserts,brownie,gelato,cheesecake,0.469547724,33
+exp1a,label,vegetables,asparagus,potato,carrot,0.526437142,33
+exp1a,label,hobbies,dancing,singing,walking,0.317719089,33
+exp1a,label,plants,rhododendron,boxwood,daylily,0.461970994,33
+exp1a,label,appetizers,smoked salmon,stuffed mushrooms,biscuits, jam and cream,0.43276145,33
+exp1a,label,vehicles,ford,chevrolet,kia,0.374681936,33
+exp1a,label,games,jump rope,disc golf,football,0.411627753,33

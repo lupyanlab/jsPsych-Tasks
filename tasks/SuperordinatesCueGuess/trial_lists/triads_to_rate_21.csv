@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,flowers,tulip,lily,petunia,0.491544413,21
+exp1b,exemplar,vegetables,kale,spinach,pepper,0.523998805,21
+exp1b,exemplar,toys,legos,barbie,gi joe,0.345303452,21
+exp1b,exemplar,food,shrimp,corn,potato,0.476264213,21
+exp1b,exemplar,animals,hamster,rabbit,guinea pig,0.469947576,21
+exp1b,exemplar,diseases,hypertension,covid-19,heart disease,0.572259147,21
+exp1b,exemplar,vehicles,bus,motorcycle,ship,0.513159367,21
+exp1b,exemplar,pets,wolf,fox,giraffe,0.340144234,21
+exp1b,exemplar,tools,screwdriver,prybar,calipers,0.467971237,21
+exp1b,exemplar,clothing,jacket,shorts,socks,0.499221407,21
+exp1b,exemplar,chores,dusting,doing laundry,mopping,0.504423576,21
+exp1b,exemplar,fruit,cherry,blueberry,mango,0.579559552,21
+exp1b,exemplar,furniture,keyboard,mouse,monitor,0.318279657,21
+exp1b,exemplar,plants,oak tree,locust tree,birch tree,0.493918656,21
+exp1b,exemplar,games,risk,dungeons and dragons,game of life,0.480340097,21
+exp1b,exemplar,weapons,katana,mace,stun gun,0.515861635,21
+exp1b,exemplar,hobbies,dancing,drawing,cooking,0.363554967,21
+exp1b,exemplar,appetizers,salad,shrimp,chips,0.425997642,21
+exp1b,exemplar,desserts,zucchini bread,ice cycle,cinnamon bread,0.458580665,21
+exp1b,exemplar,mammals,panther,badger,rabbit,0.334868895,21

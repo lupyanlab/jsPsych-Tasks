@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,vegetables,carrot,spinach,lettuce,0.545964354,8
+exp1a,label,flowers,lily,daffodil,leaf,0.50546593,8
+exp1a,label,food,cheese,salad,potato,0.510815716,8
+exp1a,label,animals,elephant,giraffe,rhinoceros,0.466786195,8
+exp1a,label,vehicles,limousine,van,caravan,0.510724568,8
+exp1a,label,weapons,cannon,bomb,rifle,0.551452585,8
+exp1a,label,desserts,mochi,macarons,cake,0.500901596,8
+exp1a,label,diseases,aids,smallpox,chicken pox,0.513570578,8
+exp1a,label,mammals,whale,deer,lion,0.42945166,8
+exp1a,label,furniture,kitchen table,chair,sofa,0.502233801,8
+exp1a,label,games,monopoly,trouble,poker,0.399985632,8
+exp1a,label,chores,dishes,vacuuming,dusting,0.479486144,8
+exp1a,label,fruit,grape,honeydew,kiwi,0.57702993,8
+exp1a,label,toys,barbie,puzzles,playdoh,0.44268574,8
+exp1a,label,appetizers,breadsticks,soup,bread,0.425264081,8
+exp1a,label,clothing,underwear,socks,sandals,0.588674412,8
+exp1a,label,pets,snake,iguana,lizard,0.463218725,8
+exp1a,label,plants,bamboo,ivy,lily of the valley,0.444617808,8
+exp1a,label,tools,socket,saw,pliers,0.395242436,8
+exp1a,label,hobbies,swimming,video games,social media,0.37209925,8

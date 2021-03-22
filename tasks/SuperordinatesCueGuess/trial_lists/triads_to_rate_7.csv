@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,vehicles,ford,chevrolet,kia,0.374681936,7
+exp1a,label,toys,bat,baseball,sword,0.343578056,7
+exp1a,label,flowers,black eyed susans,marigold,lily,0.543859676,7
+exp1a,label,desserts,mousse,pie,brownie,0.442167115,7
+exp1a,label,animals,bat,bird,tiger,0.436649597,7
+exp1a,label,hobbies,acting,swimming,running,0.34435625,7
+exp1a,label,games,jump rope,disc golf,football,0.411627753,7
+exp1a,label,tools,scissors,drill,level,0.431753111,7
+exp1a,label,mammals,pig,lion,fox,0.370109014,7
+exp1a,label,food,grilled chicken,pork chops,salad,0.503421424,7
+exp1a,label,plants,bud,maize,beans,0.46536106,7
+exp1a,label,weapons,bazooka,ice pick,hatchet,0.473887051,7
+exp1a,label,clothing,scarf,hat,mittens,0.569165648,7
+exp1a,label,vegetables,onion,potato,pepper,0.502950657,7
+exp1a,label,chores,taking out trash,cooking,cleaning tub,0.461732088,7
+exp1a,label,pets,fish,hamster,rabbit,0.481799318,7
+exp1a,label,furniture,office chair,lounge chair,dining table,0.517716871,7
+exp1a,label,diseases,alzheimer's,als,cystic fibrosis,0.49879646,7
+exp1a,label,fruit,grape,banana,apple,0.621831527,7
+exp1a,label,appetizers,smoked salmon,stuffed mushrooms,biscuits, jam and cream,0.43276145,7

@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,food,mashed potatoes,chicken,hotdog,0.505063446,22
+exp1b,exemplar,diseases,flu,shingles,rubella,0.426772705,22
+exp1b,exemplar,pets,gerbil,turtle,hamster,0.412267289,22
+exp1b,exemplar,toys,handball,tennis,basketball,0.324295519,22
+exp1b,exemplar,desserts,cookie,scone,jello,0.393441836,22
+exp1b,exemplar,flowers,rose,marigold,petunia,0.525772915,22
+exp1b,exemplar,tools,measuring tape,hammer,staple gun,0.438315637,22
+exp1b,exemplar,hobbies,writing,typing,clapping,0.28872436,22
+exp1b,exemplar,animals,hyena,porpoise,mule,0.3894688,22
+exp1b,exemplar,fruit,banana,grape,mango,0.646038339,22
+exp1b,exemplar,appetizers,canapes,crudites,shrimp toast,0.544598914,22
+exp1b,exemplar,weapons,arrow,bat,sword,0.41644916,22
+exp1b,exemplar,furniture,bed,dresser,wardrobe,0.517157152,22
+exp1b,exemplar,mammals,rat,cat,mole,0.362097799,22
+exp1b,exemplar,vegetables,onion,garlic,leek,0.496694017,22
+exp1b,exemplar,vehicles,coupe,convertible,van,0.422755406,22
+exp1b,exemplar,games,monopoly,go,poker,0.382072637,22
+exp1b,exemplar,chores,dusting,washing,polishing,0.432238276,22
+exp1b,exemplar,clothing,pants,dress,coat,0.619394763,22
+exp1b,exemplar,plants,daffodil,rose,honeysuckle,0.403109229,22

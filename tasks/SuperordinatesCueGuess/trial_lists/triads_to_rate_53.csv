@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,toys,hot wheels,american doll,baby alive,0.490274502,53
+exp1b,exemplar,furniture,dresser,table,night stand,0.435483096,53
+exp1b,exemplar,clothing,scarf,skirt,dress,0.587104979,53
+exp1b,exemplar,food,pasta,pizza,french fries,0.492036642,53
+exp1b,exemplar,diseases,cold,bronchitis,pneumonia,0.444068169,53
+exp1b,exemplar,animals,coyote,cheetah,pig,0.444049444,53
+exp1b,exemplar,games,battleship,risk,candyland,0.319123142,53
+exp1b,exemplar,fruit,grape,pineapple,pear,0.622130292,53
+exp1b,exemplar,vegetables,carrot,mushrooms,tomato,0.50936634,53
+exp1b,exemplar,weapons,axe,sabre,rifle,0.451237107,53
+exp1b,exemplar,appetizers,enchilada,tostada,quesadilla,0.386139452,53
+exp1b,exemplar,mammals,panther,badger,rabbit,0.334868895,53
+exp1b,exemplar,pets,lizard,horse,spider,0.352034145,53
+exp1b,exemplar,desserts,pecan pie,cupcake,gelato,0.476602341,53
+exp1b,exemplar,vehicles,van,limo,suv,0.348093051,53
+exp1b,exemplar,tools,knife,pliers,shovel,0.456410068,53
+exp1b,exemplar,chores,dusting,doing laundry,mopping,0.504423576,53
+exp1b,exemplar,hobbies,music,art,reading,0.396795562,53
+exp1b,exemplar,plants,perennials,ivy,flowering,0.460767049,53
+exp1b,exemplar,flowers,cauliflower,eggplant flower,lotus,0.553483369,53

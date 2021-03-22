@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,fruit,mango,kumquat,apple,0.628567068,48
+exp1b,exemplar,games,monopoly,go,poker,0.382072637,48
+exp1b,exemplar,furniture,bed,dresser,wardrobe,0.517157152,48
+exp1b,exemplar,plants,moss,shrub,bramble,0.447008997,48
+exp1b,exemplar,toys,legos,gi joe,puzzles,0.378598783,48
+exp1b,exemplar,vehicles,coupe,convertible,van,0.422755406,48
+exp1b,exemplar,animals,goldfish,parrot,pig,0.453555367,48
+exp1b,exemplar,vegetables,corn,broccoli,lima beans,0.563700861,48
+exp1b,exemplar,hobbies,papier mache,cabinet making,macrame,0.277567407,48
+exp1b,exemplar,chores,searching,mining,hunting,0.308578406,48
+exp1b,exemplar,diseases,diabetes,cold,pneumonia,0.48879399,48
+exp1b,exemplar,food,hotdog,tacos,spaghetti,0.449192577,48
+exp1b,exemplar,flowers,daisy,dandelion,chrysanthemum,0.515463869,48
+exp1b,exemplar,mammals,elephant,giraffe,rhinoceros,0.449728699,48
+exp1b,exemplar,appetizers,canapes,crudites,shrimp toast,0.544598914,48
+exp1b,exemplar,desserts,muffin,coffee cake,danish,0.436247155,48
+exp1b,exemplar,tools,wrench,screwdriver,pliers,0.447691093,48
+exp1b,exemplar,clothing,pants,trousers,jacket,0.566018927,48
+exp1b,exemplar,weapons,sword,arrow,box cutter,0.447344066,48
+exp1b,exemplar,pets,horse,cow,raccoon,0.41608235,48

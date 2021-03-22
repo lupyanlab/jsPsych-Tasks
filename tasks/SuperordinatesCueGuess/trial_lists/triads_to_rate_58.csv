@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,flowers,rose,marigold,petunia,0.525772915,58
+exp1b,exemplar,tools,screwdriver,prybar,calipers,0.467971237,58
+exp1b,exemplar,chores,washing dishes,taking out trash,sweeping,0.443385195,58
+exp1b,exemplar,plants,oak tree,locust tree,birch tree,0.493918656,58
+exp1b,exemplar,appetizers,chips and dip,veggie platter,canapes,0.497181297,58
+exp1b,exemplar,games,connect 4,candyland,guess who,0.182658798,58
+exp1b,exemplar,pets,tegu,ball python,gecko,0.260098735,58
+exp1b,exemplar,vegetables,pumpkin,cucumber,potato,0.517100206,58
+exp1b,exemplar,animals,animals,zoo,creature,0.670272007,58
+exp1b,exemplar,fruit,pear,peach,orange,0.619841131,58
+exp1b,exemplar,toys,handball,tennis,basketball,0.324295519,58
+exp1b,exemplar,furniture,bed,night stand,armoire,0.468111631,58
+exp1b,exemplar,desserts,cookie,pie,donuts,0.437733474,58
+exp1b,exemplar,hobbies,reading books,watching television,playing sports,0.455328037,58
+exp1b,exemplar,clothing,socks,underwear,sweater,0.592769266,58
+exp1b,exemplar,vehicles,skateboard,train,bus,0.454234634,58
+exp1b,exemplar,weapons,cannon,tank,bow and arrow,0.470728317,58
+exp1b,exemplar,mammals,deer,lion,antelope,0.44377338,58
+exp1b,exemplar,diseases,hypertension,covid-19,heart disease,0.572259147,58
+exp1b,exemplar,food,french fries,hotdog,monkey bread,0.531244926,58

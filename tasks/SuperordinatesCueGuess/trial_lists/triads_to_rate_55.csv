@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,games,scrabble,netball,table-tennis,0.459755057,55
+exp1b,exemplar,plants,rose,dandelion,lily,0.428661785,55
+exp1b,exemplar,fruit,apple,orange,grape,0.614816058,55
+exp1b,exemplar,toys,blocks,legos,yo-yo,0.451962806,55
+exp1b,exemplar,appetizers,spinach dip,queso dip,pita chips,0.374196748,55
+exp1b,exemplar,chores,vacuuming,scrubbing,polishing,0.451216324,55
+exp1b,exemplar,food,mashed potatoes,chicken,hotdog,0.505063446,55
+exp1b,exemplar,flowers,clover,cedar,basil,0.413495787,55
+exp1b,exemplar,pets,ferret,parakeet,cockatiel,0.420597463,55
+exp1b,exemplar,weapons,machine gun,bb gun,revolver,0.508320088,55
+exp1b,exemplar,clothing,jacket,shorts,socks,0.499221407,55
+exp1b,exemplar,vehicles,sedan,bus,hatchback,0.465639473,55
+exp1b,exemplar,mammals,monkey,seal,gorilla,0.327677996,55
+exp1b,exemplar,furniture,chair,pillow,blanket,0.421496614,55
+exp1b,exemplar,tools,wrench,nail gun,sander,0.418308129,55
+exp1b,exemplar,diseases,flu,infection,virus,0.537063098,55
+exp1b,exemplar,hobbies,writing,typing,clapping,0.28872436,55
+exp1b,exemplar,animals,elephant,gazelle,crocodile,0.445898217,55
+exp1b,exemplar,desserts,frozen yogurt,sundae,popsicle,0.495993197,55
+exp1b,exemplar,vegetables,tomato,peppers,onion,0.557927305,55

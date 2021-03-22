@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,games,hopscotch,puzzles,football,0.643508823,32
+exp1a,label,toys,doll,action figures,educational toys,0.645643191,32
+exp1a,label,weapons,shotgun,sword,ar-15,0.555022648,32
+exp1a,label,diseases,hepatitis,disease,niaid's,0.59700742,32
+exp1a,label,plants,shrub,cactus,conifers,0.504879057,32
+exp1a,label,desserts,brownie,ice cream,donuts,0.474540405,32
+exp1a,label,appetizers,nachos,shrimp,flatbread,0.466719508,32
+exp1a,label,vehicles,scooter,truck,bus,0.54173415,32
+exp1a,label,furniture,chair,stool,cushions,0.491592888,32
+exp1a,label,pets,fish,hamster,rabbit,0.481799318,32
+exp1a,label,hobbies,walking,watching movies,writing,0.385513628,32
+exp1a,label,chores,taking out trash,cooking,cleaning tub,0.461732088,32
+exp1a,label,mammals,pig,lion,fox,0.370109014,32
+exp1a,label,fruit,grape,banana,apple,0.621831527,32
+exp1a,label,clothing,socks,underwear,jacket,0.559052977,32
+exp1a,label,food,rice,bread,apple,0.474531725,32
+exp1a,label,tools,nail,axe,chainsaw,0.41244945,32
+exp1a,label,animals,pig,sheep,cow,0.518162684,32
+exp1a,label,flowers,geranium,tulip,lily,0.493102934,32
+exp1a,label,vegetables,pumpkin,zucchini,tomato,0.543386585,32

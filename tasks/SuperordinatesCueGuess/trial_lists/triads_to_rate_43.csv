@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,desserts,pudding,chocolate,ice cream,0.472413396,43
+exp1a,label,games,blackjack,rummy,uno,0.380806196,43
+exp1a,label,appetizers,mushrooms,chips and salsa,soup,0.43684724,43
+exp1a,label,animals,sheep,pig,tiger,0.51132202,43
+exp1a,label,pets,turtle,frog,horse,0.440970071,43
+exp1a,label,weapons,ball and bat,stick,spear,0.497033853,43
+exp1a,label,furniture,chair,table,dresser,0.473044028,43
+exp1a,label,food,cheese,salad,potato,0.510815716,43
+exp1a,label,tools,pliers,axe,shovel,0.427157218,43
+exp1a,label,chores,mopping floor,emptying the trash,cleaning windows,0.454786507,43
+exp1a,label,mammals,giraffe,antelope,deer,0.43147651,43
+exp1a,label,fruit,banana,apple,pear,0.615531732,43
+exp1a,label,flowers,black eyed susans,marigold,lily,0.543859676,43
+exp1a,label,diseases,influenza,polio,tuberculosis,0.557217854,43
+exp1a,label,vegetables,lettuce,onion,leek,0.466222418,43
+exp1a,label,vehicles,semi truck,train,airplane,0.529044754,43
+exp1a,label,hobbies,painting,crochet,mineral collecting,0.388103746,43
+exp1a,label,clothing,dress,jacket,tights,0.586981095,43
+exp1a,label,plants,grass,ivy,vines,0.493280727,43
+exp1a,label,toys,bat,baseball,sword,0.343578056,43

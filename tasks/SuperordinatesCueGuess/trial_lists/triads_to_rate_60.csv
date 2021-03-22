@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,vegetables,cauliflower,beet,lettuce,0.566980592,60
+exp1b,exemplar,diseases,flu,hiv,?,0.448334729,60
+exp1b,exemplar,flowers,tulip,chrysanthemum,iris,0.498426893,60
+exp1b,exemplar,chores,dusting,mopping,vacuuming,0.476117445,60
+exp1b,exemplar,games,fable,ps4,nintendo,0.355035107,60
+exp1b,exemplar,plants,daisy,tulip,evergreen,0.400217333,60
+exp1b,exemplar,tools,screw,nail,drill,0.404192271,60
+exp1b,exemplar,weapons,sword,tank,rifle,0.522492253,60
+exp1b,exemplar,mammals,zebra,fox,lion,0.366139578,60
+exp1b,exemplar,desserts,cake,pie,cupcake,0.48973389,60
+exp1b,exemplar,vehicles,hummer,jaguar,audi,0.40053209,60
+exp1b,exemplar,toys,board games,ball,blocks,0.451636365,60
+exp1b,exemplar,animals,rabbit,cow,moose,0.497985871,60
+exp1b,exemplar,appetizers,broccoli,mashed potatoes,burger,0.376672485,60
+exp1b,exemplar,clothing,dress,skirt,jacket,0.591774704,60
+exp1b,exemplar,furniture,bed,cabinet,desk,0.477148466,60
+exp1b,exemplar,pets,bird,snake,rat,0.395452529,60
+exp1b,exemplar,fruit,strawberry,blackberry,boysenberry,0.553895011,60
+exp1b,exemplar,hobbies,camping,crossword puzzles,chess,0.405271407,60
+exp1b,exemplar,food,pork chops,salad,pasta,0.478398576,60

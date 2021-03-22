@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,hobbies,weight lifting,biking,hiking,0.372770781,50
+exp1b,exemplar,diseases,bipolar disorder,parkinson's,dementia,0.476816898,50
+exp1b,exemplar,pets,gerbil,snake,parrot,0.379938559,50
+exp1b,exemplar,weapons,mace,bow and arrow,spear,0.457645746,50
+exp1b,exemplar,desserts,donate,roll cake,biscuit,0.388155405,50
+exp1b,exemplar,furniture,coffee table,end table,chair,0.448557937,50
+exp1b,exemplar,chores,doing dishes,laundry,washing windows,0.534792203,50
+exp1b,exemplar,plants,marigold,tulip,orchid,0.471091407,50
+exp1b,exemplar,games,ski,squash,rugby,0.381785299,50
+exp1b,exemplar,flowers,tulip,lily,petunia,0.491544413,50
+exp1b,exemplar,vegetables,peas,lettuce,onion,0.570698013,50
+exp1b,exemplar,mammals,cheetah,wolf,lion,0.396403366,50
+exp1b,exemplar,toys,jacks,car,ball,0.399824676,50
+exp1b,exemplar,vehicles,boat,bicycle,skateboard,0.458048098,50
+exp1b,exemplar,clothing,shoes,socks,belt,0.528378891,50
+exp1b,exemplar,appetizers,chips,taquitos,fajita,0.421747811,50
+exp1b,exemplar,tools,wrench,saw,pliers,0.401280421,50
+exp1b,exemplar,food,strawberry,peach,pear,0.361392753,50
+exp1b,exemplar,fruit,cherry,orange,pineapple,0.559892836,50
+exp1b,exemplar,animals,hyena,porpoise,mule,0.3894688,50

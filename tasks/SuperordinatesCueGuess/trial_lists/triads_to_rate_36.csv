@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,clothing,underwear,socks,sandals,0.588674412,36
+exp1a,label,vehicles,pickup truck,semi truck,bus,0.54767213,36
+exp1a,label,games,tetris,twister,chess,0.409515187,36
+exp1a,label,plants,mango,guava,coca,0.379673679,36
+exp1a,label,food,steak,potato,banana,0.418742299,36
+exp1a,label,desserts,apple pie,cookie,custard,0.463117849,36
+exp1a,label,flowers,daisy,bluebonnet,wild flower,0.527108645,36
+exp1a,label,tools,screwdriver,drill,level,0.39687079,36
+exp1a,label,hobbies,doing puzzles,picking up beach glass,surfing,0.383232453,36
+exp1a,label,toys,scooter,skateboard,ball,0.426119645,36
+exp1a,label,furniture,sofa,bench,stool,0.468485127,36
+exp1a,label,weapons,bazooka,ice pick,hatchet,0.473887051,36
+exp1a,label,diseases,aids,smallpox,chicken pox,0.513570578,36
+exp1a,label,mammals,whale,deer,lion,0.42945166,36
+exp1a,label,fruit,pineapple,kiwi,strawberry,0.592309819,36
+exp1a,label,animals,horse,donkey,elephant,0.492027144,36
+exp1a,label,appetizers,french fries,onion rings,jalapeno poppers,0.429695554,36
+exp1a,label,chores,mopping floor,vacuuming,dusting,0.497875182,36
+exp1a,label,vegetables,peas,carrot,corn,0.541095898,36
+exp1a,label,pets,mouse,guinea pig,snake,0.449556074,36

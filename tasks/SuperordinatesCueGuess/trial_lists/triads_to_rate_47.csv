@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,toys,toy truck,tea set,building blocks,0.534550893,47
+exp1b,exemplar,diseases,heart disease,copd,aids,0.580177458,47
+exp1b,exemplar,mammals,rat,cat,mole,0.362097799,47
+exp1b,exemplar,tools,impact wrench,breaker bar,allen key,0.405139269,47
+exp1b,exemplar,animals,hamster,rabbit,guinea pig,0.469947576,47
+exp1b,exemplar,chores,dusting,washing,polishing,0.432238276,47
+exp1b,exemplar,flowers,cynthia,lotus,daffodil,0.416116863,47
+exp1b,exemplar,food,shrimp,corn,potato,0.476264213,47
+exp1b,exemplar,games,cricket,basketball,football,0.512347322,47
+exp1b,exemplar,desserts,pie,brownie,banana bread,0.433335902,47
+exp1b,exemplar,fruit,banana,grape,mango,0.646038339,47
+exp1b,exemplar,appetizers,salad,shrimp,chips,0.425997642,47
+exp1b,exemplar,furniture,seat,furniture,store,0.633354924,47
+exp1b,exemplar,vegetables,onion,garlic,celery,0.544926719,47
+exp1b,exemplar,hobbies,swimming,diving,singing,0.350100035,47
+exp1b,exemplar,vehicles,motorcycle,scooter,bus,0.525870439,47
+exp1b,exemplar,pets,gerbil,turtle,hamster,0.412267289,47
+exp1b,exemplar,plants,plants,nature,woods,0.652540059,47
+exp1b,exemplar,clothing,trousers,shirt,saree,0.535865359,47
+exp1b,exemplar,weapons,katana,scimitar,sword,0.505385595,47

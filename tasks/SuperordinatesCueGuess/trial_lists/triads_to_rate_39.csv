@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,tools,mallet,lever,crowbar,0.409162786,39
+exp1a,label,desserts,cookie,brownie,candy,0.459150306,39
+exp1a,label,furniture,dining table,bed,shelf,0.480627043,39
+exp1a,label,appetizers,muffin,toast,deli meat,0.380898239,39
+exp1a,label,animals,bear,elephant,walrus,0.457676541,39
+exp1a,label,vehicles,limousine,van,caravan,0.510724568,39
+exp1a,label,diseases,lung disease,diabetes,parkinson's,0.55810457,39
+exp1a,label,pets,mouse,rat,hamster,0.470602703,39
+exp1a,label,hobbies,painting,hiking,singing,0.4023845,39
+exp1a,label,vegetables,carrot,spinach,lettuce,0.545964354,39
+exp1a,label,food,crackers,sandwich,burger,0.439991256,39
+exp1a,label,plants,rose,morning glory,hibiscus,0.409117889,39
+exp1a,label,flowers,lily,aster,nasturtium,0.468936648,39
+exp1a,label,chores,dusting,clean toilet,taking out trash,0.425852746,39
+exp1a,label,weapons,slingshot,rock,brick,0.449768974,39
+exp1a,label,toys,action figures,toy soldier,fake food,0.504222416,39
+exp1a,label,clothing,coat,trousers,pants,0.558508119,39
+exp1a,label,fruit,apple,grape,blueberry,0.616501312,39
+exp1a,label,mammals,elephant,tiger,monkey,0.391813378,39
+exp1a,label,games,sorry,scrabble,blackjack,0.358824712,39

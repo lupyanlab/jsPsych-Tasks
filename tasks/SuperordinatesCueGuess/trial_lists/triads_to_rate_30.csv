@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,animals,rabbit,fox,chicken,0.437051336,30
+exp1b,exemplar,plants,rose,dandelion,lily,0.428661785,30
+exp1b,exemplar,fruit,pear,peach,orange,0.619841131,30
+exp1b,exemplar,vehicles,sedan,bus,hatchback,0.465639473,30
+exp1b,exemplar,mammals,bird,dolphin,goat,0.41064009,30
+exp1b,exemplar,tools,wrench,saw,pliers,0.401280421,30
+exp1b,exemplar,weapons,razor,scissors,axe,0.362483916,30
+exp1b,exemplar,games,scrabble,trivial pursuit,battleship,0.424424805,30
+exp1b,exemplar,appetizers,chips,taquitos,fajita,0.421747811,30
+exp1b,exemplar,furniture,stool,counter,bed stand,0.427611242,30
+exp1b,exemplar,clothing,scarf,skirt,dress,0.587104979,30
+exp1b,exemplar,desserts,creme brulee,ice cream,marshmallow,0.471233951,30
+exp1b,exemplar,chores,vacuuming,cleaning,laundry,0.546554119,30
+exp1b,exemplar,diseases,flu,infection,virus,0.537063098,30
+exp1b,exemplar,food,cereal,vegetables,beans,0.507907588,30
+exp1b,exemplar,hobbies,photography,painting,blogging,0.395845896,30
+exp1b,exemplar,toys,toy truck,tea set,building blocks,0.534550893,30
+exp1b,exemplar,pets,lizard,horse,spider,0.352034145,30
+exp1b,exemplar,vegetables,pumpkin,cucumber,potato,0.517100206,30
+exp1b,exemplar,flowers,gerbera,tulip,chrysanthemum,0.549725557,30

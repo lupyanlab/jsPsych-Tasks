@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,flowers,geranium,tulip,lily,0.493102934,4
+exp1a,label,fruit,strawberry,cherry,pear,0.565386454,4
+exp1a,label,desserts,coconut macaroons,donuts,pumpkin pie,0.512231519,4
+exp1a,label,vehicles,bus,wagon,trailers,0.585609584,4
+exp1a,label,mammals,monkey,zebra,antelope,0.397320782,4
+exp1a,label,appetizers,muffin,toast,deli meat,0.380898239,4
+exp1a,label,animals,monkey,giraffe,elephant,0.490536665,4
+exp1a,label,tools,grubbing hoe,shovel,grass clippers,0.430125605,4
+exp1a,label,plants,fern,moss,tree,0.516679796,4
+exp1a,label,weapons,bat,bomb,fireworks,0.5101348,4
+exp1a,label,chores,mopping floor,emptying the trash,cleaning windows,0.454786507,4
+exp1a,label,furniture,loveseat,rocking chair,night stand,0.436508089,4
+exp1a,label,food,vegetables,beans,fruit,0.52173558,4
+exp1a,label,diseases,swine flu,cancer,celiac,0.515683168,4
+exp1a,label,hobbies,listening,drawing,playing,0.33595074,4
+exp1a,label,games,call of duty,civilization,minecraft,0.405630818,4
+exp1a,label,pets,mouse,guinea pig,snake,0.449556074,4
+exp1a,label,clothing,belt,tie,hat,0.493694349,4
+exp1a,label,toys,fidget spinner,hula hoop,ball,0.472057796,4
+exp1a,label,vegetables,corn,radish,squash,0.502405396,4

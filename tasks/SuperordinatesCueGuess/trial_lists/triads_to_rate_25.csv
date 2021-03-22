@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,chores,doing dishes,laundry,washing windows,0.534792203,25
+exp1b,exemplar,weapons,axe,saw,hammer,0.336784947,25
+exp1b,exemplar,games,scrabble,netball,table-tennis,0.459755057,25
+exp1b,exemplar,hobbies,reading,stamp collecting,knitting,0.353161056,25
+exp1b,exemplar,mammals,elephant,deer,chimpanzee,0.447603611,25
+exp1b,exemplar,tools,sickle,screwdriver,hoe,0.341687039,25
+exp1b,exemplar,vegetables,corn,broccoli,lima beans,0.563700861,25
+exp1b,exemplar,appetizers,satay,charcuterie,pigs in a blanket,0.353505971,25
+exp1b,exemplar,vehicles,hummer,jaguar,audi,0.40053209,25
+exp1b,exemplar,plants,lettuce,rutabaga,cauliflower,0.394885745,25
+exp1b,exemplar,animals,leopard,zebra,shark,0.386728094,25
+exp1b,exemplar,food,bun,roast,chicken,0.418242105,25
+exp1b,exemplar,clothing,pants,trousers,jacket,0.566018927,25
+exp1b,exemplar,toys,jacks,car,ball,0.399824676,25
+exp1b,exemplar,flowers,clover,cedar,basil,0.413495787,25
+exp1b,exemplar,furniture,table,dresser,bookshelf,0.481088425,25
+exp1b,exemplar,desserts,pie,brownie,banana bread,0.433335902,25
+exp1b,exemplar,fruit,apple,orange,grape,0.614816058,25
+exp1b,exemplar,pets,tortoise,bunny,snake,0.4026878,25
+exp1b,exemplar,diseases,ms,crohn's,ra,0.017751128,25

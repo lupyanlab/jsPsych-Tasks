@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,toys,legos,checkers,hula hoop,0.405799262,19
+exp1b,exemplar,pets,frog,turtle,rabbit,0.37197799,19
+exp1b,exemplar,vehicles,train,tractor,helicopter,0.496417315,19
+exp1b,exemplar,fruit,kiwi,plum,nectarine,0.556435871,19
+exp1b,exemplar,desserts,german chocolate cake,pineapple upside down cake,red velvet cake,0.499146448,19
+exp1b,exemplar,appetizers,salsa,rotel,jalapenos,0.371074655,19
+exp1b,exemplar,clothing,socks,bra,skirt,0.489877755,19
+exp1b,exemplar,plants,marigold,tulip,orchid,0.471091407,19
+exp1b,exemplar,vegetables,carrot,mushrooms,tomato,0.50936634,19
+exp1b,exemplar,flowers,cynthia,lotus,daffodil,0.416116863,19
+exp1b,exemplar,mammals,cheetah,wolf,lion,0.396403366,19
+exp1b,exemplar,food,pasta,pizza,french fries,0.492036642,19
+exp1b,exemplar,furniture,table,lamp,bench,0.427908716,19
+exp1b,exemplar,tools,wrench,screwdriver,pliers,0.447691093,19
+exp1b,exemplar,animals,rabbit,cow,moose,0.497985871,19
+exp1b,exemplar,weapons,sword,arrow,box cutter,0.447344066,19
+exp1b,exemplar,chores,washing dishes,taking out trash,sweeping,0.443385195,19
+exp1b,exemplar,hobbies,prancing,laughing,running,0.279752205,19
+exp1b,exemplar,games,xbox,gears of war,atari,0.443904044,19
+exp1b,exemplar,diseases,bipolar disorder,parkinson's,dementia,0.476816898,19

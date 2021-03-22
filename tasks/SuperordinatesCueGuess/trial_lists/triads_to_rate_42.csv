@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,tools,saw,level,exacto knife,0.392764666,42
+exp1a,label,vehicles,jeep,tractor trailer,scooter,0.572013854,42
+exp1a,label,fruit,kiwi,lemon,lime,0.561653242,42
+exp1a,label,desserts,ice cream,cheesecake,candy,0.503862745,42
+exp1a,label,hobbies,photography,cycling,reading,0.371484601,42
+exp1a,label,animals,elephant,giraffe,rhinoceros,0.466786195,42
+exp1a,label,mammals,tiger,cheetah,panda,0.39840324,42
+exp1a,label,games,monopoly,chess,checkers,0.470785458,42
+exp1a,label,flowers,sunflower,carnation,lily,0.531565974,42
+exp1a,label,plants,tree,willow,daffodil,0.451859155,42
+exp1a,label,pets,horse,pig,fox,0.442268086,42
+exp1a,label,clothing,coat,tops,skirt,0.532114739,42
+exp1a,label,chores,washing,folding,paint,0.422068142,42
+exp1a,label,weapons,brass knuckles,flame thrower,grenade,0.500983406,42
+exp1a,label,diseases,alzheimer's,als,cystic fibrosis,0.49879646,42
+exp1a,label,appetizers,french fries,onion rings,pigs in a blanket,0.367755144,42
+exp1a,label,vegetables,onion,garlic,zucchini,0.534165445,42
+exp1a,label,furniture,coffee table,ottoman,loveseat,0.475355326,42
+exp1a,label,toys,fidget spinner,hula hoop,ball,0.472057796,42
+exp1a,label,food,chicken,burger,broccoli,0.480893769,42

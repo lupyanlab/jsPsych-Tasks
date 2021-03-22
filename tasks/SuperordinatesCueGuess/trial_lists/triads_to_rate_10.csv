@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,games,jacks,go fish,hide and seek,0.566464187,10
+exp1a,label,furniture,sofa,bench,stool,0.468485127,10
+exp1a,label,desserts,brownie,ice cream,donuts,0.474540405,10
+exp1a,label,flowers,sunflower,buttercup,morning glory,0.488813411,10
+exp1a,label,mammals,lion,dolphin,zebra,0.412637496,10
+exp1a,label,weapons,slingshot,rock,brick,0.449768974,10
+exp1a,label,fruit,strawberry,grape,kiwi,0.596813061,10
+exp1a,label,pets,rabbit,cow,horse,0.462361514,10
+exp1a,label,vegetables,asparagus,potato,carrot,0.526437142,10
+exp1a,label,food,crackers,sandwich,burger,0.439991256,10
+exp1a,label,toys,ball and paddle,stuffed animal,playhouse,0.461565126,10
+exp1a,label,appetizers,rolls,breadsticks,peanuts,0.361407589,10
+exp1a,label,hobbies,computer programs,puzzles,drawing,0.379509048,10
+exp1a,label,vehicles,sedan,delivery truck,semi truck,0.479901857,10
+exp1a,label,tools,saw,level,exacto knife,0.392764666,10
+exp1a,label,animals,shark,llama,yak,0.415558642,10
+exp1a,label,chores,cleaning bathroom,taking out trash,babysit,0.50133802,10
+exp1a,label,clothing,jeans,coat,sweater,0.550688218,10
+exp1a,label,plants,daffodil,daisy,pansy,0.369578221,10
+exp1a,label,diseases,herpes,glaucoma,osteoporosis,0.490405426,10

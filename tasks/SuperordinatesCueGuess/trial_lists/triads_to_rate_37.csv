@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,appetizers,spread,dip,chips,0.31980434,37
+exp1a,label,hobbies,traveling,go out to restaurants,spend with friends,0.358042636,37
+exp1a,label,clothing,shoes,cardigan,chinos,0.56613468,37
+exp1a,label,vehicles,boat,train,rocket ship,0.485112682,37
+exp1a,label,games,monopoly,trouble,poker,0.399985632,37
+exp1a,label,desserts,cookie,tart,sorbet,0.458499397,37
+exp1a,label,pets,rabbit,cow,horse,0.462361514,37
+exp1a,label,mammals,lion,dolphin,zebra,0.412637496,37
+exp1a,label,food,soup,barbecue,lasagna,0.483761943,37
+exp1a,label,animals,shark,llama,yak,0.415558642,37
+exp1a,label,weapons,sword,axe,bat,0.464519586,37
+exp1a,label,toys,water pistols,nerf gun,model trains,0.527427701,37
+exp1a,label,flowers,tulip,orchid,lavender,0.514340281,37
+exp1a,label,tools,hammer,nail,saw,0.397785726,37
+exp1a,label,chores,vacuuming,cooking,clean toilet,0.483614304,37
+exp1a,label,plants,rose,dandelion,hibiscus,0.433562856,37
+exp1a,label,vegetables,spinach,cabbage,onion,0.563605463,37
+exp1a,label,furniture,kitchen table,chair,sofa,0.502233801,37
+exp1a,label,fruit,banana,cherry,watermelon,0.607333582,37
+exp1a,label,diseases,coronavirus,diabetes,ebola,0.520487553,37

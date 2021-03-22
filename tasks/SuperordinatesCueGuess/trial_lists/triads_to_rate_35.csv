@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,vehicles,plane,boat,motorcycle,0.513903154,35
+exp1a,label,clothing,gloves,shorts,scarf,0.538100832,35
+exp1a,label,desserts,pie,jello,fudge,0.435811875,35
+exp1a,label,pets,dove,parrot,chicken,0.432952179,35
+exp1a,label,fruit,orange,pineapple,watermelon,0.584499996,35
+exp1a,label,tools,screwdriver,nuts,bolts,0.417275074,35
+exp1a,label,diseases,swine flu,cancer,celiac,0.515683168,35
+exp1a,label,weapons,cannon,knife,mace,0.505875053,35
+exp1a,label,toys,ball and paddle,stuffed animal,playhouse,0.461565126,35
+exp1a,label,furniture,bed,dresser,bookshelf,0.47261861,35
+exp1a,label,chores,cleaning bathroom,taking out trash,babysit,0.50133802,35
+exp1a,label,mammals,monkey,zebra,antelope,0.397320782,35
+exp1a,label,food,pasta,corn,pie,0.465432604,35
+exp1a,label,flowers,sunflower,lily,jasmine,0.493226936,35
+exp1a,label,plants,fern,moss,tree,0.516679796,35
+exp1a,label,vegetables,broccoli,corn,asparagus,0.58457001,35
+exp1a,label,games,checkers,marbles,darts,0.432605959,35
+exp1a,label,appetizers,pizza rolls,salad,cheese bites,0.42854825,35
+exp1a,label,animals,bat,bird,tiger,0.436649597,35
+exp1a,label,hobbies,surfing,swimming,dancing,0.392116211,35

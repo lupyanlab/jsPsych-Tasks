@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,games,chess,checkers,connect 4,0.349364839,44
+exp1a,label,tools,screwdriver,saw,awl,0.363438809,44
+exp1a,label,chores,laundry,cooking,making the bed,0.451403179,44
+exp1a,label,furniture,gaming chair,lazyboy,futon,0.513108895,44
+exp1a,label,toys,remote control car,giggle balls,barbie,0.439264509,44
+exp1a,label,flowers,lily,daffodil,leaf,0.50546593,44
+exp1a,label,appetizers,rolls,breadsticks,peanuts,0.361407589,44
+exp1a,label,vegetables,lettuce,cauliflower,carrot,0.553034406,44
+exp1a,label,plants,bud,maize,beans,0.46536106,44
+exp1a,label,pets,bird,hamster,guinea pig,0.461796221,44
+exp1a,label,animals,dog,cat,monkey,0.481901627,44
+exp1a,label,hobbies,listening,drawing,playing,0.33595074,44
+exp1a,label,food,cucumber,lettuce,cheese,0.443793608,44
+exp1a,label,fruit,pear,peach,lemon,0.597226674,44
+exp1a,label,weapons,sword,rifle,cannon,0.526818445,44
+exp1a,label,mammals,bat,bear,hedgehog,0.400079396,44
+exp1a,label,clothing,belt,tie,hat,0.493694349,44
+exp1a,label,vehicles,garbage truck,sports car,utility van,0.568764893,44
+exp1a,label,desserts,coconut macaroons,donuts,pumpkin pie,0.512231519,44
+exp1a,label,diseases,herpes,glaucoma,osteoporosis,0.490405426,44

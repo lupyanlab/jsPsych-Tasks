@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,food,chicken,burger,broccoli,0.480893769,13
+exp1a,label,diseases,polio,cancer,alzheimer's,0.529467535,13
+exp1a,label,flowers,impatiens,gladiolus,rose,0.525218891,13
+exp1a,label,furniture,end table,night stand,kitchen table,0.435464536,13
+exp1a,label,appetizers,queso dip,breadsticks,salad,0.407927638,13
+exp1a,label,games,sorry,scrabble,blackjack,0.358824712,13
+exp1a,label,toys,action figures,toy soldier,fake food,0.504222416,13
+exp1a,label,tools,hammer,nail,saw,0.397785726,13
+exp1a,label,plants,lily,vines,grass,0.498100103,13
+exp1a,label,weapons,cannon,knife,mace,0.505875053,13
+exp1a,label,vehicles,blimp,boat,motorcycle,0.483300506,13
+exp1a,label,pets,mouse,rat,hamster,0.470602703,13
+exp1a,label,chores,sweeping,washing windows,dusting,0.451789552,13
+exp1a,label,desserts,cookie,tart,sorbet,0.458499397,13
+exp1a,label,fruit,orange,nectarine,peach,0.636642738,13
+exp1a,label,mammals,lion,horse,fox,0.350028406,13
+exp1a,label,animals,horse,donkey,elephant,0.492027144,13
+exp1a,label,vegetables,tomato,potato,lettuce,0.509078944,13
+exp1a,label,hobbies,traveling,go out to restaurants,spend with friends,0.358042636,13
+exp1a,label,clothing,gloves,shorts,scarf,0.538100832,13

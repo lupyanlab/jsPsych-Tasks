@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,games,virtual reality,video games,hiking,0.541822731,24
+exp1b,exemplar,mammals,giraffe,monkey,hippo,0.398459714,24
+exp1b,exemplar,tools,knife,pliers,shovel,0.456410068,24
+exp1b,exemplar,furniture,chair,pillow,blanket,0.421496614,24
+exp1b,exemplar,vehicles,skateboard,train,bus,0.454234634,24
+exp1b,exemplar,appetizers,enchilada,tostada,quesadilla,0.386139452,24
+exp1b,exemplar,diseases,leukemia,cold,stomach virus,0.471257515,24
+exp1b,exemplar,animals,lion,jaguar,platypus,0.423371518,24
+exp1b,exemplar,vegetables,cauliflower,beet,lettuce,0.566980592,24
+exp1b,exemplar,desserts,donate,roll cake,biscuit,0.388155405,24
+exp1b,exemplar,weapons,sword,tank,rifle,0.522492253,24
+exp1b,exemplar,toys,legos,matchbox,blocks,0.486501478,24
+exp1b,exemplar,hobbies,music,art,reading,0.396795562,24
+exp1b,exemplar,food,pork chops,salad,pasta,0.478398576,24
+exp1b,exemplar,fruit,strawberry,watermelon,mango,0.644800547,24
+exp1b,exemplar,clothing,jeans,scarf,coat,0.56750843,24
+exp1b,exemplar,chores,clean kitchen,mopping floor,dust room,0.416057335,24
+exp1b,exemplar,pets,bird,snake,mouse,0.390764479,24
+exp1b,exemplar,plants,rosewood,parsley,cilantro,0.348901792,24
+exp1b,exemplar,flowers,daisy,dandelion,chrysanthemum,0.515463869,24

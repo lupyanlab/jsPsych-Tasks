@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,plants,rosewood,parsley,cilantro,0.348901792,54
+exp1b,exemplar,toys,doll,action figures,puzzles,0.525281609,54
+exp1b,exemplar,animals,lion,wolf,sloth,0.398940992,54
+exp1b,exemplar,furniture,desk,table,dresser,0.481939262,54
+exp1b,exemplar,flowers,weed,grass,tree,0.47937132,54
+exp1b,exemplar,fruit,strawberry,watermelon,mango,0.644800547,54
+exp1b,exemplar,weapons,axe,saw,hammer,0.336784947,54
+exp1b,exemplar,chores,watering flowers,organic gardening,cutting,0.38673789,54
+exp1b,exemplar,mammals,bird,horse,shark,0.382501311,54
+exp1b,exemplar,desserts,cookie,fudge,cupcake,0.417365384,54
+exp1b,exemplar,diseases,arthritis,bladder cancer,diabetes,0.56666802,54
+exp1b,exemplar,vehicles,plane,scooter,bicycle,0.477019628,54
+exp1b,exemplar,vegetables,broccoli,yams,peas,0.586927772,54
+exp1b,exemplar,appetizers,salsa,rotel,jalapenos,0.371074655,54
+exp1b,exemplar,hobbies,photography,painting,blogging,0.395845896,54
+exp1b,exemplar,clothing,jacket,shirt,pant,0.560460709,54
+exp1b,exemplar,games,farm quest,solitaire,jewel,0.342241341,54
+exp1b,exemplar,tools,jigsaw,drill,wrench,0.408776395,54
+exp1b,exemplar,pets,horse,fish,snake,0.397419774,54
+exp1b,exemplar,food,bun,roast,chicken,0.418242105,54

@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1b,exemplar,clothing,underwear,jacket,sweater,0.61679646,23
+exp1b,exemplar,vehicles,plane,scooter,bicycle,0.477019628,23
+exp1b,exemplar,games,checkers,mafia,hide and seek,0.362763154,23
+exp1b,exemplar,hobbies,crochet,reading,video games,0.356237506,23
+exp1b,exemplar,plants,flowers,bread,milk,0.448974955,23
+exp1b,exemplar,vegetables,broccoli,yams,peas,0.586927772,23
+exp1b,exemplar,fruit,strawberry,blackberry,boysenberry,0.553895011,23
+exp1b,exemplar,mammals,whale,cat,moose,0.429634297,23
+exp1b,exemplar,furniture,armoire,coffee table,end table,0.489340209,23
+exp1b,exemplar,pets,turtle,alligator,crocodile,0.383134947,23
+exp1b,exemplar,diseases,flu,cold,cancer,0.497315355,23
+exp1b,exemplar,appetizers,salsa,nachos,caviar,0.416938644,23
+exp1b,exemplar,toys,blocks,legos,yo-yo,0.451962806,23
+exp1b,exemplar,flowers,carnation,daisy,poppy,0.510153505,23
+exp1b,exemplar,animals,lizard,rabbit,armadillo,0.447099981,23
+exp1b,exemplar,chores,vacuuming,laundry,dish washing,0.510900142,23
+exp1b,exemplar,food,french fries,hotdog,monkey bread,0.531244926,23
+exp1b,exemplar,tools,drill,saw,socket,0.344439548,23
+exp1b,exemplar,desserts,cake,pie,cupcake,0.48973389,23
+exp1b,exemplar,weapons,sword,katana,nunchuks,0.513151578,23

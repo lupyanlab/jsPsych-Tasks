@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,fruit,banana,apple,pear,0.615531732,15
+exp1a,label,vehicles,subway,motorcycle,boat,0.51849051,15
+exp1a,label,plants,bush,tree,sunflower,0.464950806,15
+exp1a,label,food,chicken,vegetables,beans,0.531014302,15
+exp1a,label,vegetables,lettuce,onion,leek,0.466222418,15
+exp1a,label,desserts,ice cream,cheesecake,candy,0.503862745,15
+exp1a,label,tools,screwdriver,nuts,bolts,0.417275074,15
+exp1a,label,furniture,night stand,chair,barstool,0.427334487,15
+exp1a,label,games,tetris,twister,chess,0.409515187,15
+exp1a,label,hobbies,painting,hiking,singing,0.4023845,15
+exp1a,label,flowers,carnation,orchid,sunflower,0.534394596,15
+exp1a,label,mammals,tiger,cow,lion,0.399379512,15
+exp1a,label,chores,vacuuming,cooking,clean toilet,0.483614304,15
+exp1a,label,clothing,dress,jeans,coat,0.60017755,15
+exp1a,label,appetizers,pizza rolls,salad,cheese bites,0.42854825,15
+exp1a,label,weapons,bayonet,lance,sabre,0.471777272,15
+exp1a,label,pets,fish,pig,donkey,0.449321865,15
+exp1a,label,diseases,cancer,hiv and aids,anemia,0.554198153,15
+exp1a,label,toys,doll,action figures,educational toys,0.645643191,15
+exp1a,label,animals,dog,cat,monkey,0.481901627,15

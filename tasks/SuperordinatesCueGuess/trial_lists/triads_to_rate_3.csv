@@ -1,0 +1,21 @@
+experiment,condition,term,r4,r5,r6,triad_dist_mean,bin
+exp1a,label,plants,mango,guava,coca,0.379673679,3
+exp1a,label,food,soup,barbecue,lasagna,0.483761943,3
+exp1a,label,diseases,lung,hepatitis,covid-19,0.499172666,3
+exp1a,label,fruit,strawberry,gooseberry,blackberry,0.591163642,3
+exp1a,label,chores,bathroom,sweeping,folding,0.432729954,3
+exp1a,label,mammals,bat,bear,hedgehog,0.400079396,3
+exp1a,label,pets,turtle,frog,horse,0.440970071,3
+exp1a,label,hobbies,dancing,singing,walking,0.317719089,3
+exp1a,label,desserts,ice cream,milkshake,cookie,0.454328613,3
+exp1a,label,clothing,coat,tops,skirt,0.532114739,3
+exp1a,label,flowers,tulip,orchid,lavender,0.514340281,3
+exp1a,label,tools,drill,shovel,rake,0.398782952,3
+exp1a,label,animals,sheep,pig,tiger,0.51132202,3
+exp1a,label,furniture,chair,table,dresser,0.473044028,3
+exp1a,label,appetizers,crackers,shrimp,cheese dip,0.389552287,3
+exp1a,label,weapons,sword,axe,bat,0.464519586,3
+exp1a,label,toys,water pistols,nerf gun,model trains,0.527427701,3
+exp1a,label,vegetables,lettuce,cauliflower,carrot,0.553034406,3
+exp1a,label,games,adventure,role-playing,strategy,0.470452431,3
+exp1a,label,vehicles,boat,train,rocket ship,0.485112682,3
