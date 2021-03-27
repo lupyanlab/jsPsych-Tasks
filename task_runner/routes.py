@@ -42,7 +42,7 @@ def task():  # pylint: disable=too-many-return-statements
     if body["fn"].startswith("_"):
         return "Key 'fn' must not start with an underscore ('_')."
 
-    kwargs = body['kwargs'] if 'kwargs' in body else {}
+    kwargs = body.get('kwargs', {})
     if not isinstance(kwargs, dict):
         return 'Expected "kwargs" to be a dictionary (key/value pair)', 400
     passed_args = kwargs.keys()
@@ -89,8 +89,8 @@ def task():  # pylint: disable=too-many-return-statements
             ) + "]"
         ), 400
 
-    if "worker_id" in body:
-        logger.info("worker_id requested: %s", body["worker_id"])
+    if "worker_id" in body.get('kwargs', {}):
+        logger.info("worker_id requested: %s", body["kwargs"]["worker_id"])
 
     outbound_message = fn(**kwargs)
     return jsonify(outbound_message)
