@@ -142,25 +142,27 @@ class Task:
             catch_type_value=CATCH_VALUE
         )
 
-        order = list(range(1, 10))
-        shuffle(order)
+        new_trials = []
+        for index, row in enumerate(trials):
+            order = list(range(1, 10))
+            shuffle(order)
+            new_trials.append(
+                {
+                    **row,
+                    TRIAL_NUM_COLUMN: index + 1,
+                    "target1_order": order[0],
+                    "target2_order": order[1],
+                    "target3_order": order[2],
+                    "distractor1_order": order[3],
+                    "distractor2_order": order[4],
+                    "distractor3_order": order[5],
+                    "distractor4_order": order[6],
+                    "distractor5_order": order[7],
+                    "distractor6_order": order[8],
+                }
+            )
+        trials = new_trials
 
-        # Add the trial_num column to the trials
-        trials = [
-            {
-                **row,
-                TRIAL_NUM_COLUMN: index + 1,
-                "target1_order": order[0],
-                "target2_order": order[1],
-                "target3_order": order[2],
-                "distractor1_order": order[3],
-                "distractor2_order": order[4],
-                "distractor3_order": order[5],
-                "distractor4_order": order[6],
-                "distractor5_order": order[7],
-                "distractor6_order": order[8],
-            } for index, row in enumerate(trials)
-        ]
         write_to_csv(trial_file_path, trials)
 
         return trials
