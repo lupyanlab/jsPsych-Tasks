@@ -1,0 +1,6 @@
+order,condition,language,implicit_term,target1,target2,target3,distractor1,distractor2,distractor3,distractor4,distractor5,distractor6,workerid_director,clue,question_type
+1,english_term,english,beverages,wine,water,juice,oil,axe,moth,star,tree,lamp,5678,Things you drink,
+1,english_term,english,drugs,aspirin,cocaine,marijuana,apple,water,pillow,table,cup,monkey,5678,Drugs,
+1,chinese_term,english,农产品,soybeans,pork,lettuce,candy,tiger,daisy,computer,flute,motorcycle,5678,Things that farmers grow,
+1,chinese_term,english,生物,tree,lion,shark,cheese,bed,fire,boat,pencil,mountain,5678,Things that are alive,
+1,chinese_term,english,生物,testing1,testing2,testing3,testing4,testing5,testing6,testing7,testing8,testing9,5678,testing clue,catch
