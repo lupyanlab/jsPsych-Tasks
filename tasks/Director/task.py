@@ -82,7 +82,15 @@ class Task:
             # Parse the CSV strings into their proper data type
             for trial in trials:
                 trial[TRIAL_NUM_COLUMN] = int(trial[TRIAL_NUM_COLUMN])
-                trial["order"] = parse_str_list(trial["order"])
+                trial["target1_order"] = int(trial["target1_order"])
+                trial["target2_order"] = int(trial["target2_order"])
+                trial["target3_order"] = int(trial["target3_order"])
+                trial["distractor1_order"] = int(trial["distractor1_order"])
+                trial["distractor2_order"] = int(trial["distractor2_order"])
+                trial["distractor3_order"] = int(trial["distractor3_order"])
+                trial["distractor4_order"] = int(trial["distractor4_order"])
+                trial["distractor5_order"] = int(trial["distractor5_order"])
+                trial["distractor6_order"] = int(trial["distractor6_order"])
 
             completed_demographics = demographics_file_path.exists()
             consent_agreed = consent_file_path.exists()
@@ -134,23 +142,27 @@ class Task:
             catch_type_value=CATCH_VALUE
         )
 
-        # Add the trial_num column to the trials
-        trials = [
-            {
-                **row,
-                TRIAL_NUM_COLUMN:
-                index + 1,
-                "order":
-                sample(
-                    [
-                        row["target1"], row["target2"], row["target3"], row["distractor1"],
-                        row["distractor1"], row["distractor2"], row["distractor3"],
-                        row["distractor4"], row["distractor5"], row["distractor6"]
-                    ],
-                    9,
-                ),
-            } for index, row in enumerate(trials)
-        ]
+        new_trials = []
+        for index, row in enumerate(trials):
+            order = list(range(1, 10))
+            shuffle(order)
+            new_trials.append(
+                {
+                    **row,
+                    TRIAL_NUM_COLUMN: index + 1,
+                    "target1_order": order[0],
+                    "target2_order": order[1],
+                    "target3_order": order[2],
+                    "distractor1_order": order[3],
+                    "distractor2_order": order[4],
+                    "distractor3_order": order[5],
+                    "distractor4_order": order[6],
+                    "distractor5_order": order[7],
+                    "distractor6_order": order[8],
+                }
+            )
+        trials = new_trials
+
         write_to_csv(trial_file_path, trials)
 
         return trials

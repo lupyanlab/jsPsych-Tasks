@@ -92,10 +92,22 @@ const handleError = (error) => {
         'Give a clue that will enable someone to choose the exact three words that are highlighted',
       timeline: trials.map((trial) => ({
         trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
-        terms: trial.order.map((term) => ({
-          value: term,
-          target: trial.target1 === term || trial.target2 === term || trial.target3 === term,
-        })),
+        terms: [
+          [trial.target1, true, trial.target1_order],
+          [trial.target2, true, trial.target2_order],
+          [trial.target3, true, trial.target3_order],
+          [trial.distractor1, false, trial.distractor1_order],
+          [trial.distractor2, false, trial.distractor2_order],
+          [trial.distractor3, false, trial.distractor3_order],
+          [trial.distractor4, false, trial.distractor4_order],
+          [trial.distractor5, false, trial.distractor5_order],
+          [trial.distractor6, false, trial.distractor6_order],
+        ]
+          .sort((a, b) => a[2] - b[2])
+          .map(([value, target]) => ({
+            value,
+            target,
+          })),
         on_start: () => jsPsych.setProgressBar((trial.trial_num - 1) / num_trials),
         on_finish: ({ rt, response }) => {
           return api({
