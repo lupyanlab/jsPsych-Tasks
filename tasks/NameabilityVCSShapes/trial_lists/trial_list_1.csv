@@ -1,0 +1,16 @@
+question_type,image,naming_question,confidence_question,trial_list_num
+,VCS_10.png,Please name this image,How well does this name fit this image?,1
+,VCS_40.png,Please name this image,How well does this name fit this image?,1
+,VCS_70.png,Please name this image,How well does this name fit this image?,1
+,VCS_100.png,Please name this image,How well does this name fit this image?,1
+,VCS_130.png,Please name this image,How well does this name fit this image?,1
+,VCS_160.png,Please name this image,How well does this name fit this image?,1
+,VCS_190.png,Please name this image,How well does this name fit this image?,1
+,VCS_220.png,Please name this image,How well does this name fit this image?,1
+,VCS_250.png,Please name this image,How well does this name fit this image?,1
+,VCS_280.png,Please name this image,How well does this name fit this image?,1
+,VCS_310.png,Please name this image,How well does this name fit this image?,1
+,VCS_340.png,Please name this image,How well does this name fit this image?,1
+catch,dog.png,Please name this image,How well does this name fit this image?,1
+catch,triangle.png,Please name this image,How well does this name fit this image?,1
+catch,square.png,Please name this image,How well does this name fit this image?,1
