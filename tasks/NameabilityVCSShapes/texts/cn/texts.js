@@ -7,7 +7,7 @@ export default {
     'Testing lang=cn. If you wish to participate, you must check the box next to the statement "I agree to participate in this study."',
   START_EXPERIMENT_BUTTON_LABEL: 'Testing lang=cn. Start Experiment',
   INSTRUCTIONS: [
-    `<p class="lead">You will be shown some shapes. Your task is to name them in the simplest way possible. Try to choose a name that would most make sense to someone else such that someone would be able to pick out the shape based on the name you provided. <br><b>Please keep your responses short.</b> One word is best.  If you need to use 2-3 words for some, that's ok. <br><br>After you enter your name for the shape, you will be asked how happy you are with your response. You can respond to this question by using the mouse/trackpad or the keyboard number keys 1-4.
+    `<p class="lead">Testing lang=cn. You will be shown some shapes. Your task is to name them in the simplest way possible. Try to choose a name that would most make sense to someone else such that someone would be able to pick out the shape based on the name you provided. <br><b>Please keep your responses short.</b> One word is best.  If you need to use 2-3 words for some, that's ok. <br><br>After you enter your name for the shape, you will be asked how happy you are with your response. You can respond to this question by using the mouse/trackpad or the keyboard number keys 1-4.
     </p>`,
   ],
   TEXT_AREA_PLACEHOLDER: 'Testing lang=cn. Your answer here...',
