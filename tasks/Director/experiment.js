@@ -81,7 +81,8 @@ const handleError = (error) => {
 
     const instructions = {
       type: 'instructions',
-      pages: [/* html */ `<p class="lead">Placeholder for Instructions</p>`],
+      pages: [/* html */ `<p class="lead">In this task, you will see a grid of words and three of the words will be highlighted in yellow.</p> 
+	   <p>Your task is to write a word or short phrase that will help another player in this task choose the three words that are highlighted (and only those words).</p>`],
       show_clickable_nav: true,
     };
     if (has_trials_remaining > 0) main_timeline.push(instructions);
@@ -89,7 +90,7 @@ const handleError = (error) => {
     const data_trials_block = {
       type: 'lupyanlab-director',
       prompt:
-        'Give a clue that will enable someone to choose the exact three words that are highlighted',
+        'Write a word or short phrase that will help a player choose the highlighted (and only the highlighted) words.',
       timeline: trials.map((trial) => ({
         trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
         terms: [
@@ -129,7 +130,7 @@ const handleError = (error) => {
     const demographics_questions_instructions = {
       type: 'instructions',
       pages: [
-        `<p class="lead">Thank you! We'll now ask a few demographic questions and you'll be transferred to a qualtrics survey. Then you'll be done!
+        `<p class="lead">Thank you! We'll now ask a few demographic questions and then you'll be done!
               </p>`,
       ],
       show_clickable_nav: true,
@@ -150,11 +151,9 @@ const handleError = (error) => {
       choices: [],
       stimulus: function() {
         return /* html */ `Thank you for participating!
-          <p>The purpose of this HIT is to assess the extent to which different people agree what makes
-          a particular dog, cat, or car typical.
-  
+          <p>The purpose of this study is to assess how people communicate about categories like "beverages" and "bodies of water."
           <p>
-          If you have any questions or comments, please email cschonberg@wisc.edu.`;
+          If you have any questions or comments, please email lrissman@wisc.edu.`;
       },
     };
     main_timeline.push(debrief_block);
