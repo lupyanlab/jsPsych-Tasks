@@ -26,7 +26,7 @@ from utils.shuffle_without_catch_in_front import shuffle_without_catch_in_front
 dirname = get_dirname(__file__)
 
 TRIAL_NUM_COLUMN = "trial_num"
-NUM_LEADING_NON_CATCH_TRIALS = 15
+NUM_LEADING_NON_CATCH_TRIALS = 5
 QUESTION_TYPE_COLUMN = "question_type"
 CATCH_VALUE = "catch"
 
@@ -42,7 +42,7 @@ class Task:
         if not env_folder_path.exists():
             mkdir(env_folder_path)
 
-        self.trial_lists_folder = dirname / "word_to_rate"
+        self.trial_lists_folder = dirname / "trial_lists"
 
         # dev/prod folders/files
         self.counts_file_path = env_folder_path / "counts.csv"

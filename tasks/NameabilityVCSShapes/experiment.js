@@ -1,5 +1,4 @@
 import createApi from '../../utils/create-api.js';
-import demographics_questions from './demograhpics.js';
 import searchParams from '../../utils/search-params.js';
 import PORT from './port.js';
 
@@ -11,32 +10,42 @@ console.error = function(message) {
   old_console_error.apply(console, arguments);
 };
 
-const createErrorMessage = (error) =>
-  `<h3>Something went wrong. Please try reloading again and check your connection before contacting us.</h3>Unexpected error: ${
-    error.message
-  }.<br /> <br />Additional error logs:<br />${errors.join('<br />')}`;
-
-const handleError = (error) => {
-  console.error(error);
-  const error_message = createErrorMessage(error);
-  try {
-    jsPsych.endExperiment(error_message);
-  } catch (_) {
-    document.body.innerHTML = error_message;
-  }
-};
-
 (async () => {
-  try {
-    let {
-      workerId: worker_id,
-      fullscreen,
-      reset,
-      max_batch_num = 2,
-      consent,
-      is_skip = false,
-    } = searchParams;
+  let {
+    workerId: worker_id,
+    fullscreen,
+    reset,
+    max_batch_num = 2,
+    consent = 'consent',
+    lang = 'en',
+  } = searchParams;
 
+  let texts;
+  let demographics_questions;
+  try {
+    texts = (await import(`./texts/${lang}/texts.js`)).default;
+    demographics_questions = (await import(`./texts/${lang}/demographics.js`)).default;
+  } catch (e) {
+    console.error(e);
+    throw Error(`Could not import texts with language '${lang}'.`);
+  }
+
+  const createErrorMessage = (error) =>
+    `${texts.ERROR_MESSAGE} Unexpected error: ${
+      error.message
+    }.<br /> <br />Additional error logs:<br />${errors.join('<br />')}`;
+
+  const handleError = (error) => {
+    console.error(error);
+    const error_message = createErrorMessage(error);
+    try {
+      jsPsych.endExperiment(error_message);
+    } catch (_) {
+      document.body.innerHTML = error_message;
+    }
+  };
+
+  try {
     // "task" will be automatically populated with the value of TASK
     const api = createApi(PORT, handleError);
 
@@ -69,7 +78,7 @@ const handleError = (error) => {
     const fullscreen_trial = {
       type: 'fullscreen',
       fullscreen_mode: true,
-      message: '<p>This will switch to full screen mode when you press the button below</p>',
+      message: texts.FULL_SCREEN_MESSAGE,
       button_label: 'Continue',
     };
 
@@ -77,10 +86,9 @@ const handleError = (error) => {
 
     const consent_trial = {
       type: 'lupyanlab-consent',
-      url: consent ? `${consent}.html` : 'consent.html',
-      alert:
-        'If you wish to participate, you must check the box next to the statement "I agree to participate in this study."',
-      button_label: 'Start Experiment',
+      url: `texts/${lang}/${consent}.html`,
+      alert: texts.CONSENT_ALERT,
+      button_label: texts.START_EXPERIMENT_BUTTON_LABEL,
       on_finish: () => {
         return api({ fn: 'consent', kwargs: { worker_id } });
       },
@@ -90,18 +98,7 @@ const handleError = (error) => {
 
     const instructions = {
       type: 'instructions',
-      pages: [
-        /*html*/ `<p class="lead"><b>Thank you for participating in this experiment!</b><br>
-        In this task you will be seeing about 80 pairs of words. Your task is to rate how similar you think the words are.`,
-
-        /*html*/ `<p class="text-left">Here are two examples of the pairs you'll be asked to compare:<br><br><b>wise</b> vs <b>eyes</b>. How similar are these words?<br><br>
-        <b>kitchen</b> vs <b>stern</b>. How good is this comparison?.<br><br>
-        Although these are both odd comparisons, you can probably more easily imagine <i>wise</i> to be more similar to <i>eyes</i> than <i>kitchen</i> to <i>stern</i>. Please be noted that these two words <b>DO NOT</b> necessarily belong to the same parts of speech (e.g., <i>wise</i> is an adjective while <i> eyes </i> is a noun), so please don't use that as your strategy in comparison.<br><br>
-  
-        Please rate each comparison on a 1 to 7 scale. A rating of <b>1</b> indicates that the pairs are very different and do not share any similarity at all. A rating of <b>7</b> indicates that the pairs are very similar. You can use the 1-7 keyboard keys, mouse, or touch screen to respond. Please try to use the entire scale.`,
-
-        /*html*/ `<p class="text-left">Please don't rush. Take the time to consider each statement.</p>`,
-      ],
+      pages: texts.INSTRUCTIONS,
       show_clickable_nav: true,
     };
     if (has_trials_remaining > 0) main_timeline.push(instructions);
@@ -119,32 +116,40 @@ const handleError = (error) => {
         {
           timeline: [
             {
-              type: 'lupyanlab-word-ratings',
-              input_feedback_duration: 800,
-              skip_button_label: 'Skip',
-              skip_label: '',
-              skipped_recorded_value: 'NA',
-
-              // Using an index inside a no-arg function is a workaround for dynamic number of batches
-              question_prompt_pre: () => trials[i].question_prompt_pre,
-              question_prompt_post: () => trials[i].question_prompt_post,
+              type: 'lupyanlab-text-area',
               trial_progress_text: () => `Trial ${trials[i].trial_num} of ${num_trials}`,
-              choices: () => [
-                trials[i].choice1,
-                trials[i].choice2,
-                trials[i].choice3,
-                trials[i].choice4,
-                trials[i].choice5,
-                trials[i].choice6,
-                trials[i].choice7,
-              ],
-
-              word: () => trials[i].word,
-              is_skip,
+              stimulus: () => `images/${trials[i].image}`,
+              question: () => trials[i].naming_question,
+              placeholder: texts.TEXT_AREA_PLACEHOLDER,
+              min_chars_required: 3,
+              trim_response_string: true,
               on_start: () => {
                 jsPsych.setProgressBar((trials[i].trial_num - 1) / num_trials);
               },
-              on_finish: (response) => {
+            },
+            {
+              type: 'lupyanlab-survey-likert-skip',
+              trial_progress_text: () => `Trial ${trials[i].trial_num} of ${num_trials}`,
+              skippable: false,
+              preamble: () => /*html*/ `
+                <h6 style="text-align:center;margin-top:0;width:50vw;margin:auto;">Trial ${trials[i].trial_num} of ${num_trials}</h6>
+              `,
+              questions: () => [
+                {
+                  key: trials[i].question_type,
+                  prompt: /*html*/ `
+                  <img src="images/${trials[i].image}" /><br>
+                  <h4><b>${jsPsych.data.getLastTimelineData().values()[0].response}</b></h4>
+                  <h4>${trials[i].confidence_question}</h4>
+              `,
+                  labels: texts.LABELS,
+                  required: true,
+                },
+              ],
+
+              on_finish: (data) => {
+                const lastTrialData = jsPsych.data.getLastTimelineData().values()[0];
+
                 return api({
                   fn: 'data',
                   kwargs: {
@@ -152,22 +157,18 @@ const handleError = (error) => {
                     data: {
                       subj_code: worker_id,
                       batch_num: curr_batch_num,
-                      bin: trials[i].bin,
-                      choice1: trials[i].choice1,
-                      choice2: trials[i].choice2,
-                      choice3: trials[i].choice3,
-                      choice4: trials[i].choice4,
-                      choice5: trials[i].choice5,
-                      choice6: trials[i].choice6,
-                      choice7: trials[i].choice7,
-                      question_prompt_post: trials[i].question_prompt_post,
-                      question_prompt_pre: trials[i].question_prompt_pre,
-                      question_type: trials[i].question_type,
+                      naming_question: trials[i].naming_question,
+                      naming_expTimer: lastTrialData.time_elapsed / 1000,
+                      naming_rt: lastTrialData.rt,
+                      nameing_response: lastTrialData.response,
+                      goodness_of_fit_rt: data.rt,
+                      goodness_of_fit_expTimer: data.time_elapsed / 1000,
+                      goodness_of_fit: JSON.parse(data.responses).Q0 + 1,
+                      confidence_question: trials[i].confidence_question,
                       trial_num: trials[i].trial_num,
-                      word: trials[i].word,
-                      key: response.key,
-                      response: response.response,
-                      rt: response.rt,
+                      image: trials[i].image,
+                      trial_list_num: trials[i].trial_list_num,
+                      batchFile: trials[i].batchFile,
                     },
                   },
                 });
@@ -188,7 +189,7 @@ const handleError = (error) => {
         },
         {
           type: 'lupyanlab-new-batch-question',
-          stimulus: '<p>Thank you for completing this batch of words</p>',
+          stimulus: texts.NEW_BATCH_PROMPT,
           // stimulus: 'Do you want to do another list for bonus pay?',
           choices: ['Start next batch.'],
           // choices: ['Yes.', 'No thanks.'],
@@ -223,10 +224,7 @@ const handleError = (error) => {
 
     const demographics_questions_instructions = {
       type: 'instructions',
-      pages: [
-        /*html*/ `<p class="lead">Thank you! We'll now ask a few demographic questions and you'll be done!
-            </p>`,
-      ],
+      pages: texts.DEMOGRAPHICS_INSTRUCTIONS,
       show_clickable_nav: true,
     };
     if (!completed_demographics) main_timeline.push(demographics_questions_instructions);
@@ -244,9 +242,7 @@ const handleError = (error) => {
       type: 'html-keyboard-response',
       choices: [],
       stimulus: function() {
-        return /* html */ `
-        <p>
-        If you have any questions or comments, please email qliu295@wisc.edu.`;
+        return texts.DEBRIEF_TEXT();
       },
     };
     main_timeline.push(debrief_block);

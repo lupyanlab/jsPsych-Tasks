@@ -1,7 +1,8 @@
 {
+  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
-    "es6": true,
+    "es2020": true,
     "cypress/globals": true,
     "jquery": true,
     "node": true
@@ -30,5 +31,8 @@
       }
     },
     "import/extensions": [".js"]
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }
