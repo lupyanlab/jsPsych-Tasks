@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 from os import mkdir
-from random import sample, shuffle
+from random import choice, sample, shuffle
 from time import time
 from utils.csv.parse_str_list import parse_str_list
+from collections import defaultdict
 
 from task_runner.app import app
 from utils.balance_utils.create_counts_file import create_counts_file
@@ -23,9 +24,9 @@ from utils.shuffle_without_catch_in_front import shuffle_without_catch_in_front
 dirname = get_dirname(__file__)
 
 TRIAL_NUM_COLUMN = "trial_num"
-NUM_LEADING_NON_CATCH_TRIALS = 2
-QUESTION_TYPE_COLUMN = "question_type"
-CATCH_VALUE = "catch"
+# NUM_LEADING_NON_CATCH_TRIALS = 2  # Note: There are no catch trials here
+# QUESTION_TYPE_COLUMN = "question_type"
+# CATCH_VALUE = "catch"
 
 
 class Task:
@@ -135,12 +136,7 @@ class Task:
         trial_list_path = self.trial_lists_folder_path / trial_list
         trial_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
         trials = read_rows(trial_list_path)
-        trials = shuffle_without_catch_in_front(
-            trials,
-            NUM_LEADING_NON_CATCH_TRIALS,
-            type_key=QUESTION_TYPE_COLUMN,
-            catch_type_value=CATCH_VALUE
-        )
+        trials = randomize_trials(trials)
 
         new_trials = []
         for index, row in enumerate(trials):
@@ -166,3 +162,45 @@ class Task:
         write_to_csv(trial_file_path, trials)
 
         return trials
+
+
+def randomize_trials(trials: list[dict]) -> list[dict]:
+    """
+    Randomize trials with the constraint that no two trials with the same
+    implicit_term are consecutive.
+    Pop a random trial where the current trial isn't the same implicit_term
+    as the one that isn't popped.
+    """
+    randomized_trials = []
+    if len(trials) > 0:
+        trials = trials[:]
+        shuffle(trials)
+        trials_by_implicit_term = defaultdict(list)
+        for trial in trials:
+            trials_by_implicit_term[trial['implicit_term']].append(trial)
+
+        curr_implicit_term = None
+        # Randomize all but last trial which will require special handling.
+        for _ in range(len(trials) - 1):
+            curr_implicit_term = choice(
+                [
+                    implicit_term for implicit_term in trials_by_implicit_term.keys()
+                    if implicit_term != curr_implicit_term
+                ]
+            )
+            randomized_trials.append(trials_by_implicit_term[curr_implicit_term].pop())
+            if len(trials_by_implicit_term[curr_implicit_term]) == 0:
+                del trials_by_implicit_term[curr_implicit_term]
+
+        # Handle last trial
+        if len(trials_by_implicit_term.values()) > 0:
+            # Because there are a max of 2 trials per implicit_term, arrange the last trial
+            # to be the first if the implict_term is the same as the last one. If not,
+            # simply add to the end.
+            last_trial = list(trials_by_implicit_term.values())[0][0]
+            if last_trial['implicit_term'] == curr_implicit_term:
+                randomized_trials.insert(0, last_trial)
+            else:
+                randomized_trials.append(last_trial)
+
+    return randomized_trials
