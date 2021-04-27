@@ -82,7 +82,8 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [/* html */ `<p class="lead">In this task, you will see a grid of words and three of the words will be highlighted in yellow.</p> 
-	   <p>Your task is to write a word or short phrase that will help another player in this task choose the three words that are highlighted (and only those words).</p>`],
+	   <p>Your task is to write a word or short phrase that will help another player in this task choose the three words that are highlighted (and only those words).</p>
+	   <p>The clue that you write should NOT include any of the words from the grid.</p>`],
       show_clickable_nav: true,
     };
     if (has_trials_remaining > 0) main_timeline.push(instructions);
