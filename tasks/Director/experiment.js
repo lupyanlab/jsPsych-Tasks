@@ -28,7 +28,7 @@ const handleError = (error) => {
 
 (async () => {
   try {
-    let { workerId: worker_id, fullscreen, reset } = searchParams;
+    let { workerId: worker_id, fullscreen, reset, sona_id, experiment_id } = searchParams;
 
     // "task" will be automatically populated with the value of TASK
     const api = createApi(PORT, handleError);
@@ -52,9 +52,9 @@ const handleError = (error) => {
     worker_id = trials_response['worker_id'];
     localStorage.setItem('workerId', worker_id);
 
-    ////////////////////////////////
-    // Timeline
-    ////////////////////////////////
+    // ////////////////////////////////
+    // // Timeline
+    // ////////////////////////////////
     const main_timeline = [];
 
     const fullscreen_trial = {
@@ -81,9 +81,11 @@ const handleError = (error) => {
 
     const instructions = {
       type: 'instructions',
-      pages: [/* html */ `<p class="lead">In this task, you will see a grid of words and three of the words will be highlighted in yellow.</p> 
-	   <p>Your task is to write a word or short phrase that will help another player in this task choose the three words that are highlighted (and only those words).</p>
-	   <p>The clue that you write should NOT include any of the words from the grid.</p>`],
+      pages: [
+        /* html */ `<p class="lead">In this task, you will see a grid of words and three of the words will be highlighted in yellow.</p>
+     <p>Your task is to write a word or short phrase that will help another player in this task choose the three words that are highlighted (and only those words).</p>
+     <p>The clue that you write should NOT include any of the words from the grid.</p>`,
+      ],
       show_clickable_nav: true,
     };
     if (has_trials_remaining > 0) main_timeline.push(instructions);
@@ -148,22 +150,46 @@ const handleError = (error) => {
     if (!completed_demographics) main_timeline.push(demographics_trial);
 
     const debrief_block = {
-      type: 'html-keyboard-response',
-      choices: [],
-      stimulus: function() {
-        return /* html */ `Thank you for participating!
+      type: 'instructions',
+      pages: [
+        /*html*/ `
+        <h1>Debrief</h1>
+        <p>
           <p>The purpose of this study is to assess how people communicate about categories like "beverages" and "bodies of water."
-          <p>
-          If you have any questions or comments, please email lrissman@wisc.edu.`;
+        </p>`,
+      ],
+      show_clickable_nav: true,
+      on_finish: () => {
+        if (experiment_id) {
+          jsPsych.endExperiment(
+            `Your credit in SONA should now be recorded. If something went wrong and you are not seeing the credit, please email lrissman@wisc.edu`,
+          );
+        } else {
+          jsPsych.endExperiment(/* html */ `Thank you for participating!
+          If you have any questions or comments, please email lrissman@wisc.edu.`);
+        }
       },
     };
+
     main_timeline.push(debrief_block);
+
+    const credit_token = '';
 
     jsPsych.init({
       timeline: main_timeline,
       fullscreen,
       show_progress_bar: true,
       auto_update_progress_bar: false,
+      on_finish: function() {
+        if (experiment_id) {
+          console.log(
+            `https://uwmadison.sona-systems.com/webstudy_credit.aspx?experiment_id=${experiment_id}&credit_token=${credit_token}&survey_code=${sona_id}`,
+          );
+          window.open(
+            `https://uwmadison.sona-systems.com/webstudy_credit.aspx?experiment_id=${experiment_id}&credit_token=${credit_token}&survey_code=${sona_id}`,
+          );
+        }
+      },
     });
   } catch (error) {
     console.error(error);
