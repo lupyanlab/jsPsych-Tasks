@@ -177,6 +177,7 @@ class Task:
             ]
             create_counts_file(self.counts_file_path, trial_lists)
         trial_list = get_next_min_key(self.counts_file_path, key_blacklist=completed_batches)
+        logger.info("Using trial list '%s' for worker '%s'", trial_list, worker_id)
 
         # Copy assigned trial list to trials folder
         trial_list_path = self.trial_lists_folder / trial_list
