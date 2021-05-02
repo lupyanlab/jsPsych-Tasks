@@ -93,10 +93,11 @@ const handleError = (error) => {
 
     const data_trials_block = {
       type: 'lupyanlab-image-scale',
+      input_feedback_duration: 500,
 
       timeline: trials.map((trial) => ({
         trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
-        stimulus: `images/${trial.stim}`,
+        images: [`images/${trial.image1}`, `images/${trial.image2}`],
         question: trial.question,
         choices: [trial.choice_1, trial.choice_2, trial.choice_3, trial.choice_4, trial.choice_5],
 

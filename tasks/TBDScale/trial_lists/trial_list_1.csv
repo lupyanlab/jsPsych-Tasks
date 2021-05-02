@@ -1,5 +1,5 @@
-stim,question_type,question,choice_1,choice_2,choice_3,choice_4,choice_5
-dog.png,,How recognizable is this picture?,Very Unrecognizable,Unrecognizable,Neutral,Recognizable,Very Recognizable
-square.png,,How recognizable is this picture?,Very Unrecognizable,Unrecognizable,Neutral,Recognizable,Very Recognizable
-triangle.png,,How recognizable is this picture?,Very Unrecognizable,Unrecognizable,Neutral,Recognizable,Very Recognizable
-dog.png,catch,How recognizable is this picture?,Very Unrecognizable,Unrecognizable,Neutral,Recognizable,Very Recognizable
+image1,image2,question_type,question,choice_1,choice_2,choice_3,choice_4,choice_5
+dog.png,square.png,,How similar are these pictures?,Very Dissimilar,Dissimilar,Neutral,Similar,Very Similar
+square.png,dog.png,,How similar are these pictures?,Very Dissimilar,Dissimilar,Neutral,Similar,Very Similar
+triangle.png,square.png,,How similar are these pictures?,Very Dissimilar,Dissimilar,Neutral,Similar,Very Similar
+dog.png,square.png,catch,How similar are these pictures?,Very Dissimilar,Dissimilar,Neutral,Similar,Very Similar
