@@ -8,14 +8,14 @@ export default {
     'If you wish to participate, you must check the box next to the statement "I agree to participate in this study."',
   START_EXPERIMENT_BUTTON_LABEL: 'Start Experiment',
   INSTRUCTIONS: [
-    `<p class="lead">You will be shown some pictures of people or animals interacting with each other. Your task is to describe what is happening using a short sentence. Try to give a description that would make sense to someone else, so that they would be able to pick out the image based on the description you provided.<br><b>Please provide a short (one sentence) description.</b><br><br>After you enter your description of the image, you will be asked how well you think your description fits the image. You can respond to this question by using the mouse/trackpad or the keyboard number keys 1-4.</p>`,
+    `<p class="lead">You will be shown 40 pictures of people or animals interacting with one other. Your task is to describe what is happening in each picture using a short sentence. Try to give a description that would make sense to someone else, so that they would be able to pick out the image based on the description you provided.<br><br><b>Please provide a short (one sentence) description.</b><br><br>It is also good to be specific, so if you see, for example, a man wearing diving goggles and an air tank petting a fish, it is better to write \"the scuba diver pets a fish\" rather than \"the man pets the fish\".</b><br><br>After you enter your description of the image, you will be asked how well you think your description fits the image. You can respond to this question by using the mouse/trackpad or the keyboard number keys 1-4.</p>`,
   ],
   TEXT_AREA_PLACEHOLDER: 'Your answer here...',
   LABELS: [
     '1-Pretty bad, but the best I could do',
-    '2-Ok but someone else can probably up with a better one',
-    '3-Pretty good. Someone else would call it something similar',
-    '4-Excellent. Someone else would most likely use the same name',
+    '2-Ok but someone else can probably up with a better description',
+    '3-Pretty good. Someone else would describe it very similarly',
+    '4-Excellent. Someone else would likely describe it in the same way',
   ],
   NEW_BATCH_PROMPT: '<p>Thank you for completing this batch of words</p>',
   DEMOGRAPHICS_INSTRUCTIONS: [
@@ -26,7 +26,8 @@ export default {
   ) => `Thank you for participating! Your completion code is ${participantID}. Copy and paste this in 
   MTurk to get paid. 
   
-  <p>The purpose of this HIT is to understand what makes certain shapes easy vs. hard to name.</p>
+  <p>The purpose of this HIT is to quantify how much variability there is in the descriptions of these scenes which helps us understand why people
+  with certain neurological impairments have trouble understanding what is going on in these scenes.</p>
 
-  <p>If you have any questions or comments, please email lupyan@wisc.edu.<p>`,
+  <p>If you have any questions or comments, please email vanparidon@wisc.edu.<p>`,
 };
