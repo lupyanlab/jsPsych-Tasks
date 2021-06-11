@@ -82,9 +82,20 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `<p class="lead">In this HIT, you will see various images of familiar objects. For each image, please rate how typical it is of its category.
-        For example, you may be shown a series of motorcycles and asked how typical each one is of motorcyles in general.
-        </p> <p class="lead">Use the  1-5 keys on the keyboard to respond. 1 means very typical. 5 means very atypical. Please try to use the entire scale, not just the 1/5 keys. If you rush through without attending to the images, we may deny payment.
+        /* html */ `<p class="lead">People can form their hands into shapes, as in this picture: 
+		</p> <p><img src='images/handshape_sample.jpg' style="padding:1em;height:150px;">
+		
+		</p> <p class="lead"> In this HIT, you will look at a picture of a hand and rate how well the shape of the hand matches the shape of an object in an illustration.
+
+		</p> <p class="lead"> For example, the shape of the hand in the photo matches the shape of the croquet wickets in this illustration: 
+		</p> <p><img src='images/ID_08.jpg' style="padding:1em;height:150px;">
+
+		</p> <p class="lead"> By contrast, the shape of hand in the photo does not match the shape of the raccoon's hat in this illustration: 
+		</p> <p> <img src='images/ID_29.jpg' style="padding:1em;height:150px;">
+		
+		</p> <p class="lead"> When making your decision, please consider the shape of the entire object (i.e. not just a part of the object).
+		
+        </p> <p class="lead">You will rate the pictures on a 1-5 scale: 1 means a poor match, 5 means an excellent match.  If you rush through without attending to the images, we may deny payment.
         </p>`,
       ],
       show_clickable_nav: true,
