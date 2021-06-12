@@ -29,4 +29,5 @@ export default {
   <p>The purpose of this HIT is to understand what makes certain shapes easy vs. hard to name.</p>
 
   <p>If you have any questions or comments, please email lupyan@wisc.edu.<p>`,
+  FULLSCREEN_CONTINUE_BUTTON_LABEL: 'Continue',
 };

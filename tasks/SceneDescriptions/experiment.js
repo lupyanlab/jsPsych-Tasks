@@ -22,18 +22,11 @@ console.error = function(message) {
 
   let texts;
   let demographics_questions;
-  try {
-    texts = (await import(`./texts/${lang}/texts.js`)).default;
-    demographics_questions = (await import(`./texts/${lang}/demographics.js`)).default;
-  } catch (e) {
-    console.error(e);
-    throw Error(`Could not import texts with language '${lang}'.`);
-  }
+  texts = (await import(`./texts/${lang}/texts.js`)).default;
+  demographics_questions = (await import(`./texts/${lang}/demographics.js`)).default;
 
   const createErrorMessage = (error) =>
-    `${texts.ERROR_MESSAGE} Unexpected error: ${
-      error.message
-    }.<br /> <br />Additional error logs:<br />${errors.join('<br />')}`;
+    `${texts.ERROR_MESSAGE}: ${error.message}.<br /> <br />${errors.join('<br />')}`;
 
   const handleError = (error) => {
     console.error(error);
@@ -79,7 +72,7 @@ console.error = function(message) {
       type: 'fullscreen',
       fullscreen_mode: true,
       message: texts.FULL_SCREEN_MESSAGE,
-      button_label: 'Continue',
+      button_label: texts.FULLSCREEN_CONTINUE_BUTTON_LABEL,
     };
 
     if (fullscreen) main_timeline.push(fullscreen_trial);
