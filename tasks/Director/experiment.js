@@ -151,6 +151,27 @@ const handleError = (error) => {
     };
     if (!completed_demographics) main_timeline.push(demographics_trial);
 
+    //create random code for final message
+    const randLetter = () => {
+      var a_z = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var int = Math.floor(Math.random() * a_z.length);
+      var rand_letter = a_z[int];
+      return rand_letter;
+    };
+
+    var secretCode = 'zsupz'; // this is the 'key'
+    var code = '';
+
+    for (let i = 0; i < 7; i++) {
+      code = code.concat(randLetter());
+    }
+
+    code = code.concat(secretCode);
+
+    for (let i = 0; i < 7; i++) {
+      code = code.concat(randLetter());
+    }
+
     const debrief_block = {
       type: 'instructions',
       pages: [
@@ -167,8 +188,15 @@ const handleError = (error) => {
             `Your credit in SONA should now be recorded. If something went wrong and you are not seeing the credit, please email lrissman@wisc.edu`,
           );
         } else {
-          jsPsych.endExperiment(/* html */ `Thank you for participating!
-          If you have any questions or comments, please email lrissman@wisc.edu.`);
+          jsPsych.endExperiment(/* html */ `<p>Thanks for participating!</p>
+          <p>If you have any questions, please feel free to send us a message <qliu295@wisc.edu>.</p>
+          <br><br>
+          <center>Your completion code for mTurk is</center>
+          <br>
+          <center><u><b style="font-size:20px">${code}</b></u></center>
+          <br>
+          <center>Please copy/paste this code into the mTurk box'</center>
+          <center>If you have any questions or comments, please email lrissman@wisc.edu.</center>`);
         }
       },
     };
