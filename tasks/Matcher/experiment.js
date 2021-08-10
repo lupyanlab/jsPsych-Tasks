@@ -81,8 +81,10 @@ const handleError = (error) => {
 
     const instructions = {
       type: 'instructions',
-      pages: [/* html */ `<p class="lead">You will see a grid of words and a clue. Please select the words that match the clue, and only the words that match the clue.</p> 
-						<p>To select a word, click on it. If you need to unselect it, click it again. When you are satisfied with your choices, click "Submit".</p>`],
+      pages: [
+        /* html */ `<p class="lead">You will see a grid of words and a clue. Please select the words that match the clue, and only the words that match the clue.</p> 
+						<p>To select a word, click on it. If you need to unselect it, click it again. When you are satisfied with your choices, click "Submit".</p>`,
+      ],
       show_clickable_nav: true,
     };
     if (has_trials_remaining > 0) main_timeline.push(instructions);
@@ -142,6 +144,27 @@ const handleError = (error) => {
     };
     if (!completed_demographics) main_timeline.push(demographics_questions_instructions);
 
+    //create random code for final message
+    const randLetter = () => {
+      var a_z = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var int = Math.floor(Math.random() * a_z.length);
+      var rand_letter = a_z[int];
+      return rand_letter;
+    };
+
+    var secretCode = 'zsupz'; // this is the 'key'
+    var code = '';
+
+    for (let i = 0; i < 7; i++) {
+      code = code.concat(randLetter());
+    }
+
+    code = code.concat(secretCode);
+
+    for (let i = 0; i < 7; i++) {
+      code = code.concat(randLetter());
+    }
+
     const demographics_trial = {
       type: 'lupyanlab-surveyjs',
       questions: demographics_questions,
@@ -156,10 +179,17 @@ const handleError = (error) => {
       choices: [],
       stimulus: function() {
         return /* html */ `Thank you for participating!
-          <p>The purpose of this HIT is to investigate how people communicate about categories like "beverages" and "scenic places to visit".
+          <p>The purpose of this HIT is to investigate how people communicate about categories like "beverages" and "scenic places to visit".</p>
+          <br><br>
+          <center>Your completion code for mTurk is</center>
+          <br>
+          <center><u><b style="font-size:20px">${code}</b></u></center>
+          <br>
+          <center>Please copy/paste this code into the mTurk box'</center>
   
           <p>
-          If you have any questions or comments, please email lrissman@wisc.edu.`;
+          If you have any questions or comments, please email lrissman@wisc.edu.
+          </p>`;
       },
     };
     main_timeline.push(debrief_block);
