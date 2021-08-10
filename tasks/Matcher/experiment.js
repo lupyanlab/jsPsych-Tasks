@@ -81,7 +81,8 @@ const handleError = (error) => {
 
     const instructions = {
       type: 'instructions',
-      pages: [/* html */ `<p class="lead">Placeholder for Instructions</p>`],
+      pages: [/* html */ `<p class="lead">You will see a grid of words and a clue. Please select the words that match the clue, and only the words that match the clue.</p> 
+						<p>To select a word, click on it. If you need to unselect it, click it again. When you are satisfied with your choices, click "Submit".</p>`],
       show_clickable_nav: true,
     };
     if (has_trials_remaining > 0) main_timeline.push(instructions);
@@ -134,7 +135,7 @@ const handleError = (error) => {
     const demographics_questions_instructions = {
       type: 'instructions',
       pages: [
-        `<p class="lead">Thank you! We'll now ask a few demographic questions and you'll be transferred to a qualtrics survey. Then you'll be done!
+        `<p class="lead">Thank you! We'll now ask a few demographic questions. Then you'll be done!
               </p>`,
       ],
       show_clickable_nav: true,
@@ -155,11 +156,10 @@ const handleError = (error) => {
       choices: [],
       stimulus: function() {
         return /* html */ `Thank you for participating!
-          <p>The purpose of this HIT is to assess the extent to which different people agree what makes
-          a particular dog, cat, or car typical.
+          <p>The purpose of this HIT is to investigate how people communicate about categories like "beverages" and "scenic places to visit".
   
           <p>
-          If you have any questions or comments, please email cschonberg@wisc.edu.`;
+          If you have any questions or comments, please email lrissman@wisc.edu.`;
       },
     };
     main_timeline.push(debrief_block);
