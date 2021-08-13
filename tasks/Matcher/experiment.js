@@ -93,7 +93,8 @@ const handleError = (error) => {
       type: 'lupyanlab-matcher',
       no_cell_selected_message: 'At least one cell must be selected.',
       timeline: trials.map((trial) => ({
-        prompt: `Clue: "${trial.clue}"<br>Click on the correct words`,
+        prompt: `Clue: "${trial.clue}"`,
+        instructions: 'Select the word or words that match the clue',
         trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
         feedback_duration: 1000,
         terms: [
