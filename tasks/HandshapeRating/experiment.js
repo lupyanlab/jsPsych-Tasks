@@ -95,9 +95,9 @@ const handleError = (error) => {
 		
 		</p> <p class="lead"> You will rate the pictures on a 1-5 scale: 1 means a poor match, 5 means an excellent match. 
 		
-		</p> <p class="lead"> When making your decision, please consider the shape of the entire object (i.e. not just a part of the object).
+		</p> <p class="lead"> Consider only shape, NOT orientation. So no matter how the above photo of the hand is rotated, it is still a good match for the shape of the croquet wicket.
 		
-        </p> <p class="lead"> If you rush through without attending to the images, we may deny payment.
+		</p> <p class="lead"> If you rush through without attending to the images, we may deny payment.
         </p>`,
       ],
       show_clickable_nav: true,
@@ -134,7 +134,7 @@ const handleError = (error) => {
     const demographics_questions_instructions = {
       type: 'instructions',
       pages: [
-        `<p class="lead">Thank you! We'll now ask a few demographic questions and you'll be transferred to a qualtrics survey. Then you'll be done!
+        `<p class="lead">Thank you! We'll now ask a few demographic questions and then you'll be done!
               </p>`,
       ],
       show_clickable_nav: true,
@@ -149,17 +149,43 @@ const handleError = (error) => {
       },
     };
     if (!completed_demographics) main_timeline.push(demographics_trial);
+	
+	//create random code for final message
+    const randLetter = () => {
+      var a_z = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var int = Math.floor(Math.random() * a_z.length);
+      var rand_letter = a_z[int];
+      return rand_letter;
+    };
 
+    var secretCode = 'zhrz'; // this is the 'key'
+    var code = '';
+
+    for (let i = 0; i < 7; i++) {
+      code = code.concat(randLetter());
+    }
+
+    code = code.concat(secretCode);
+
+    for (let i = 0; i < 7; i++) {
+      code = code.concat(randLetter());
+    }
+
+	// debrief
     const debrief_block = {
       type: 'html-keyboard-response',
       choices: [],
       stimulus: function() {
         return /* html */ `Thank you for participating!
-          <p>The purpose of this HIT is to assess the extent to which different people agree what makes
-          a particular dog, cat, or car typical.
-  
-          <p>
-          If you have any questions or comments, please email cschonberg@wisc.edu.`;
+          <p>The purpose of this HIT is to understand the relationship between objects and the shapes that people can make with their hands.</p>
+		  <br><br>
+          <center>Your completion code for mTurk is</center>
+          <br>
+          <center><u><b style="font-size:20px">${code}</b></u></center>
+          <br>
+          <center>Please copy/paste this code into the mTurk box'</center>
+          <br>
+          If you have any questions or comments, please email lrissman@wisc.edu.`;
       },
     };
     main_timeline.push(debrief_block);
@@ -167,7 +193,7 @@ const handleError = (error) => {
     jsPsych.init({
       timeline: main_timeline,
       fullscreen,
-      show_progress_bar: true,
+      show_progress_bar: false,
       auto_update_progress_bar: false,
     });
   } catch (error) {

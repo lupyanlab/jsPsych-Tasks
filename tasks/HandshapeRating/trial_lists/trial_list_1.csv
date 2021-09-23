@@ -66,8 +66,8 @@ handshape_1.jpg,ID_80.jpg,rating,stick,How well does the shape of the hand match
 handshape_1.jpg,ID_84.jpg,rating,jigsaw,How well does the shape of the hand match the shape of the jigsaw?,1 - not well at all,2,3,4,5 - very well
 handshape_b.jpg,ID_87.jpg,rating,oar,How well does the shape of the hand match the shape of the oar?,1 - not well at all,2,3,4,5 - very well
 handshape_b.jpg,ID_88.jpg,rating,paddle,How well does the shape of the hand match the shape of the paddle?,1 - not well at all,2,3,4,5 - very well
-,,catch,,Please select '1',1,2,3,4,5
-,,catch,,Please select '2',1,2,3,4,5
-,,catch,,Please select '3',1,2,3,4,5
-,,catch,,Please select '4',1,2,3,4,5
-,,catch,,Please select '5',1,2,3,4,5
+white_square.png,white_square.png,catch,1,Please select '1',1,2,3,4,5
+white_square.png,white_square.png,catch,2,Please select '2',1,2,3,4,5
+white_square.png,white_square.png,catch,3,Please select '3',1,2,3,4,5
+white_square.png,white_square.png,catch,4,Please select '4',1,2,3,4,5
+white_square.png,white_square.png,catch,5,Please select '5',1,2,3,4,5

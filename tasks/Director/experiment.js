@@ -12,9 +12,9 @@ console.error = function(message) {
 };
 
 const createErrorMessage = (error) =>
-  `<h3>Something went wrong. Please try reloading again and check your connection before contacting us.</h3>Unexpected error: ${
+  `<h3>出现了一些错误。在联系我们之前，请尝试重新加载或检查您的网络连接。</h3>未知错误: ${
     error.message
-  }.<br /> <br />Additional error logs:<br />${errors.join('<br />')}`;
+  }.<br /> <br />其他错误日志:<br />${errors.join('<br />')}`;
 
 const handleError = (error) => {
   console.error(error);
@@ -60,7 +60,7 @@ const handleError = (error) => {
     const fullscreen_trial = {
       type: 'fullscreen',
       fullscreen_mode: true,
-      message: '<p>This will switch to full screen mode when you press the button below</p>',
+      message: '<p>按下方的键可转至全屏模式</p>',
       button_label: 'Continue',
     };
 
@@ -82,9 +82,9 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `<p class="lead">In this task, you will see a grid of words and three of the words will be highlighted in yellow.</p>
-     <p>Your task is to write a word or short phrase that will help another player in this task choose the three words that are highlighted (and only those words).</p>
-     <p>The clue that you write should NOT include any of the words from the grid.</p>`,
+        /* html */ `<p class="lead">在这个任务中，你将会看到一个由词填充的网格。其中的三个词会被标亮。</p>
+     <p>你的任务是写一个词，或者一个短语，来帮助此任务中的另一个玩家（看不到哪些词被标亮）来选出，并只选出这三个标亮的词。</p>
+     <p>你提供的线索不可以包括任何网格中现有的词。</p>`,
       ],
       show_clickable_nav: true,
     };
@@ -93,11 +93,11 @@ const handleError = (error) => {
     const data_trials_block = {
       type: 'lupyanlab-director',
       prompt:
-        'Write a word or short phrase that will help a player choose the highlighted (and only the highlighted) words.',
+        '给出一个词或者短语来帮助一个玩家选择（并仅选择）标亮的词语。',
       same_clue_value_warning:
-        'The clue that you write should NOT include any of the words from the grid.',
+        '你提供的线索不可以包括任何网格中现有的词。',
       timeline: trials.map((trial) => ({
-        trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
+        trial_progress_text: `题目 ${trial.trial_num} （共 ${num_trials}题）`,
         terms: [
           [trial.target1, true, trial.target1_order],
           [trial.target2, true, trial.target2_order],
@@ -135,7 +135,7 @@ const handleError = (error) => {
     const demographics_questions_instructions = {
       type: 'instructions',
       pages: [
-        `<p class="lead">Thank you! We'll now ask a few demographic questions and then you'll be done!
+        `<p class="lead">谢谢你！在结束以前，我们需要做一些关于您的背景调查。
               </p>`,
       ],
       show_clickable_nav: true,
@@ -178,20 +178,20 @@ const handleError = (error) => {
         /*html*/ `
         <h1>Debrief</h1>
         <p>
-          <p>The purpose of this study is to assess how people communicate about categories like "beverages" and "bodies of water."
+          <p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。
         </p>`,
       ],
       show_clickable_nav: true,
       on_finish: () => {
         if (experiment_id) {
           jsPsych.endExperiment(
-            `Your credit in SONA should now be recorded. If something went wrong and you are not seeing the credit, please email lrissman@wisc.edu`,
+            `你的sona学分已被记录。如果有任何问题，您看不到学分，请发送邮件至qliu295@wisc.edu`,
           );
         } else {
-          jsPsych.endExperiment(/* html */ `<p>Thanks for participating!</p>
-          <p>If you have any questions, please feel free to send us a message <qliu295@wisc.edu>.</p>
+          jsPsych.endExperiment(/* html */ `<p>感谢你的参与!</p>
+          <p>如果你有任何问题，请联系 <qliu295@wisc.edu>.</p>
           <br><br>
-          <center>Your completion code for mTurk is</center>
+          <center>你的mTurk完成码是</center>
           <br>
           <center><u><b style="font-size:20px">${code}</b></u></center>
           <br>
