@@ -95,7 +95,6 @@ const handleError = (error) => {
 
     const data_trials_block = {
       type: 'lupyanlab-director',
-	  submit_button_text: '提交',
       prompt:
         '给出一个词或者短语来帮助一个玩家选择（并仅选择）标亮的词语。',
       same_clue_value_warning:
@@ -151,7 +150,6 @@ const handleError = (error) => {
     const demographics_trial = {
       type: 'lupyanlab-surveyjs',
       questions: demographics_questions,
-	  button_label: '继续',
       on_finish: ({ response }) => {
         return api({ fn: 'demographics', kwargs: { worker_id, demographics: response } });
       },
@@ -180,28 +178,17 @@ const handleError = (error) => {
     }
 
     const debrief_block = {
-      type: 'survey-text',
-	  preamble: `<p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。</p>`,
-	  questions: [
-			{prompt: "Type in your phone number to receive payment", rows: 1, columns: 40},
-			],
+      type: 'instructions',
+      pages: [
+        /*html*/ `
+        <h1>Debrief</h1>
+        <p>
+          <p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。
+        </p>`,
+      ],
       show_clickable_nav: true,
-	  button_label: '继续',
       on_finish: () => {
-        if (experiment_id) {
-          jsPsych.endExperiment(
-            `你的sona学分已被记录。如果有任何问题，您看不到学分，请发送邮件至qliu295@wisc.edu`,
-          );
-        } else {
-          jsPsych.endExperiment(/* html */ `<p>感谢你的参与!</p>
-          <p>如果你有任何问题，请联系 <qliu295@wisc.edu>.</p>
-          <br><br>
-          <center>你的mTurk完成码是</center>
-          <br>
-          <center><u><b style="font-size:20px">${code}</b></u></center>
-          <br>
-          <center>Please copy/paste this code into the mTurk box'</center>
-          <center>If you have any questions or comments, please email lrissman@wisc.edu.</center>`);
+          jsPsych.endExperiment()
         }
       },
     };
