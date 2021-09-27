@@ -69,8 +69,7 @@ const handleError = (error) => {
     const consent_trial = {
       type: 'lupyanlab-consent',
       url: './consent.html',
-      alert:
-        '如果您想要参与试验，您必须勾选 “我同意参与此研究“的方块',
+      alert: '如果您想要参与试验，您必须勾选 “我同意参与此研究“的方块',
       button_label: '开始实验',
       on_finish: () => {
         return api({ fn: 'consent', kwargs: { worker_id } });
@@ -87,19 +86,23 @@ const handleError = (error) => {
      <p>你提供的线索不可以包括任何网格中现有的词。</p>`,
       ],
       show_clickable_nav: true,
-	  button_label_previous: '上一页',
-	  button_label_next: '下一页',
-	  
+      button_label_previous: '上一页',
+      button_label_next: '下一页',
     };
     if (has_trials_remaining > 0) main_timeline.push(instructions);
 
     const data_trials_block = {
       type: 'lupyanlab-director',
-	  submit_button_text: '提交',
-      prompt:
-        '给出一个词或者短语来帮助一个玩家选择（并仅选择）标亮的词语。',
-      same_clue_value_warning:
-        '你提供的线索不可以包括任何网格中现有的词。',
+      submit_button_text: '提交',
+      prompt: '给出一个词或者短语来帮助一个玩家选择（并仅选择）标亮的词语。',
+      same_clue_value_warning: '你提供的线索不可以包括任何网格中现有的词。',
+
+      error_text: 'TODO (Error text)',
+      // Option 1: Checks if all characters in the word is included in the response
+      match_fn: (response, word) => response.includes(word),
+      // Option 2: Checks if any character in the word is included in the response
+      // match_fn: (response, word) => word.split('').some((character) => response.includes(character)),
+
       timeline: trials.map((trial) => ({
         trial_progress_text: `题目 ${trial.trial_num} （共 ${num_trials}题）`,
         terms: [
@@ -143,15 +146,15 @@ const handleError = (error) => {
               </p>`,
       ],
       show_clickable_nav: true,
-	  button_label_previous: '上一页',
-	  button_label_next: '下一页',
+      button_label_previous: '上一页',
+      button_label_next: '下一页',
     };
     if (!completed_demographics) main_timeline.push(demographics_questions_instructions);
 
     const demographics_trial = {
       type: 'lupyanlab-surveyjs',
       questions: demographics_questions,
-	  properties: {completeText: '继续'},
+      properties: { completeText: '继续' },
       on_finish: ({ response }) => {
         return api({ fn: 'demographics', kwargs: { worker_id, demographics: response } });
       },
@@ -181,12 +184,10 @@ const handleError = (error) => {
 
     const debrief_block = {
       type: 'survey-text',
-	  preamble: `<p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。</p>`,
-	  questions: [
-			{prompt: "Type in your phone number to receive payment", rows: 1, columns: 40},
-			],
+      preamble: `<p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。</p>`,
+      questions: [{ prompt: 'Type in your phone number to receive payment', rows: 1, columns: 40 }],
       show_clickable_nav: true,
-	  button_label: '继续',
+      button_label: '继续',
       on_finish: () => {
         if (experiment_id) {
           jsPsych.endExperiment(
@@ -214,7 +215,7 @@ const handleError = (error) => {
       timeline: main_timeline,
       fullscreen,
       show_progress_bar: true,
-	  message_progress_bar: '完成进度',
+      message_progress_bar: '完成进度',
       auto_update_progress_bar: false,
       on_finish: function() {
         if (experiment_id) {
