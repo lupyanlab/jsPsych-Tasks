@@ -151,7 +151,7 @@ const handleError = (error) => {
     const demographics_trial = {
       type: 'lupyanlab-surveyjs',
       questions: demographics_questions,
-	  button_label: '继续',
+	  properties: {completeText: '继续'},
       on_finish: ({ response }) => {
         return api({ fn: 'demographics', kwargs: { worker_id, demographics: response } });
       },
