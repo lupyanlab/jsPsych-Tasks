@@ -186,7 +186,7 @@ const handleError = (error) => {
       type: 'survey-text',
       preamble: `<p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。</p>`,
       questions: [{ prompt: 'Type in your phone number to receive payment', rows: 1, columns: 40 }],
-      show_clickable_nav: true,
+      show_clickable_nav: false,
       button_label: '继续',
       on_finish: () => {
         if (experiment_id) {
