@@ -53,6 +53,7 @@ class Task:
         self.safe_join_paths_data = create_safe_join_paths_fn_env("data")
         self.safe_join_paths_demographics = create_safe_join_paths_fn_env("demographics")
         self.safe_join_paths_consent = create_safe_join_paths_fn_env("consent")
+        self.safe_join_paths_phone_numbers = create_safe_join_paths_fn_env("phone_numbers")
 
     def trials(self, worker_id: str = None, reset: bool = False):
         # If worker_id not provided, generate a random username with the seconds
@@ -63,10 +64,12 @@ class Task:
         demographics_file_path = self.safe_join_paths_demographics(f"{worker_id}.csv")
         consent_file_path = self.safe_join_paths_consent(f"{worker_id}.txt")
         data_file_path = self.safe_join_paths_data(f"{worker_id}.csv")
+        phone_number_file_path = self.safe_join_paths_phone_numbers(f"{worker_id}.csv")
 
         if reset or not trials_file_path.exists():
             remove_files(
-                demographics_file_path, consent_file_path, data_file_path, trials_file_path
+                demographics_file_path, consent_file_path, data_file_path, trials_file_path,
+                phone_number_file_path
             )
             trials = self._generate_trials(worker_id)
             num_trials = len(trials)
@@ -111,6 +114,10 @@ class Task:
     def demographics(self, worker_id: str, demographics: dict):
         demographics_file_path = self.safe_join_paths_demographics(f"{worker_id}.csv")
         write_to_csv(demographics_file_path, demographics)
+
+    def phone_number(self, worker_id: str, response: dict):
+        phone_number_file_path = self.safe_join_paths_phone_numbers(f"{worker_id}.csv")
+        write_to_csv(phone_number_file_path, response)
 
     def consent(self, worker_id: str):
         """

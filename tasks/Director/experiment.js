@@ -182,31 +182,39 @@ const handleError = (error) => {
       code = code.concat(randLetter());
     }
 
-    const debrief_block = {
+    const phone_number_block = {
       type: 'survey-text',
       preamble: `<p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。</p>`,
-      questions: [{ prompt: 'Type in your phone number to receive payment', rows: 1, columns: 40 }],
+      questions: [
+        {
+          prompt: 'Type in your phone number to receive payment',
+          rows: 1,
+          columns: 40,
+          inputType: 'tel',
+        },
+      ],
       show_clickable_nav: false,
       button_label: '继续',
-      on_finish: () => {
-        if (experiment_id) {
-          jsPsych.endExperiment(
-            `你的sona学分已被记录。如果有任何问题，您看不到学分，请发送邮件至qliu295@wisc.edu`,
-          );
-        } else {
-          jsPsych.endExperiment(/* html */ `<p>感谢你的参与!</p>
-          <p>如果你有任何问题，请联系 <qliu295@wisc.edu>.</p>
-          <br><br>
-          <center>你的mTurk完成码是</center>
-          <br>
-          <center><u><b style="font-size:20px">${code}</b></u></center>
-          <br>
-          <center>Please copy/paste this code into the mTurk box'</center>
-          <center>If you have any questions or comments, please email lrissman@wisc.edu.</center>`);
-        }
+      on_finish: ({ responses }) => {
+        const response = JSON.parse(responses).Q0;
+        return api({
+          fn: 'phone_number',
+          kwargs: { worker_id, response: { phone_number: response } },
+        });
       },
     };
 
+    main_timeline.push(phone_number_block);
+
+    const debrief_block = {
+      type: 'html-keyboard-response',
+      choices: [],
+      stimulus: function() {
+        return /* html */ `<p>感谢你的参与!</p>
+        <p>如果你有任何问题，请联系 <qliu295@wisc.edu>.</p>
+        <br><br>`;
+      },
+    };
     main_timeline.push(debrief_block);
 
     const credit_token = '';
