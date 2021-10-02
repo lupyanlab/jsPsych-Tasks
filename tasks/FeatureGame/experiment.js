@@ -93,12 +93,15 @@ const handleError = (error) => {
 
     const data_trials_block = {
       type: 'lupyanlab-feature-game-responses',
+      prompt:
+        'Examples of different types of properties would be: physical properties, such as internal and external parts, and how it looks, sounds, smells, feels, or tastes; functional properties, such as what it is used for; where, when and by whom it is used; things that the concept is related to, such as the category that it belongs in; and other facts, such as how it behaves, or where it comes from.',
+      next_button_text: 'Next!',
+      num_responses: 4,
+      min_character_count: 3,
+      max_word_count: 5,
+      error_count_message: 'At least one response is too short or is too long.',
       timeline: trials.map((trial) => ({
         stim: trial.stim,
-        prompt:
-          'Examples of different types of properties would be: physical properties, such as internal and external parts, and how it looks, sounds, smells, feels, or tastes; functional properties, such as what it is used for; where, when and by whom it is used; things that the concept is related to, such as the category that it belongs in; and other facts, such as how it behaves, or where it comes from.',
-        next_button_text: 'Next',
-        num_responses: 4,
         on_start: () => {
           jsPsych.setProgressBar((trial.trial_num - 1) / num_trials);
         },
