@@ -97,7 +97,7 @@ const handleError = (error) => {
       prompt: '给出一个词或者短语来帮助一个玩家选择（并仅选择）标亮的词语。',
       same_clue_value_warning: '你提供的线索不可以包括任何网格中现有的词。',
 
-      error_text: 'TODO (Error text)',
+      error_text: '请勿使用任何网格中的词',
       // Option 1: Checks if all characters in the word is included in the response
       match_fn: (response, word) => response.includes(word),
       // Option 2: Checks if any character in the word is included in the response
@@ -154,7 +154,7 @@ const handleError = (error) => {
     const demographics_trial = {
       type: 'lupyanlab-surveyjs',
       questions: demographics_questions,
-      properties: { completeText: '继续' },
+      properties: {locale: 'zh-cn', completeText: '继续'},
       on_finish: ({ response }) => {
         return api({ fn: 'demographics', kwargs: { worker_id, demographics: response } });
       },
@@ -187,7 +187,7 @@ const handleError = (error) => {
       preamble: `<p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。</p>`,
       questions: [
         {
-          prompt: 'Type in your phone number to receive payment',
+          prompt: '请输入您绑定支付宝的手机号码以便于我们支付您的报酬（报酬将于两个工作日内到账）',
           rows: 1,
           columns: 40,
           inputType: 'tel',
