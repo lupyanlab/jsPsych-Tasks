@@ -102,7 +102,7 @@ const handleError = (error) => {
       match_fn: (response, word) => response.includes(word),
       // Option 2: Checks if any character in the word is included in the response
       // match_fn: (response, word) => word.split('').some((character) => response.includes(character)),
-      error_required_text: 'Please fill out this field. (Need translation)',
+      error_required_text: '请输入内容',
 
       timeline: trials.map((trial) => ({
         trial_progress_text: `题目 ${trial.trial_num} （共 ${num_trials}题）`,
