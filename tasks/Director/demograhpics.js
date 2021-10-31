@@ -27,6 +27,20 @@ export default [
   },
   {
     type: 'radiogroup',
+    name: 'english level',
+	colCount: 0,
+    isRequired: true,
+    title: '请选择1-5之间的数来表明您对英语的了解程度。',
+    choices: [
+      '1 - 我完全不会英语   ',
+      '2                 ',
+      '3                 ',
+      '4                 ',
+      '5 - 我可以流利使用英语',
+    ],
+  },
+  {
+    type: 'radiogroup',
     name: 'degree',
     isRequired: true,
     title: '您的最高学历是？如果您的学业正在进行中，请选择已经得到的最高学历。',

@@ -83,7 +83,9 @@ const handleError = (error) => {
       pages: [
         /* html */ `<p class="lead">在这个任务中，你将会看到一个由词填充的网格。其中的三个词会被标亮。</p>
      <p>你的任务是写一个词，或者一个短语，来帮助此任务中的另一个玩家（看不到哪些词被标亮）来选出，并只选出这三个标亮的词。</p>
-     <p>你提供的线索不可以包括任何网格中现有的词。</p>`,
+     <p>你提供的线索不可以包括任何网格中现有的词。</p>
+     <p>请认真作答。如果你的回答大部分都不合理，你将不能获得报酬。</p>`,
+
       ],
       show_clickable_nav: true,
       button_label_previous: '上一页',
@@ -188,10 +190,11 @@ const handleError = (error) => {
       preamble: `<p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。</p>`,
       questions: [
         {
-          prompt: '请输入您绑定支付宝的手机号码以便于我们支付您的报酬（报酬将于两个工作日内到账）',
+          prompt: '请输入您绑定支付宝的手机号码以便于我们支付您的报酬（报酬将于三个工作日内到账）',
           rows: 1,
           columns: 40,
           inputType: 'tel',
+		  required: true,
         },
       ],
       show_clickable_nav: false,
@@ -212,7 +215,7 @@ const handleError = (error) => {
       choices: [],
       stimulus: function() {
         return /* html */ `<p>感谢你的参与!</p>
-        <p>如果你有任何问题，请联系 <qliu295@wisc.edu>.</p>
+        <p>如果你有任何问题，请联系 qliu295@wisc.edu.</p>
         <br><br>`;
       },
     };
