@@ -12,9 +12,9 @@ console.error = function(message) {
 };
 
 const createErrorMessage = (error) =>
-  `<h3>Something went wrong. Please try reloading again and check your connection before contacting us.</h3>Unexpected error: ${
+  `<h3>出现了一些错误。在联系我们之前，请尝试重新加载或检查您的网络连接。</h3>未知错误: ${
     error.message
-  }.<br /> <br />Additional error logs:<br />${errors.join('<br />')}`;
+  }.<br /> <br />其他错误日志:<br />${errors.join('<br />')}`;
 
 const handleError = (error) => {
   console.error(error);
@@ -60,8 +60,8 @@ const handleError = (error) => {
     const fullscreen_trial = {
       type: 'fullscreen',
       fullscreen_mode: true,
-      message: '<p>This will switch to full screen mode when you press the button below</p>',
-      button_label: 'Continue',
+      message: '<p>按下方的键可转至全屏模</p>',
+      button_label: '继续',
     };
 
     if (fullscreen) main_timeline.push(fullscreen_trial);
@@ -70,8 +70,8 @@ const handleError = (error) => {
       type: 'lupyanlab-consent',
       url: './consent.html',
       alert:
-        'If you wish to participate, you must check the box next to the statement "I agree to participate in this study."',
-      button_label: 'Start Experiment',
+        '如果你想要继续参与，请勾选“我同意参加此实验”旁的方格。"',
+      button_label: '开始实验',
       on_finish: () => {
         return api({ fn: 'consent', kwargs: { worker_id } });
       },
@@ -82,21 +82,24 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `<p class="lead">You will see a grid of words and a clue. Please select the words that match the clue, and only the words that match the clue.</p> 
-						<p>To select a word, click on it. If you need to unselect it, click it again. When you are satisfied with your choices, click "Submit".</p>`,
+        /* html */ `<p class="lead">你将会看到一个含有词语的网格和一条线索。请只选择网格中与线索相符的词语。</p> 
+						<p>选择词语只需点击该词。如果你不想选择该词了，再次点击即可。如果你对自己的选择满意了，点击 “提交”。</p>`,
       ],
       show_clickable_nav: true,
+	  button_label_previous: '上一页',
+      button_label_next: '下一页',
     };
     if (has_trials_remaining > 0) main_timeline.push(instructions);
 
     const data_trials_block = {
       type: 'lupyanlab-matcher',
-      no_cell_selected_message: 'At least one cell must be selected.',
+      no_cell_selected_message: '至少选择一个词',
       timeline: trials.map((trial) => ({
-        prompt: `Clue: "${trial.clue}"`,
-        instructions: 'Select the word or words that match the clue',
-        trial_progress_text: `Trial ${trial.trial_num} of ${num_trials}`,
+        prompt: `线索: "${trial.clue}"`,
+        instructions: '选择（一个或一个以上）的符合线索的词',
+        trial_progress_text: `第${trial.trial_num}题， 共${num_trials}题`,
         feedback_duration: 1000,
+		submit_button_text: '提交',
         terms: [
           [trial.target1, trial.target1_order],
           [trial.target2, trial.target2_order],
@@ -139,10 +142,12 @@ const handleError = (error) => {
     const demographics_questions_instructions = {
       type: 'instructions',
       pages: [
-        `<p class="lead">Thank you! We'll now ask a few demographic questions. Then you'll be done!
+        `<p class="lead">谢谢你！在结束以前，我们需要做一些关于您的背景调查。
               </p>`,
       ],
       show_clickable_nav: true,
+	  button_label_previous: '上一页',
+      button_label_next: '下一页',
     };
     if (!completed_demographics) main_timeline.push(demographics_questions_instructions);
 
@@ -170,36 +175,55 @@ const handleError = (error) => {
     const demographics_trial = {
       type: 'lupyanlab-surveyjs',
       questions: demographics_questions,
+	  properties: { locale: 'zh-cn', completeText: '继续' },
       on_finish: ({ response }) => {
         return api({ fn: 'demographics', kwargs: { worker_id, demographics: response } });
       },
     };
     if (!completed_demographics) main_timeline.push(demographics_trial);
+	
+	const phone_number_block = {
+      type: 'survey-text',
+      preamble: `<p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。</p>`,
+      questions: [
+        {
+          prompt: '请输入您绑定支付宝的手机号码以便于我们支付您的报酬（报酬将于两个工作日内到账）',
+          rows: 1,
+          columns: 40,
+          inputType: 'tel',
+		  required: true,
+        },
+      ],
+      show_clickable_nav: false,
+      button_label: '继续',
+      on_finish: ({ responses }) => {
+        const response = JSON.parse(responses).Q0;
+        return api({
+          fn: 'phone_number',
+          kwargs: { worker_id, response: { phone_number: response } },
+        });
+      },
+    };
 
-    const debrief_block = {
+    main_timeline.push(phone_number_block);
+	
+	const debrief_block = {
       type: 'html-keyboard-response',
       choices: [],
       stimulus: function() {
-        return /* html */ `Thank you for participating!
-          <p>The purpose of this HIT is to investigate how people communicate about categories like "beverages" and "scenic places to visit".</p>
-          <br><br>
-          <center>Your completion code for mTurk is</center>
-          <br>
-          <center><u><b style="font-size:20px">${code}</b></u></center>
-          <br>
-          <center>Please copy/paste this code into the mTurk box'</center>
-  
-          <p>
-          If you have any questions or comments, please email lrissman@wisc.edu.
-          </p>`;
+        return /* html */ `<p>感谢你的参与!</p>
+        <p>如果你有任何问题，请联系 qliu295@wisc.edu.</p>
+        <br><br>`;
       },
     };
     main_timeline.push(debrief_block);
+
 
     jsPsych.init({
       timeline: main_timeline,
       fullscreen,
       show_progress_bar: true,
+	  message_progress_bar: '完成进度',
       auto_update_progress_bar: false,
     });
   } catch (error) {
