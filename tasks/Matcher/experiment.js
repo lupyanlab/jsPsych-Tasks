@@ -187,7 +187,7 @@ const handleError = (error) => {
       preamble: `<p>本研究的目的是检验人如何沟通类别信息的，比如“饮料”， “水域”。</p>`,
       questions: [
         {
-          prompt: '请输入您绑定支付宝的手机号码以便于我们支付您的报酬（报酬将于两个工作日内到账）',
+          prompt: '请输入您绑定支付宝的手机号码或者邮箱以便于我们支付您的报酬（报酬将于四到五个工作日内到账）',
           rows: 1,
           columns: 40,
           inputType: 'tel',
