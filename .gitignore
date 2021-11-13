@@ -166,3 +166,4 @@ modules/
 .Rhistory
 
 .idea
+*.pm2
