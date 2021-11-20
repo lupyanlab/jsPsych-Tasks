@@ -91,9 +91,6 @@ const handleError = (error) => {
     };
     if (has_trials_remaining > 0) main_timeline.push(instructions);
 
-    const min = 1;
-    const max = 7;
-
     const data_trials_block = {
       type: 'lupyanlab-word-game',
       input_feedback_duration: 500,
@@ -102,12 +99,14 @@ If you think a dog is the same as a cat, drag dog all the way to cat. <br>
 If you think a dog is equally similar to a cat and a horse, leave it in the middle. <br>
 If you think it is somewhere in between, drag it to wherever you think is most appropriate. <br>
 After you are done moving the slider, select one of the two tick boxes.`,
-      min,
-      max,
-      no_move_label: 'I did not move the slider because I could not decide on a good position',
-      move_label: 'I am satisfied with the position of the slider (even if it is in the middle)',
+      no_move_label: "I can't decide",
+      move_label: 'Seems good to me',
       timeline: trials.map((trial) => ({
-        timer: trial.max_duration,
+        min: Number(trial.min),
+        max: Number(trial.max),
+        default: Number(trial.default),
+        // timer: trial.max_duration,
+        timer: 2,
         words: trial.left_words.split(',').map((_, i) => ({
           left_word: trial.left_words.split(',')[i],
           middle_word: trial.slider_words.split(',')[i],
@@ -125,8 +124,6 @@ After you are done moving the slider, select one of the two tick boxes.`,
               data: {
                 sliders: sliders.join(','),
                 choices: choices.join(','),
-                max,
-                min,
                 rt: rt.join(','),
                 ...trial,
               },

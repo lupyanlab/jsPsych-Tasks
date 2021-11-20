@@ -1,23 +1,22 @@
-trial	max_duration	left_words	slider_words	right_words	question_type
-1	40	rooster,brother,rooster,automobile,glass,monk,bird,implement	car,car,car,car,car,car,car,car	gem,voyage,journey,slave,wizard,tool,slave,glass	
-2	40	smile,jewel,monk,bird,hill,forest,food,woodland	brother,brother,brother,brother,brother,brother,brother,brother	asylum,shore,madhouse,furnace,crane,cock,furnace,bird	
-3	40	stove,cemetery,boy,boy,jewel,boy,crane,cemetery	implement,implement,implement,implement,implement,implement,implement,implement	car,automobile,car,automobile,graveyard,asylum,car,bird	
-4	40	slave,automobile,food,cock,noon,shore,bird,brother	furnace,furnace,furnace,furnace,furnace,furnace,furnace,furnace	implement,string,boy,fruit,crane,gem,tool,implement	
-5	40	slave,wizard,coast,journey,forest,lad,magician,madhouse	jewel,jewel,jewel,jewel,jewel,jewel,jewel,jewel	shore,magician,wizard,glass,stove,chord,furnace,forest	
-6	40	furnace,gem,bird,crane,cock,smile,glass,furnace	hill,hill,hill,hill,hill,hill,hill,hill	cemetery,cemetery,magician,woodland,cemetery,cemetery,string,lad	
-7	40	lad,forest,oracle,hill,lad,glass,gem,midday	food,food,food,food,food,food,food,food	automobile,monk,cemetery,voyage,crane,journey,noon,madhouse	
-8	40	journey,glass,automobile,noon,coast,gem,automobile,automobile	magician,magician,magician,magician,magician,magician,magician,magician	furnace,stove,monk,coast,asylum,cock,forest,cemetery	
-9	40	car,shore,woodland,oracle,noon,midday,implement,gem	voyage,voyage,voyage,voyage,voyage,voyage,voyage,voyage	forest,car,wizard,graveyard,oracle,stove,smile,implement	
-10	40	bird,rooster,car,furnace,graveyard,stove,gem,bird	cemetery,cemetery,cemetery,cemetery,cemetery,cemetery,cemetery,cemetery	voyage,magician,madhouse,jewel,wizard,magician,brother,shore	
-11	40	rooster,oracle,asylum,car,boy,bird,cemetery,monk	voyage,voyage,voyage,voyage,voyage,voyage,voyage,voyage	brother,cemetery,noon,glass,furnace,automobile,noon,wizard	
-12	40	cock,coast,monk,graveyard,implement,graveyard,graveyard,tool	fruit,fruit,fruit,fruit,fruit,fruit,fruit,fruit	woodland,automobile,cock,asylum,string,coast,voyage,glass	
-13	40	coast,boy,boy,monk,magician,graveyard,voyage,implement	woodland,woodland,woodland,woodland,woodland,woodland,woodland,woodland	stove,furnace,monk,glass,food,implement,car,food	
-14	40	cock,asylum,car,boy,midday,slave,boy,shore	rooster,rooster,rooster,rooster,rooster,rooster,rooster,rooster	oracle,cock,chord,magician,string,automobile,stove,coast	
-15	40	stove,noon,chord,string,cemetery,boy,food,noon	woodland,woodland,woodland,woodland,woodland,woodland,woodland,woodland	hill,asylum,glass,coast,crane,crane,furnace,food	
-16	40	smile,forest,automobile,smile,hill,food,food,fruit	brother,brother,brother,brother,brother,brother,brother,brother	jewel,food,cemetery,noon,stove,car,graveyard,rooster	
-17	40	monk,rooster,glass,magician,gem,monk,cock,glass	food,food,food,food,food,food,food,food	bird,bird,coast,noon,chord,crane,oracle,oracle	
-18	40	food,string,bird,chord,automobile,coast,forest,fruit	hill,hill,hill,hill,hill,hill,hill,hill	automobile,magician,oracle,brother,slave,smile,magician,string	
-19	40	car,magician,tool,brother,string,lad,slave,car	bird,bird,bird,bird,bird,bird,bird,bird	slave,oracle,asylum,cemetery,glass,smile,midday,cock	
-20	40	woodland,fruit,brother,asylum,voyage,woodland,food,boy	midday,midday,midday,midday,midday,midday,midday,midday	hill,hill,slave,chord,slave,cock,smile,wizard	
-21	40	woodland	midday	midday	catch
-
+trial	max_duration	left_words	slider_words	right_words	min	max	default	question_type
+1	40	glass,oracle,fruit,slave,automobile,woodland,shore,cock	chord,chord,chord,chord,chord,chord,chord,chord	crane,fruit,cemetery,asylum,oracle,automobile,voyage,cemetery	0	100	50	
+2	40	gem,furnace,stove,asylum,shore,magician,boy,rooster	implement,implement,implement,implement,implement,implement,implement,implement	chord,hill,magician,automobile,chord,bird,oracle,food	0	100	50	
+3	40	glass,lad,cock,smile,magician,midday,lad,tool	chord,chord,chord,chord,chord,chord,chord,chord	slave,journey,brother,boy,cemetery,slave,automobile,crane	0	100	50	
+4	40	monk,asylum,food,car,crane,cemetery,jewel,monk	rooster,rooster,rooster,rooster,rooster,rooster,rooster,rooster	graveyard,stove,journey,stove,madhouse,noon,shore,fruit	0	100	50	
+5	40	glass,oracle,gem,journey,car,tool,cemetery,wizard	smile,smile,smile,smile,smile,smile,smile,smile	chord,midday,shore,crane,implement,slave,tool,rooster	0	100	50	
+6	40	wizard,furnace,string,car,shore,tool,lad,food	midday,midday,midday,midday,midday,midday,midday,midday	hill,hill,graveyard,tool,madhouse,glass,bird,furnace	0	100	50	
+7	40	jewel,magician,chord,hill,tool,jewel,food,smile	madhouse,madhouse,madhouse,madhouse,madhouse,madhouse,madhouse,madhouse	automobile,fruit,asylum,fruit,gem,lad,fruit,crane	0	100	50	
+8	40	forest,implement,fruit,oracle,madhouse,fruit,crane,coast	automobile,automobile,automobile,automobile,automobile,automobile,automobile,automobile	string,string,smile,glass,wizard,cock,bird,monk	0	100	50	
+9	40	journey,magician,crane,monk,stove,tool,jewel,journey	wizard,wizard,wizard,wizard,wizard,wizard,wizard,wizard	midday,woodland,noon,noon,shore,journey,lad,bird	0	100	50	
+10	40	cock,automobile,string,stove,cemetery,car,wizard,asylum	chord,chord,chord,chord,chord,chord,chord,chord	woodland,boy,automobile,lad,voyage,automobile,rooster,journey	0	100	50	
+11	40	asylum,automobile,asylum,stove,asylum,voyage,cock,monk	hill,hill,hill,hill,hill,hill,hill,hill	stove,car,oracle,string,madhouse,gem,midday,smile	0	100	50	
+12	40	tool,chord,gem,noon,madhouse,bird,woodland,food	brother,brother,brother,brother,brother,brother,brother,brother	crane,asylum,slave,midday,rooster,woodland,slave,monk	0	100	50	
+13	40	rooster,string,rooster,cock,rooster,magician,tool,chord	madhouse,madhouse,madhouse,madhouse,madhouse,madhouse,madhouse,madhouse	asylum,food,cemetery,stove,monk,noon,furnace,crane	0	100	50	
+14	40	shore,asylum,graveyard,voyage,shore,cemetery,woodland,gem	car,car,car,car,car,car,car,car	glass,midday,slave,madhouse,implement,stove,glass,glass	0	100	50	
+15	40	furnace,automobile,glass,graveyard,tool,automobile,stove,brother	noon,noon,noon,noon,noon,noon,noon,noon	smile,voyage,smile,gem,midday,coast,gem,oracle	0	100	50	
+16	40	journey,food,graveyard,oracle,cock,glass,implement,journey	fruit,fruit,fruit,fruit,fruit,fruit,fruit,fruit	midday,stove,car,forest,forest,magician,monk,wizard	0	100	50	
+17	40	voyage,slave,string,forest,food,car,jewel,forest	noon,noon,noon,noon,noon,noon,noon,noon	tool,brother,asylum,brother,glass,woodland,brother,wizard	0	100	50	
+18	40	graveyard,boy,furnace,voyage,woodland,stove,cemetery,implement	lad,lad,lad,lad,lad,lad,lad,lad	forest,wizard,car,midday,fruit,forest,tool,graveyard	0	100	50	
+19	40	crane,noon,madhouse,cock,string,lad,chord,monk	furnace,furnace,furnace,furnace,furnace,furnace,furnace,furnace	slave,smile,oracle,stove,tool,slave,magician,midday	0	100	50	
+20	40	magician,forest,monk,noon,forest,magician,voyage,monk	shore,shore,shore,shore,shore,shore,shore,shore	asylum,midday,magician,graveyard,madhouse,furnace,gem,hill	0	100	50	catch
+21	40	woodland	midday	midday	0	100	50	catch
