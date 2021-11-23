@@ -18,7 +18,8 @@
     "flush": "cross-env PM2_HOME=. pm2 flush",
     "logrotate": "cross-env PM2_HOME=. pm2 install pm2-logrotate",
     "pipenv": "cross-env PIPENV_VENV_IN_PROJECT=1 PIPENV_IGNORE_VIRTUALENVS=1 pipenv",
-    "serve": "cross-env PIPENV_VENV_IN_PROJECT=1 PIPENV_IGNORE_VIRTUALENVS=1 pipenv run python -m http.server 5001"
+    "serve": "cross-env PIPENV_VENV_IN_PROJECT=1 PIPENV_IGNORE_VIRTUALENVS=1 pipenv run python -m http.server 5001",
+    "save": "cross-env PM2_HOME=. pm2 save"
   },
   "husky ": {
     "hooks": {
