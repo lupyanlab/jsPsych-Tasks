@@ -94,14 +94,17 @@ const handleError = (error) => {
     const data_trials_block = {
       type: 'lupyanlab-word-game',
       input_feedback_duration: 500,
-      prompt: /*html*/ `Drag the word in the center towards the word it is most similar to. <br>
-If you think a dog is the same as a cat, drag dog all the way to cat. <br>
-If you think a dog is equally similar to a cat and a horse, leave it in the middle. <br>
-If you think it is somewhere in between, drag it to wherever you think is most appropriate. <br>
-After you are done moving the slider, select one of the two tick boxes.`,
       no_move_label: "I can't decide",
       move_label: 'Seems good to me',
       timeline: trials.map((trial) => ({
+        prompt:
+          trial.question_type === 'practice'
+            ? /*html*/ `Drag the word in the center towards the word it is most similar to. <br>
+  If you think a dog is the same as a cat, drag dog all the way to cat. <br>
+  If you think a dog is equally similar to a cat and a horse, leave it in the middle. <br>
+  If you think it is somewhere in between, drag it to wherever you think is most appropriate. <br>
+  After you are done moving the slider, select one of the two tick boxes.`
+            : '',
         min: Number(trial.min),
         max: Number(trial.max),
         default: Number(trial.default),
