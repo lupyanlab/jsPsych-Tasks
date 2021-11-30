@@ -1,0 +1,11 @@
+left_words	slider_words	right_words	question_type	trial	max_duration	min	max	default	triad_mix
+dog,dog,dog,dog	pony,cat,cow,seagull	horse,horse,horse,horse	practice	1	100	0	100	50	50% type 1/50% type 3
+donut,donut,donut,donut	orange,pancake,coffee,potato	apple,apple,apple,apple	practice	2	100	0	100	50	50% type 1/50% type 3
+same	same	different	catch	3	10	0	100	50	50% type 1/50% type 3
+yes	yes	no	catch	4	10	0	100	50	50% type 1/50% type 3
+left	left	right	catch	5	10	0	100	50	50% type 1/50% type 3
+left	right	right	catch	6	10	0	100	50	50% type 1/50% type 3
+allow,allow,allow,allow	work,exist,use,protect	find,find,find,find	type1	7	10	0	100	50	50% type 1/50% type 3
+elephant,elephant,elephant,elephant	squirrel,buffalo,alligator,octopus	turtle,turtle,turtle,turtle	type1	8	10	0	100	50	50% type 1/50% type 3
+dress,dress,dress,dress	coat,belt,shirt,gloves	scissors,scissors,scissors,scissors	type3	9	10	0	100	50	50% type 1/50% type 3
+wagon,wagon,wagon,wagon	submarine,train,ship,bike	exist,exist,exist,exist	type3	10	10	0	100	50	50% type 1/50% type 3

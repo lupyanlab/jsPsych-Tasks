@@ -82,9 +82,15 @@ const handleError = (error) => {
     const instructions = {
       type: 'instructions',
       pages: [
-        /* html */ `<p class="lead">In this HIT, you will see various images of familiar objects. For each image, please rate how typical it is of its category.
-        For example, you may be shown a series of motorcycles and asked how typical each one is of motorcyles in general.
-        </p> <p class="lead">Use the  1-5 keys on the keyboard to respond. 1 means very typical. 5 means very atypical. Please try to use the entire scale, not just the 1/5 keys. If you rush through without attending to the images, we may deny payment.
+        /* html */ `<p class="lead">In this HIT, you will be asked to rate the similarity of words by placing them closer together or further apart.
+        For example, you may be shown the words <i>dog</i>, <i>cat</i>, and <i>horse</i>.
+        If cat is the middle word, you might think it is more similar to dog than to horse.
+        </p> <p class="lead">Click and drag the middle word (e.g. cat) toward the left or right to indicate which word it is more similar to.
+        You can use the whole scale, so if you think cat is only slightly more similar to dog than to horse, you can put it just to the left of the center, rather than all the way over to the left.
+        </p> <p class="lead">Once you are happy with your placement (even if it is just right in the middle) click <b>seems good</b>.
+        If you are having trouble deciding where to move the center word, you can click <b>can't decide</b> to move to the next item.
+        There is a timer, so don't hesitate too long!
+        </p> <p class="lead">If you rush through without attempting to move any of the sliders or move them randomly, we may deny payment.
         </p>`,
       ],
       show_clickable_nav: true,

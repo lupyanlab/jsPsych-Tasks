@@ -1,0 +1,11 @@
+left_words	slider_words	right_words	question_type	trial	max_duration	min	max	default	triad_mix
+dog,dog,dog,dog	pony,cat,cow,seagull	horse,horse,horse,horse	practice	1	100	0	100	50	80% type 1/20% type 3
+donut,donut,donut,donut	orange,pancake,coffee,potato	apple,apple,apple,apple	practice	2	100	0	100	50	80% type 1/20% type 3
+same	same	different	catch	3	10	0	100	50	80% type 1/20% type 3
+yes	yes	no	catch	4	10	0	100	50	80% type 1/20% type 3
+left	left	right	catch	5	10	0	100	50	80% type 1/20% type 3
+left	right	right	catch	6	10	0	100	50	80% type 1/20% type 3
+dish,dish,dish,dish	scissors,fork,pot,knife	oven,oven,oven,oven	type1	7	10	0	100	50	80% type 1/20% type 3
+necklace,necklace,necklace,necklace	dress,belt,gloves,shirt	coat,coat,coat,coat	type1	8	10	0	100	50	80% type 1/20% type 3
+belt,belt,belt,belt	gloves,dress,necklace,coat	couch,couch,couch,couch	type3	9	10	0	100	50	80% type 1/20% type 3
+dress,dress,dress,dress	knife,pot,dish,oven	fork,fork,fork,fork	type3	10	10	0	100	50	80% type 1/20% type 3

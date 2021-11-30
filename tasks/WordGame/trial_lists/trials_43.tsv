@@ -1,0 +1,11 @@
+left_words	slider_words	right_words	question_type	trial	max_duration	min	max	default	triad_mix
+dog,dog,dog,dog	pony,cat,cow,seagull	horse,horse,horse,horse	practice	1	100	0	100	50	random
+donut,donut,donut,donut	orange,pancake,coffee,potato	apple,apple,apple,apple	practice	2	100	0	100	50	random
+same	same	different	catch	3	10	0	100	50	random
+yes	yes	no	catch	4	10	0	100	50	random
+left	left	right	catch	5	10	0	100	50	random
+left	right	right	catch	6	10	0	100	50	random
+gloves,gloves,gloves,gloves	belt,shirt,dress,coat	necklace,necklace,necklace,necklace	type1	7	10	0	100	50	random
+cushion,cushion,cushion,cushion	couch,desk,chair,cabinet	door,door,door,door	type1	8	10	0	100	50	random
+doll,doll,doll,doll	protect,find,use,make	work,work,work,work	type3	9	10	0	100	50	random
+train,train,train,train	ship,submarine,bike,wagon	necklace,necklace,necklace,necklace	type3	10	10	0	100	50	random

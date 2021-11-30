@@ -1,0 +1,11 @@
+left_words	slider_words	right_words	question_type	trial	max_duration	min	max	default	triad_mix
+dog,dog,dog,dog	pony,cat,cow,seagull	horse,horse,horse,horse	practice	1	100	0	100	50	random
+donut,donut,donut,donut	orange,pancake,coffee,potato	apple,apple,apple,apple	practice	2	100	0	100	50	random
+same	same	different	catch	3	10	0	100	50	random
+yes	yes	no	catch	4	10	0	100	50	random
+left	left	right	catch	5	10	0	100	50	random
+left	right	right	catch	6	10	0	100	50	random
+fox,fox,fox,fox	snail,squirrel,elephant,zebra	clam,clam,clam,clam	type1	7	10	0	100	50	random
+protect,protect,protect,protect	use,exist,find,allow	make,make,make,make	type1	8	10	0	100	50	random
+pot,pot,pot,pot	dish,knife,oven,fork	pen,pen,pen,pen	type3	9	10	0	100	50	random
+knife,knife,knife,knife	ship,airplane,train,submarine	wagon,wagon,wagon,wagon	type3	10	10	0	100	50	random
