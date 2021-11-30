@@ -126,12 +126,15 @@ class Task:
         trial_list_path = self.trial_lists_folder_path / trial_list
         trial_file_path = self.safe_join_paths_trials(f"{worker_id}.csv")
         trials = read_rows(trial_list_path, delimiter="\t")
-        trials = shuffle_without_catch_in_front(
-            trials,
+        practice_trials = [trial for trial in trials if trial["question_type"] == "practice"]
+        non_practice_trials = [trial for trial in trials if trial["question_type"] != "practice"]
+        non_practice_trials = shuffle_without_catch_in_front(
+            non_practice_trials,
             NUM_LEADING_NON_CATCH_TRIALS,
             type_key=QUESTION_TYPE_COLUMN,
             catch_type_value=CATCH_VALUE
         )
+        trials = practice_trials + non_practice_trials
 
         # Add the trial_num column to the trials
         trials = [{TRIAL_NUM_COLUMN: index + 1, **row} for index, row in enumerate(trials)]

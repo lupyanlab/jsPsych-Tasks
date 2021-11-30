@@ -20,3 +20,4 @@ trial	max_duration	left_words	slider_words	right_words	min	max	default	question_
 19	40	crane,noon,madhouse,cock,string,lad,chord,monk	furnace,furnace,furnace,furnace,furnace,furnace,furnace,furnace	slave,smile,oracle,stove,tool,slave,magician,midday	0	100	50	
 20	40	magician,forest,monk,noon,forest,magician,voyage,monk	shore,shore,shore,shore,shore,shore,shore,shore	asylum,midday,magician,graveyard,madhouse,furnace,gem,hill	0	100	50	catch
 21	40	woodland	midday	midday	0	100	50	catch
+22	40	magician,forest,monk,noon,forest,magician,voyage,monk	shore,shore,shore,shore,shore,shore,shore,shore	asylum,midday,magician,graveyard,madhouse,furnace,gem,hill	0	100	50	practice
